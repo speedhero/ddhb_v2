@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.basemanagement.entity.BaseRegion" table="BASE_REGION">
+		<id name="id" type="java.lang.Long" column="REGION_ID">
+			<generator class="native">
+	        </generator>
+		</id>
+		<property name="provinceCode" type="java.lang.String" column="PROVINCE_CODE" length="32" />
+		<property name="provinceName" type="java.lang.String" column="PROVINCE_NAME" length="128" />
+		<property name="cityCode" type="java.lang.String" column="CITY_CODE" length="32" />
+		<property name="cityName" type="java.lang.String" column="CITY_NAME" length="128" />
+		<property name="districtCode" type="java.lang.String" column="DISTRICT_CODE" length="32" />
+		<property name="districtName" type="java.lang.String" column="DISTRICT_NAME" length="128" />
+		<property name="regionType" type="java.lang.Integer" column="REGION_TYPE" length="2" />
+		<property name="status" type="java.lang.String" column="STATUS" length="2" />
+	    <property name="districtType" type="java.lang.Integer" column="DISTRICT_TYPE" length="2" />
+	</class>
+</hibernate-mapping>

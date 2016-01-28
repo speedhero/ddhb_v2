@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="PriceChart" table="price_chart">
+		<id name="defaultId" type="java.lang.Integer" column="default_id" length="11">
+		</id>
+		<!-- 挂牌均价 -->
+		<property name="medianListing" column="median_listing" type="java.lang.Double" length="11"/>
+		<!-- 成交均价 -->
+		<property name="averageTransationPrice" column="average_transaction_price" type="java.lang.Double" length="11"/>
+		<!-- 成交量 -->
+		<property name="volume" column="volume" type="java.lang.Double" length="11"/>
+		<!-- 当前月份 -->
+		<property name="currentDate" column="current_date" type="java.lang.String" length="50"/>
+		<!-- 房源类别  1:二手房,2:租赁,3:小区 默认值为1-->
+		<property name="houseType" column="house_type" type="java.lang.Integer" length="11"/>
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="GBK"?>
+<taglib version="2.1" 
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_1.xsd">
+	<tlib-version>1.0</tlib-version>
+	<short-name>HshbWebTag</short-name>
+	<!-- 定义该标签库的URI -->
+	<uri>http://www.hshb.cn/webtaglib</uri>
+	<description>豪世华邦网站自定义标签集</description>
+	
+	<tag>
+		<name>Hello</name>
+		<tag-class>cn.hshb.web.tags.HelloTag</tag-class>
+		<body-content>scriptless</body-content>
+		<description>标签示例</description>
+		<attribute>
+			<name>message</name>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>surl</name>
+		<tag-class>cn.hshb.web.tags.HouseStaticUriTag</tag-class>
+		<body-content>scriptless</body-content>
+		<description>构造房源列表和详情页面上伪静态url的标签.</description>
+		<attribute>
+			<description>新增的或替换原有的查询参数项</description>
+			<name>p</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>url的根路径在Model中的名称，如果不指定，则默认"basePath"</description>
+			<name>basePath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>原有查询参数在Model中的名称，如果不指定，则默认为“params”</description>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>房源编号，如果指定了房源编号，则生成房源详情链接</description>
+			<name>houseId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>小区编号，如果指定了小区编号，则生成小区详情链接</description>
+			<name>communityId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>经纪人编号，如果指定了经纪人编号，则生成经纪人详情链接</description>
+			<name>brokerId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>housetag</name>
+		<tag-class>cn.hshb.web.tags.HouseTagsTag</tag-class>
+		<body-content>scriptless</body-content>
+		<description>生成二手房源标签.</description>
+		<attribute>
+			<description>系统中定义的所有标签列表</description>
+			<name>tagList</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>房源信息中的标签ID串，用逗号分隔</description>
+			<name>houseTagId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>meta</name>
+		<tag-class>cn.hshb.web.tags.HousePageMetaTag</tag-class>
+		<body-content>scriptless</body-content>
+		<description>生成页面的Title、Keyword、Description等Meta信息</description>
+		<attribute>
+			<description>要生成的信息类型，可选 ：title、keyword或description</description>
+			<name>infoType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>指定要输入的内容，忽略自动生成的内容</description>
+			<name>infoContent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+		
+	<!-- 以下为自定义函数 -->
+	<function>
+		<name>contains</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>boolean contains(java.util.Collection, java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<name>containsKey</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>boolean containsKey(java.util.Map, java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<name>containsValue</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>boolean containsValue(java.util.Map, java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<name>containsEntry</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>boolean containsEntry(java.util.Map, java.lang.Object, java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<name>concat</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String concat(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+		<name>isEmpty</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String isEmpty(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>isNotEmpty</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String isNotEmpty(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>isBlank</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String isBlank(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>isNotBlank</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String isNotBlank(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>isNumeric</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String isNumeric(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<!-- 把指定字符串截取前指定长度的部分，后加指定的后缀 -->
+		<name>limitStr</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String limitStr(java.lang.String, java.lang.Integer, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<!-- 根据与正则表达式进行替换。用String.replaceAll 方法实现-->
+		<name>replaceAll</name>
+		<function-class>cn.hshb.web.tags.FunctionUtil</function-class>
+		<function-signature>String replaceAll(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+</taglib>

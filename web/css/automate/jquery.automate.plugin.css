@@ -1,0 +1,13 @@
+.item {float:left;}
+.block{height:100%;}
+.navigaterDiv{height:30px; width:100%; text-align:center;}
+.navigaterDiv ul{margin:8px auto;}
+.navigaterDiv ul li{list-style:none; padding:0px; margin:0px; float:left; width:20px; height:20px; cursor:pointer; padding:0 5px;}
+.navigaterDiv ul li a{width:20px; height:20px; display:block;}
+.goLeft{background-image: url("../../image/leftan_1.gif"); background-repeat: no-repeat; background-position:center;}
+.goRight{background-image: url("../../image/rightan_1.gif");background-repeat: no-repeat; background-position:center;}
+.unselectedDian{background-image: url("../../image/dian_a.gif");background-repeat: no-repeat;background-position:center;}
+/* .dian:hover{background-image: url("../../image/dian_b.gif");background-repeat: no-repeat;background-position:center;} */
+.selectedDian{background-image: url("../../image/dian_b.gif");background-repeat: no-repeat;background-position:center;}
+
+

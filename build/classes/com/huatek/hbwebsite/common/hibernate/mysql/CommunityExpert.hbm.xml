@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="CommunityExpert" table="house_community_expert">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<many-to-one name="community" class="Community" unique="true" not-found="ignore">
+			<column name="community_id" />
+		</many-to-one>
+		
+		<many-to-one name="broker" class="com.huatek.hbwebsite.broker.entity.Broker" unique="true"  not-found="ignore">
+			<column name="broker_id" />
+		</many-to-one>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer" length="11"></property>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

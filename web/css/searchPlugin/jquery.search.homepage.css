@@ -1,0 +1,73 @@
+.menuBar{height: 44px;background: #575f6e;line-height: 44px;}
+
+.menuItem {
+	cursor:pointer; padding: 0 34px 0 74px; color: #fff; height: 44px; line-height: 44px; float: left; margin-top: -4px;
+	font-size: 16px; background-position: 40px 13px; background-repeat: no-repeat;
+}
+
+.menuItem:hover{
+	background-color: #FFFFFF; color: rgb(87, 95, 110); border-top: 4px solid rgb(87, 95, 110);
+}
+
+.menuItemSelected{
+	background-color: #FFFFFF; color: rgb(87, 95, 110); border-top: 4px solid rgb(87, 95, 110);
+}
+
+.menuId_1{background-position: 35px 9px; background-image: url("../../image/b_1a.gif");}
+
+.menuId_2{background-position: 35px 9px; background-image: url("../../image/b_2a.gif");}
+
+.menuId_3{background-position: 35px 9px; background-image: url("../../image/b_3a.gif");}
+
+.menuId_1:hover{background-position: 35px 9px; background-image: url("../../image/b_1b.gif");}
+
+.menuId_2:hover{background-position: 35px 9px; background-image: url("../../image/b_2b.gif");}
+
+.menuId_3:hover{background-position: 35px 9px; background-image: url("../../image/b_3b.gif");}
+
+.menuId_1selected{background-position: 35px 9px; background-image: url("../../image/b_1b.gif");}
+
+.menuId_2selected{background-position: 35px 9px; background-image: url("../../image/b_2b.gif");}
+
+.menuId_3selected{background-position: 35px 9px; background-image: url("../../image/b_3b.gif");}
+
+#searchContainerDiv{padding: 20px 0 10px 15px; background: url(../../image/pngBG.png); clear: both;}
+
+.js_sc{height: 55px; position: relative; z-index: 99;}
+
+.js_sc input {
+	width: 677px; height: 33px; padding-left: 14px; background: none; border: none; line-height: 32px; font-size: 12px; 
+	float: left; color: #999; background: url(../../image/scbg_1.gif) no-repeat;
+}
+
+.js_sc a{cursor:pointer; width: 30px; height: 30px; display: block; position: absolute; right: 25px;}
+
+.menuSeachItems{width:100%;}
+
+.itemLine{width:100%; min-height: 25px; padding-bottom: 13px;}
+
+.searchLabel{float:left; width: 58px; height: 22px; float: left; background: #3fb8b1; text-align: center; line-height: 22px; color: #fff; font-size:14px;}
+
+.fieldContainer{margin-left:56px;}
+
+.fieldItem{float:left; cursor: pointer; padding:3px 8px; font-size: 12px;}
+
+.unlimited{float:left; cursor: pointer; padding:3px 8px; font-size: 12px;}
+
+.selectedField{color: #3fb8b1;}
+
+.fieldItem:hover{color: #3fb8b1;}
+
+.clearDiv{clear:both;}
+
+.hiddenDiv{display:none;}
+
+.selectedField{color: #3fb8b1;}
+
+.js_cona{ clear: both; padding: 10px; text-align: center; }
+
+.js_cona a {
+	width: 120px; height: 34px; line-height: 32px; text-align: center; display: inline-table; font-size: 18px; color: rgb(255, 255, 255); background: rgb(63, 184, 177); cursor: pointer;
+}
+
+.js_cona a:hover { color: rgb(255, 255, 255); background: rgb(17, 162, 154); }

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.broker.entity">
+	<class name="Broker" table="b_broker">
+
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		
+		<property name="bname" type="java.lang.String" column="agent_name" length="50" />
+		
+		<property name="photograph" type="java.lang.String" column="photograph_path" not-null="false" length="100" />
+		
+		<property name="telephone" type="java.lang.String" column="telephone" not-null="true" length="20" />
+		
+		<property name="qq" type="java.lang.String" column="qq"/>
+		
+		<property name="wchat" type="java.lang.String" column="wchat" length="200" />
+		
+		<property name="deleteFlag" type="java.lang.Integer" column="deleteflag" />
+		
+		<many-to-one name="store" class="com.huatek.hbwebsite.common.entity.Store"  not-found="ignore">
+			<column name="store_id" not-null="false"></column>
+		</many-to-one>
+		
+		<property name="introduction" column="introduction" type="java.lang.String" length="255"></property>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+		<property name="daikan" type="java.lang.Integer" column="daikan" />
+		
+		<property name="houseCount" type="java.lang.Integer" column="house_count" />
+		
+		<property name="weCharUrl" type="java.lang.String" column="wechat_url" />
+		
+		<property name="backgroundImage" type="java.lang.String" column="background_image" length="50"/>
+	</class>
+</hibernate-mapping>

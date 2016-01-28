@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.recruit.entity.RecruitPosition" table="recruit_position">
+		<id name="id" type="java.lang.Long" column="ID">
+			<generator class="native">
+			</generator>
+		</id>
+		
+		<property name="positionName" column="position_name" type="java.lang.String" length="100"></property>
+		
+		<property name="needed" column="needed" type="java.lang.Integer"></property>
+		
+		<property name="description" column="description" type="java.lang.String" length="1000"></property>
+		
+		<property name="requirement" column="requirement" type="java.lang.String" length="1000"></property>
+		
+		<property name="otherinformation" column="otherinformation" type="java.lang.String" length="1000"></property>
+		
+		<property name="workPlace" column="workplace" type="java.lang.String" length="100"></property>
+		
+		<property name="createTime" column="createtime" type="java.sql.Timestamp"></property>
+		
+		<property name="publishedTime" column="publishedtime" type="java.sql.Date"></property>
+		
+		<property name="isPublished" column="ispublished" type="java.lang.Integer"></property>
+		
+		<property name="publisher" column="publisher" type="java.lang.Integer"></property>
+		
+		<property name="emergencyFlag" column="emergencyflag" type="java.lang.Integer"></property>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"></property>
+		
+		<many-to-one name="positionType" unique="true" column="typeid" class="com.huatek.hbwebsite.recruit.entity.RecruitPositionType"  not-found="ignore"/>
+		
+		<many-to-one name="department" unique="true" column="departmentid" class="com.huatek.hbwebsite.recruit.entity.RecruitDepartment"  not-found="ignore"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.member.entity.IntegralTable" table="member_integral_table">
+		<id name="id" type="java.lang.Long" column="no">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="platMemberInfo" class="com.huatek.hbwebsite.member.entity.PlatMemberInfo" unique="true"  not-found="ignore">
+			<column name="member_id"></column>
+		</many-to-one>
+		<property name="integral" type="java.lang.Integer">
+			<column name="integral">
+			</column>
+		</property>
+		<property name="changedIntegral" type="java.lang.Integer">
+			<column name="integralCanchanged">
+			</column>
+		</property>
+		<property name="changedCount" type="java.lang.Integer">
+			<column name="changeCount">
+			</column>
+		</property>
+		<property name="receivedCount" type="java.lang.Integer">
+			<column name="receviedCount">
+			</column>
+		</property>
+		<property name="deleteFlag" type="java.lang.Integer">
+			<column name="deleteflag">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- lazyLoadingEnabled：true使用延迟加载，false禁用延迟加载。默认为true -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		
+		<!-- aggressiveLazyLoading：
+		true启用时，当延迟加载开启时访问对象中一个懒对象属性时，将完全加载这个对象的所有懒对象属性。
+		false，当延迟加载时，按需加载对象属性（即访问对象中一个懒对象属性，不会加载对象中其他的懒对象属性）。
+		默认为true -->
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BaseRegion" alias="BaseRegion" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BaseRegionExample" alias="BaseRegionExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BaseRegionKey" alias="BaseRegionKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBroker" alias="BBroker" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBrokeranswered" alias="BBrokeranswered" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBrokeransweredExample" alias="BBrokeransweredExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBrokeransweredKey" alias="BBrokeransweredKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBrokerExample" alias="BBrokerExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BBrokerKey" alias="BBrokerKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.Business" alias="Business" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BusinessExample" alias="BusinessExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BusinessKey" alias="BusinessKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BusinessRaiders" alias="BusinessRaiders" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BusinessRaidersExample" alias="BusinessRaidersExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.BusinessRaidersKey" alias="BusinessRaidersKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CityForNewHouse" alias="CityForNewHouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CityForNewHouseExample" alias="CityForNewHouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CityForNewHouseKey" alias="CityForNewHouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonActivity" alias="CommonActivity" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonActivityExample" alias="CommonActivityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonActivityKey" alias="CommonActivityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivitybar" alias="CommonAdandactivitybar" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivitybarExample" alias="CommonAdandactivitybarExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivitybarKey" alias="CommonAdandactivitybarKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivityitem" alias="CommonAdandactivityitem" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivityitemExample" alias="CommonAdandactivityitemExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonAdandactivityitemKey" alias="CommonAdandactivityitemKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbd" alias="CommonCbd" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdExample" alias="CommonCbdExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdKey" alias="CommonCbdKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdRelation" alias="CommonCbdRelation" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdRelationExample" alias="CommonCbdRelationExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdWebsite" alias="CommonCbdWebsite" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdWebsiteExample" alias="CommonCbdWebsiteExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCbdWebsiteKey" alias="CommonCbdWebsiteKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCity" alias="CommonCity" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCityExample" alias="CommonCityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCityKey" alias="CommonCityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCounty" alias="CommonCounty" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCountyExample" alias="CommonCountyExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCountyKey" alias="CommonCountyKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCountyTwo" alias="CommonCountyTwo" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCountyTwoExample" alias="CommonCountyTwoExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonCountyTwoKey" alias="CommonCountyTwoKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonDecorationType" alias="CommonDecorationType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonDecorationTypeExample" alias="CommonDecorationTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonDecorationTypeKey" alias="CommonDecorationTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFlag" alias="CommonFlag" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFlagExample" alias="CommonFlagExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFlagKey" alias="CommonFlagKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterLink" alias="CommonFooterLink" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterLinkExample" alias="CommonFooterLinkExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterLinkKey" alias="CommonFooterLinkKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterMenu" alias="CommonFooterMenu" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterMenuExample" alias="CommonFooterMenuExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonFooterMenuKey" alias="CommonFooterMenuKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHospitalTable" alias="CommonHospitalTable" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHospitalTableExample" alias="CommonHospitalTableExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHospitalTableKey" alias="CommonHospitalTableKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousequestionStrategy" alias="CommonHousequestionStrategy" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousequestionStrategyExample" alias="CommonHousequestionStrategyExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousequestionStrategyKey" alias="CommonHousequestionStrategyKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousetype" alias="CommonHousetype" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousetypeExample" alias="CommonHousetypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonHousetypeKey" alias="CommonHousetypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLiveFacility" alias="CommonLiveFacility" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLiveFacilityExample" alias="CommonLiveFacilityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLiveFacilityKey" alias="CommonLiveFacilityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLoanRate" alias="CommonLoanRate" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLoanRateExample" alias="CommonLoanRateExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonLoanRateKey" alias="CommonLoanRateKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonOrientations" alias="CommonOrientations" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonOrientationsExample" alias="CommonOrientationsExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonOrientationsKey" alias="CommonOrientationsKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategySubtype" alias="CommonQuestionStrategySubtype" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategySubtypeExample" alias="CommonQuestionStrategySubtypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategySubtypeKey" alias="CommonQuestionStrategySubtypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategyType" alias="CommonQuestionStrategyType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategyTypeExample" alias="CommonQuestionStrategyTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonQuestionStrategyTypeKey" alias="CommonQuestionStrategyTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonRentType" alias="CommonRentType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonRentTypeExample" alias="CommonRentTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonRentTypeKey" alias="CommonRentTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStation" alias="CommonStation" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStationExample" alias="CommonStationExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStationKey" alias="CommonStationKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStore" alias="CommonStore" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStoreExample" alias="CommonStoreExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStoreKey" alias="CommonStoreKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStudyZone" alias="CommonStudyZone" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStudyZoneExample" alias="CommonStudyZoneExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonStudyZoneKey" alias="CommonStudyZoneKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubway" alias="CommonSubway" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubwayExample" alias="CommonSubwayExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubwayKey" alias="CommonSubwayKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubwayStation" alias="CommonSubwayStation" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubwayStationExample" alias="CommonSubwayStationExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSubwayStationKey" alias="CommonSubwayStationKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSzType" alias="CommonSzType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSzTypeExample" alias="CommonSzTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonSzTypeKey" alias="CommonSzTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonUsage" alias="CommonUsage" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonUsageExample" alias="CommonUsageExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CommonUsageKey" alias="CommonUsageKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyContactus" alias="CompanyContactus" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyContactusExample" alias="CompanyContactusExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyContactusKey" alias="CompanyContactusKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerService" alias="CompanyCustomerService" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerServiceExample" alias="CompanyCustomerServiceExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerServiceKey" alias="CompanyCustomerServiceKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerServiceType" alias="CompanyCustomerServiceType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerServiceTypeExample" alias="CompanyCustomerServiceTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyCustomerServiceTypeKey" alias="CompanyCustomerServiceTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyIntroduce" alias="CompanyIntroduce" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyIntroduceExample" alias="CompanyIntroduceExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CompanyIntroduceKey" alias="CompanyIntroduceKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CountyForNewHouse" alias="CountyForNewHouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CountyForNewHouseExample" alias="CountyForNewHouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.CountyForNewHouseKey" alias="CountyForNewHouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.DdhbSystemSet" alias="DdhbSystemSet" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.DdhbSystemSetExample" alias="DdhbSystemSetExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.DdhbSystemSetKey" alias="DdhbSystemSetKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwApplyScope" alias="EfwApplyScope" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwApplyScopeExample" alias="EfwApplyScopeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwApplyScopeKey" alias="EfwApplyScopeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModule" alias="EfwBusinessModule" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModuleExample" alias="EfwBusinessModuleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModuleKey" alias="EfwBusinessModuleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModuleMap" alias="EfwBusinessModuleMap" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModuleMapExample" alias="EfwBusinessModuleMapExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwBusinessModuleMapKey" alias="EfwBusinessModuleMapKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRole" alias="EfwDataRole" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRoleAuthority" alias="EfwDataRoleAuthority" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRoleAuthorityExample" alias="EfwDataRoleAuthorityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRoleAuthorityKey" alias="EfwDataRoleAuthorityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRoleExample" alias="EfwDataRoleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwDataRoleKey" alias="EfwDataRoleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwSourseEntity" alias="EfwSourseEntity" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwSourseEntityExample" alias="EfwSourseEntityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwSourseEntityKey" alias="EfwSourseEntityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwTargetFieldMap" alias="EfwTargetFieldMap" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwTargetFieldMapExample" alias="EfwTargetFieldMapExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwTargetFieldMapKey" alias="EfwTargetFieldMapKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwUserDataRole" alias="EfwUserDataRole" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwUserDataRoleExample" alias="EfwUserDataRoleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EfwUserDataRoleKey" alias="EfwUserDataRoleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustBuyhouse" alias="EntrustBuyhouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustBuyhouseExample" alias="EntrustBuyhouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustBuyhouseKey" alias="EntrustBuyhouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustRenthouse" alias="EntrustRenthouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustRenthouseExample" alias="EntrustRenthouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustRenthouseKey" alias="EntrustRenthouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustSalehouse" alias="EntrustSalehouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustSalehouseExample" alias="EntrustSalehouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustSalehouseKey" alias="EntrustSalehouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustTorenthouse" alias="EntrustTorenthouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustTorenthouseExample" alias="EntrustTorenthouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.EntrustTorenthouseKey" alias="EntrustTorenthouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FrendLink" alias="FrendLink" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FrendLinkExample" alias="FrendLinkExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FrendLinkKey" alias="FrendLinkKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccount" alias="FwAccount" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccountDuty" alias="FwAccountDuty" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccountDutyExample" alias="FwAccountDutyExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccountDutyKey" alias="FwAccountDutyKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccountExample" alias="FwAccountExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwAccountKey" alias="FwAccountKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionCnt" alias="FwActionCnt" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionCntExample" alias="FwActionCntExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionCntKey" alias="FwActionCntKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionLog" alias="FwActionLog" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionLogExample" alias="FwActionLogExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwActionLogKey" alias="FwActionLogKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwCategory" alias="FwCategory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwCategoryExample" alias="FwCategoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwCategoryKey" alias="FwCategoryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDictionary" alias="FwDictionary" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDictionaryExample" alias="FwDictionaryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDictionaryKey" alias="FwDictionaryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDuty" alias="FwDuty" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDutyAction" alias="FwDutyAction" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDutyActionExample" alias="FwDutyActionExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDutyActionKey" alias="FwDutyActionKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDutyExample" alias="FwDutyExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwDutyKey" alias="FwDutyKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwErrors" alias="FwErrors" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwErrorsExample" alias="FwErrorsExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwErrorsKey" alias="FwErrorsKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenIp" alias="FwForbiddenIp" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenIpExample" alias="FwForbiddenIpExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenIpKey" alias="FwForbiddenIpKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenTel" alias="FwForbiddenTel" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenTelExample" alias="FwForbiddenTelExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwForbiddenTelKey" alias="FwForbiddenTelKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwGroup" alias="FwGroup" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwGroupExample" alias="FwGroupExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwGroupKey" alias="FwGroupKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwLogin" alias="FwLogin" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwLoginExample" alias="FwLoginExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwLoginKey" alias="FwLoginKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwProperties" alias="FwProperties" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwPropertiesExample" alias="FwPropertiesExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwPropertiesKey" alias="FwPropertiesKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSchedule" alias="FwSchedule" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwScheduleExample" alias="FwScheduleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwScheduleKey" alias="FwScheduleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSource" alias="FwSource" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSourceExample" alias="FwSourceExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSourceKey" alias="FwSourceKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSrcAction" alias="FwSrcAction" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSrcActionExample" alias="FwSrcActionExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSrcActionKey" alias="FwSrcActionKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystem" alias="FwSystem" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystemExample" alias="FwSystemExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystemIp" alias="FwSystemIp" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystemIpExample" alias="FwSystemIpExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystemIpKey" alias="FwSystemIpKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.FwSystemKey" alias="FwSystemKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseAppraise" alias="HouseAppraise" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseAppraiseExample" alias="HouseAppraiseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseAppraiseKey" alias="HouseAppraiseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseArtificialReport" alias="HouseArtificialReport" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseArtificialReportExample" alias="HouseArtificialReportExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseArtificialReportKey" alias="HouseArtificialReportKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCbdExpert" alias="HouseCbdExpert" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCbdExpertExample" alias="HouseCbdExpertExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCbdExpertKey" alias="HouseCbdExpertKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunity" alias="HouseCommunity" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityAveragePrice" alias="HouseCommunityAveragePrice" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityAveragePriceExample" alias="HouseCommunityAveragePriceExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityAveragePriceKey" alias="HouseCommunityAveragePriceKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityExample" alias="HouseCommunityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityExpert" alias="HouseCommunityExpert" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityExpertExample" alias="HouseCommunityExpertExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityExpertKey" alias="HouseCommunityExpertKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityHospitalMapping" alias="HouseCommunityHospitalMapping" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityHospitalMappingExample" alias="HouseCommunityHospitalMappingExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityHospitalMappingKey" alias="HouseCommunityHospitalMappingKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityKey" alias="HouseCommunityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySchoolMapping" alias="HouseCommunitySchoolMapping" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySchoolMappingExample" alias="HouseCommunitySchoolMappingExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySchoolMappingKey" alias="HouseCommunitySchoolMappingKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityStationMapping" alias="HouseCommunityStationMapping" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityStationMappingExample" alias="HouseCommunityStationMappingExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunityStationMappingKey" alias="HouseCommunityStationMappingKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayMapping" alias="HouseCommunitySubwayMapping" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayMappingExample" alias="HouseCommunitySubwayMappingExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayMappingKey" alias="HouseCommunitySubwayMappingKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayStationMapping" alias="HouseCommunitySubwayStationMapping" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayStationMappingExample" alias="HouseCommunitySubwayStationMappingExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseCommunitySubwayStationMappingKey" alias="HouseCommunitySubwayStationMappingKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseDefaultSortRule" alias="HouseDefaultSortRule" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseDefaultSortRuleExample" alias="HouseDefaultSortRuleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseDefaultSortRuleKey" alias="HouseDefaultSortRuleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewBrowseAnalyse" alias="HouseNewBrowseAnalyse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewBrowseAnalyseExample" alias="HouseNewBrowseAnalyseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewBrowseAnalyseKey" alias="HouseNewBrowseAnalyseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouse" alias="HouseNewhouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouseExample" alias="HouseNewhouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouseGroupbuy" alias="HouseNewhouseGroupbuy" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouseGroupbuyExample" alias="HouseNewhouseGroupbuyExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouseGroupbuyKey" alias="HouseNewhouseGroupbuyKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouseKey" alias="HouseNewhouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HousePicture" alias="HousePicture" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HousePictureExample" alias="HousePictureExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HousePictureKey" alias="HousePictureKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseReduceNotice" alias="HouseReduceNotice" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseReduceNoticeExample" alias="HouseReduceNoticeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseReduceNoticeKey" alias="HouseReduceNoticeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentBrowseAnalyse" alias="HouseRentBrowseAnalyse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentBrowseAnalyseExample" alias="HouseRentBrowseAnalyseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentBrowseAnalyseKey" alias="HouseRentBrowseAnalyseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentHouse" alias="HouseRentHouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentHouseExample" alias="HouseRentHouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentHouseKey" alias="HouseRentHouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentPriceTrend" alias="HouseRentPriceTrend" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentPriceTrendExample" alias="HouseRentPriceTrendExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentPriceTrendKey" alias="HouseRentPriceTrendKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondBrowseAnalyse" alias="HouseSecondBrowseAnalyse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondBrowseAnalyseExample" alias="HouseSecondBrowseAnalyseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondBrowseAnalyseKey" alias="HouseSecondBrowseAnalyseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondHandHouse" alias="HouseSecondHandHouse" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondHandHouseExample" alias="HouseSecondHandHouseExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondHandHouseKey" alias="HouseSecondHandHouseKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondPriceTrend" alias="HouseSecondPriceTrend" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondPriceTrendExample" alias="HouseSecondPriceTrendExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondPriceTrendKey" alias="HouseSecondPriceTrendKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendAttach" alias="MailSendAttach" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendAttachExample" alias="MailSendAttachExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendAttachKey" alias="MailSendAttachKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSenderConf" alias="MailSenderConf" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSenderConfExample" alias="MailSenderConfExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSenderConfKey" alias="MailSenderConfKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendInfo" alias="MailSendInfo" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendInfoExample" alias="MailSendInfoExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailSendInfoKey" alias="MailSendInfoKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailTemplate" alias="MailTemplate" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailTemplateExample" alias="MailTemplateExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MailTemplateKey" alias="MailTemplateKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBespeak" alias="MemberBespeak" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBespeakExample" alias="MemberBespeakExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBespeakKey" alias="MemberBespeakKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedRhHistoryBeforeBespeak" alias="MemberBrowsedRhHistoryBeforeBespeak" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedRhHistoryBeforeBespeakExample" alias="MemberBrowsedRhHistoryBeforeBespeakExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedRhHistoryBeforeBespeakKey" alias="MemberBrowsedRhHistoryBeforeBespeakKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedShHistoryBeforeBespeak" alias="MemberBrowsedShHistoryBeforeBespeak" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedShHistoryBeforeBespeakExample" alias="MemberBrowsedShHistoryBeforeBespeakExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowsedShHistoryBeforeBespeakKey" alias="MemberBrowsedShHistoryBeforeBespeakKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowseHistory" alias="MemberBrowseHistory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowseHistoryExample" alias="MemberBrowseHistoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberBrowseHistoryKey" alias="MemberBrowseHistoryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberCollection" alias="MemberCollection" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberCollectionExample" alias="MemberCollectionExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberCollectionKey" alias="MemberCollectionKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberInfo" alias="MemberInfo" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberInfoExample" alias="MemberInfoExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberInfoKey" alias="MemberInfoKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralHistory" alias="MemberIntegralHistory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralHistoryExample" alias="MemberIntegralHistoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralHistoryKey" alias="MemberIntegralHistoryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralTable" alias="MemberIntegralTable" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralTableExample" alias="MemberIntegralTableExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegralTableKey" alias="MemberIntegralTableKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegrateRule" alias="MemberIntegrateRule" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegrateRuleExample" alias="MemberIntegrateRuleExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberIntegrateRuleKey" alias="MemberIntegrateRuleKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberSavedSearchcontent" alias="MemberSavedSearchcontent" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberSavedSearchcontentExample" alias="MemberSavedSearchcontentExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.MemberSavedSearchcontentKey" alias="MemberSavedSearchcontentKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsContent" alias="NewsContent" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsContentExample" alias="NewsContentExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsContentKey" alias="NewsContentKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsNotice" alias="NewsNotice" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsNoticeExample" alias="NewsNoticeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsNoticeKey" alias="NewsNoticeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsType" alias="NewsType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsTypeExample" alias="NewsTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.NewsTypeKey" alias="NewsTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduCommunity" alias="PartnerBaiduCommunity" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduCommunityExample" alias="PartnerBaiduCommunityExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduCommunityKey" alias="PartnerBaiduCommunityKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseRent" alias="PartnerBaiduHouseRent" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseRentExample" alias="PartnerBaiduHouseRentExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseRentKey" alias="PartnerBaiduHouseRentKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseSecond" alias="PartnerBaiduHouseSecond" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseSecondExample" alias="PartnerBaiduHouseSecondExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PartnerBaiduHouseSecondKey" alias="PartnerBaiduHouseSecondKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PirceChangeHistory" alias="PirceChangeHistory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PirceChangeHistoryExample" alias="PirceChangeHistoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PirceChangeHistoryKey" alias="PirceChangeHistoryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PlatImage" alias="PlatImage" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PlatImageExample" alias="PlatImageExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.PlatImageKey" alias="PlatImageKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitCandidate" alias="RecruitCandidate" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitCandidateExample" alias="RecruitCandidateExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitCandidateKey" alias="RecruitCandidateKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitDepartment" alias="RecruitDepartment" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitDepartmentExample" alias="RecruitDepartmentExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitDepartmentKey" alias="RecruitDepartmentKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPosition" alias="RecruitPosition" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPositionExample" alias="RecruitPositionExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPositionKey" alias="RecruitPositionKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPositionType" alias="RecruitPositionType" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPositionTypeExample" alias="RecruitPositionTypeExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.RecruitPositionTypeKey" alias="RecruitPositionTypeKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchElevator" alias="SearchElevator" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchElevatorExample" alias="SearchElevatorExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchElevatorKey" alias="SearchElevatorKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchField" alias="SearchField" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchFieldExample" alias="SearchFieldExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchFieldKey" alias="SearchFieldKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchFiveyear" alias="SearchFiveyear" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchFiveyearExample" alias="SearchFiveyearExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchFiveyearKey" alias="SearchFiveyearKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchItem" alias="SearchItem" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchItemExample" alias="SearchItemExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SearchItemKey" alias="SearchItemKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SharedSearch" alias="SharedSearch" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SharedSearchExample" alias="SharedSearchExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SharedSearchKey" alias="SharedSearchKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SubscribeInfo" alias="SubscribeInfo" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SubscribeInfoExample" alias="SubscribeInfoExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.SubscribeInfoKey" alias="SubscribeInfoKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserBrowsedHistory" alias="UserBrowsedHistory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserBrowsedHistoryExample" alias="UserBrowsedHistoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserBrowsedHistoryKey" alias="UserBrowsedHistoryKey" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserCompareHistory" alias="UserCompareHistory" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserCompareHistoryExample" alias="UserCompareHistoryExample" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.UserCompareHistoryKey" alias="UserCompareHistoryKey" />
+		
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseSecondHandHouse" alias="HouseSecond" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseRentHouse" alias="HouseRent" />
+		<typeAlias type="cn.hshb.web.biz.mybatis.model.HouseNewhouse" alias="HouseNew" />
+	</typeAliases>
+ 
+	<!-- 
+	    plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下:
+	    properties?, settings?, 
+	    typeAliases?, typeHandlers?, 
+	    objectFactory?,objectWrapperFactory?, 
+	    plugins?, 
+	    environments?, databaseIdProvider?, mappers?
+	-->
+	<plugins>
+	    <!-- com.github.pagehelper为PageHelper类所在包名 -->
+	    <plugin interceptor="com.github.pagehelper.PageHelper">
+	    	<!-- dialect属性，使用时必须指定该属性，可选值为
+	    	oracle,mysql,mariadb,sqlite,hsqldb,postgresql,db2,sqlserver,informix,
+	    	没有默认值，必须指定该属性 -->
+	        <property name="dialect" value="mysql"/>
+	        
+	        <!-- 该参数默认为false -->
+	        <!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 -->
+	        <!-- 和startPage中的pageNum效果一样-->
+	        <property name="offsetAsPageNum" value="true"/>
+	        
+	        <!-- 该参数默认为false -->
+	        <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+	        <property name="rowBoundsWithCount" value="true"/>
+	        
+	        <!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 -->
+	        <!-- （相当于没有执行分页查询，但是返回结果仍然是Page类型）-->
+	        <property name="pageSizeZero" value="true"/>
+	        
+	        <!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 -->
+	        <!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+	        <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+	        <property name="reasonable" value="true"/>
+	        
+	        <!-- 3.5.0版本可用 - 为了支持startPage(Object params)方法 -->
+	        <!-- 增加了一个`params`参数来配置参数映射，用于从Map或ServletRequest中取值 -->
+	        <!-- 可以配置pageNum,pageSize,count,pageSizeZero,reasonable,不配置映射的用默认值 -->
+	        <!-- 不理解该含义的前提下，不要随便复制该配置 -->
+	        <property name="params" value="pageNum=start;pageSize=limit;"/>
+	    </plugin>
+
+		  <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
+		    <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+		  </plugin>
+	</plugins>
+
+	<mappers>
+	<!-- 
+		<mapper resource="sqlmap/BaseRegionMapper.xml" />
+		<mapper resource="sqlmap/BBrokeransweredMapper.xml" />
+		<mapper resource="sqlmap/BusinessMapper.xml" />
+		<mapper resource="sqlmap/BusinessRaidersMapper.xml" />
+		<mapper resource="sqlmap/CityForNewHouseMapper.xml" />
+		<mapper resource="sqlmap/CommonActivityMapper.xml" />
+		<mapper resource="sqlmap/CommonAdandactivitybarMapper.xml" />
+		<mapper resource="sqlmap/CommonAdandactivityitemMapper.xml" />
+		<mapper resource="sqlmap/CommonCbdMapper.xml" />
+		<mapper resource="sqlmap/CommonCbdRelationMapper.xml" />
+		<mapper resource="sqlmap/CommonCbdWebsiteMapper.xml" />
+		<mapper resource="sqlmap/CommonCityMapper.xml" />
+		<mapper resource="sqlmap/CommonCountyMapper.xml" />
+		<mapper resource="sqlmap/CommonCountyTwoMapper.xml" />
+		<mapper resource="sqlmap/CommonFlagMapper.xml" />
+		<mapper resource="sqlmap/CommonFooterLinkMapper.xml" />
+		<mapper resource="sqlmap/CommonFooterMenuMapper.xml" />
+		<mapper resource="sqlmap/CommonHospitalTableMapper.xml" />
+		<mapper resource="sqlmap/CommonHousequestionStrategyMapper.xml" />
+		<mapper resource="sqlmap/CommonHousetypeMapper.xml" />
+		<mapper resource="sqlmap/CommonLiveFacilityMapper.xml" />
+		<mapper resource="sqlmap/CommonLoanRateMapper.xml" />
+		<mapper resource="sqlmap/CommonQuestionStrategySubtypeMapper.xml" />
+		<mapper resource="sqlmap/CommonQuestionStrategyTypeMapper.xml" />
+		<mapper resource="sqlmap/CommonRentTypeMapper.xml" />
+		<mapper resource="sqlmap/CommonStationMapper.xml" />
+		<mapper resource="sqlmap/CommonStoreMapper.xml" />
+		<mapper resource="sqlmap/CommonStudyZoneMapper.xml" />
+		<mapper resource="sqlmap/CommonSubwayMapper.xml" />
+		<mapper resource="sqlmap/CommonSubwayStationMapper.xml" />
+		<mapper resource="sqlmap/CommonSzTypeMapper.xml" />
+		<mapper resource="sqlmap/CompanyContactusMapper.xml" />
+		<mapper resource="sqlmap/CompanyCustomerServiceMapper.xml" />
+		<mapper resource="sqlmap/CompanyCustomerServiceTypeMapper.xml" />
+		<mapper resource="sqlmap/CompanyIntroduceMapper.xml" />
+		<mapper resource="sqlmap/CountyForNewHouseMapper.xml" />
+		<mapper resource="sqlmap/DdhbSystemSetMapper.xml" />
+		<mapper resource="sqlmap/EfwApplyScopeMapper.xml" />
+		<mapper resource="sqlmap/EfwBusinessModuleMapMapper.xml" />
+		<mapper resource="sqlmap/EfwBusinessModuleMapper.xml" />
+		<mapper resource="sqlmap/EfwDataRoleAuthorityMapper.xml" />
+		<mapper resource="sqlmap/EfwDataRoleMapper.xml" />
+		<mapper resource="sqlmap/EfwSourseEntityMapper.xml" />
+		<mapper resource="sqlmap/EfwTargetFieldMapMapper.xml" />
+		<mapper resource="sqlmap/EfwUserDataRoleMapper.xml" />
+		<mapper resource="sqlmap/FwAccountDutyMapper.xml" />
+		<mapper resource="sqlmap/FwAccountMapper.xml" />
+		<mapper resource="sqlmap/FwActionCntMapper.xml" />
+		<mapper resource="sqlmap/FwActionLogMapper.xml" />
+		<mapper resource="sqlmap/FwCategoryMapper.xml" />
+		<mapper resource="sqlmap/FwDictionaryMapper.xml" />
+		<mapper resource="sqlmap/FwDutyActionMapper.xml" />
+		<mapper resource="sqlmap/FwDutyMapper.xml" />
+		<mapper resource="sqlmap/FwErrorsMapper.xml" />
+		<mapper resource="sqlmap/FwForbiddenIpMapper.xml" />
+		<mapper resource="sqlmap/FwForbiddenTelMapper.xml" />
+		<mapper resource="sqlmap/FwGroupMapper.xml" />
+		<mapper resource="sqlmap/FwLoginMapper.xml" />
+		<mapper resource="sqlmap/FwPropertiesMapper.xml" />
+		<mapper resource="sqlmap/FwScheduleMapper.xml" />
+		<mapper resource="sqlmap/FwSourceMapper.xml" />
+		<mapper resource="sqlmap/FwSrcActionMapper.xml" />
+		<mapper resource="sqlmap/FwSystemIpMapper.xml" />
+		<mapper resource="sqlmap/FwSystemMapper.xml" />
+		<mapper resource="sqlmap/EntrustBuyhouseMapper.xml" />
+		<mapper resource="sqlmap/EntrustRenthouseMapper.xml" />
+		<mapper resource="sqlmap/EntrustSalehouseMapper.xml" />
+		<mapper resource="sqlmap/EntrustTorenthouseMapper.xml" />
+		<mapper resource="sqlmap/FrendLinkMapper.xml" />
+		<mapper resource="sqlmap/HouseAppraiseMapper.xml" />
+		<mapper resource="sqlmap/HouseArtificialReportMapper.xml" />
+		<mapper resource="sqlmap/HouseCbdExpertMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunityAveragePriceMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunityExpertMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunityHospitalMappingMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunitySchoolMappingMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunityStationMappingMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunitySubwayMappingMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunitySubwayStationMappingMapper.xml" />
+		<mapper resource="sqlmap/HouseDefaultSortRuleMapper.xml" />
+		<mapper resource="sqlmap/BBrokerMapper.xml" />
+		<mapper resource="sqlmap/CommonDecorationTypeMapper.xml" />
+		<mapper resource="sqlmap/CommonOrientationsMapper.xml" />
+		<mapper resource="sqlmap/CommonUsageMapper.xml" />
+		<mapper resource="sqlmap/HousePictureMapper.xml" />
+		<mapper resource="sqlmap/HouseCommunityMapper.xml" />
+		<mapper resource="sqlmap/HouseSecondHandHouseMapper.xml" />
+		<mapper resource="sqlmap/HouseReduceNoticeMapper.xml" />
+		<mapper resource="sqlmap/HouseRentBrowseAnalyseMapper.xml" />
+		<mapper resource="sqlmap/HouseRentHouseMapper.xml" />
+		<mapper resource="sqlmap/HouseRentPriceTrendMapper.xml" />
+		<mapper resource="sqlmap/HouseSecondBrowseAnalyseMapper.xml" />
+		<mapper resource="sqlmap/HouseSecondPriceTrendMapper.xml" />
+		<mapper resource="sqlmap/HouseNewBrowseAnalyseMapper.xml" />
+		<mapper resource="sqlmap/HouseNewhouseGroupbuyMapper.xml" />
+		<mapper resource="sqlmap/HouseNewhouseMapper.xml" />
+		<mapper resource="sqlmap/MailSendAttachMapper.xml" />
+		<mapper resource="sqlmap/MailSenderConfMapper.xml" />
+		<mapper resource="sqlmap/MailSendInfoMapper.xml" />
+		<mapper resource="sqlmap/MailTemplateMapper.xml" />
+		<mapper resource="sqlmap/MemberBespeakMapper.xml" />
+		<mapper resource="sqlmap/MemberBrowsedRhHistoryBeforeBespeakMapper.xml" />
+		<mapper resource="sqlmap/MemberBrowsedShHistoryBeforeBespeakMapper.xml" />
+		<mapper resource="sqlmap/MemberBrowseHistoryMapper.xml" />
+		<mapper resource="sqlmap/MemberCollectionMapper.xml" />
+		<mapper resource="sqlmap/MemberInfoMapper.xml" />
+		<mapper resource="sqlmap/MemberIntegralHistoryMapper.xml" />
+		<mapper resource="sqlmap/MemberIntegralTableMapper.xml" />
+		<mapper resource="sqlmap/MemberIntegrateRuleMapper.xml" />
+		<mapper resource="sqlmap/MemberSavedSearchcontentMapper.xml" />
+		<mapper resource="sqlmap/NewsContentMapper.xml" />
+		<mapper resource="sqlmap/NewsNoticeMapper.xml" />
+		<mapper resource="sqlmap/NewsTypeMapper.xml" />
+		<mapper resource="sqlmap/PartnerBaiduCommunityMapper.xml" />
+		<mapper resource="sqlmap/PartnerBaiduHouseRentMapper.xml" />
+		<mapper resource="sqlmap/PartnerBaiduHouseSecondMapper.xml" />
+		<mapper resource="sqlmap/PirceChangeHistoryMapper.xml" />
+		<mapper resource="sqlmap/PlatImageMapper.xml" />
+		<mapper resource="sqlmap/RecruitCandidateMapper.xml" />
+		<mapper resource="sqlmap/RecruitDepartmentMapper.xml" />
+		<mapper resource="sqlmap/RecruitPositionMapper.xml" />
+		<mapper resource="sqlmap/RecruitPositionTypeMapper.xml" />
+		<mapper resource="sqlmap/SearchElevatorMapper.xml" />
+		<mapper resource="sqlmap/SearchFieldMapper.xml" />
+		<mapper resource="sqlmap/SearchFiveyearMapper.xml" />
+		<mapper resource="sqlmap/SearchItemMapper.xml" />
+		<mapper resource="sqlmap/SharedSearchMapper.xml" />
+		<mapper resource="sqlmap/SubscribeInfoMapper.xml" />
+		<mapper resource="sqlmap/UserBrowsedHistoryMapper.xml" />
+		<mapper resource="sqlmap/UserCompareHistoryMapper.xml" />
+		 -->
+ 	</mappers>
+</configuration>

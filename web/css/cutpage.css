@@ -1,0 +1,77 @@
+/*分页的样式*/
+.cutpage {
+	position:relative;
+	height: 80px;
+	margin-top: 20px;
+	text-align: center;
+}
+.ddhbpageNum {
+	position:absolute;
+	font-size:18px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;
+	margin-left: 30px;
+	float: left;
+	top: 30px;
+	display: none;
+}
+.ddhbeachNum {
+	text-align: center;
+	display:inline-block;
+	margin:0 auto;
+}
+.ddhbeachNum ul li{
+	width:41px;height:31px;
+	padding-top:10px;
+	border-bottom: 1px solid #c3c3c3;
+	border-top: 1px solid #c3c3c3;
+	color: #666666;
+	display:inline-block;
+} 
+
+.currentPageButton{
+	background-color: #3fb8b1;
+	color: #ffffff !important;
+	cursor:pointer;
+}
+
+.commonPageButton{
+	background-color: #f3f3f3;
+	cursor:pointer;
+}
+
+.ddhbeachNum ul li a{
+	color: #666666;
+ }
+ 
+ .ddhbeachNum ul li a.current{
+	color: #FFFFFF;
+ } 
+
+.firstPageButton{
+	width:70px !important;
+	border-left: 1px solid #c3c3c3;
+	background-color: #e5e5e5;
+	border-right: 1px solid #c3c3c3;
+	cursor:pointer;
+}
+
+.lastPageButton{
+	width:70px !important;
+	border-right: 1px solid #c3c3c3;
+	border-left: 1px solid #c3c3c3;
+	background-color: #e5e5e5;
+	cursor:pointer;
+}
+
+.netPageButton{
+	background-color:#e5e5e5;
+	border-left: 1px solid #c3c3c3;
+	cursor:pointer;
+}
+.previousPageButton{
+	background-color:#e5e5e5;
+	border-right: 1px solid #c3c3c3;
+	cursor:pointer;
+}
+
+.ddhbeachNum ul li input{width:20px;} 
+li {list-style-type: none;}

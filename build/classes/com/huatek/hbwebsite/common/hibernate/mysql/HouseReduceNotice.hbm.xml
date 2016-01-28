@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="HouseReduceNotice" table="house_reduce_notice">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		
+		<property name="houseNo" column="house_no" type="java.lang.String"/>
+		<property name="houseId" column="house_id" type="java.lang.String"/>
+		
+		<property name="houseType" column="house_type" type="java.lang.Integer"/>
+		
+		<property name="noticeEmail" column="notice_email" type="java.lang.String"/>
+		
+		<property name="noticePhone" column="notice_phone" type="java.lang.String"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="currentPrice" column="current_price" type="java.lang.Float"/>
+		
+		<property name="createTime" column="create_time" type="java.util.Date"/>
+		
+		<many-to-one name="platMemberInfo" column="member_id" unique="true" class="com.huatek.hbwebsite.member.entity.PlatMemberInfo"  not-found="ignore">
+		</many-to-one>
+		<many-to-one name="broker" column="broker_id" unique="true" class="com.huatek.hbwebsite.broker.entity.Broker"  not-found="ignore">
+		</many-to-one>
+		
+		<property name="emailFlag" column="email_flag" type="java.lang.Integer"/>
+		
+		<property name="phoneFlag" column="phone_flag" type="java.lang.Integer"/>
+		
+		<property name="houseTitle" column="house_title" type="java.lang.String"/>
+		
+		<property name="emailDone" column="email_done" type="java.lang.Integer"/>
+		
+		<property name="smsDone" column="sms_done" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseCommunityAveragePrice" table="house_community_average_price">
+		<id name="id" type="java.lang.Long" column="id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="communityNo" column="community_id" type="java.lang.String" length="40"></property>
+		
+		<property name="calculateDate" column="calculateDate" type="java.util.Date"/>
+		
+		<property name="priceAnnounced" column="price_announced" type="java.lang.Float"/>
+		
+		<property name="priceDealed" column="price_dealed" type="java.lang.Float"/>
+		
+		<property name="rentAveragePrice" column="rent_average_price" type="java.lang.Float"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+	</class>
+</hibernate-mapping>

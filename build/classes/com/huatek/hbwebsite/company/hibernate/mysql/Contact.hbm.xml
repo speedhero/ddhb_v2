@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.company.entity">
+	<class name="Contact" table="company_contactus">
+		<id name="id" type="java.lang.Long" column="contact_no">
+			<generator class="native"/>
+		</id>
+		<property name="companyAddress" column="company_address" type="java.lang.String"/>
+		<property name="netAddress" column="net_address" type="java.lang.String"/>
+		<property name="telephoneNumber" column="telephone_number" type="java.lang.String"/>
+		<property name="modifyTime" column="modify_time" type="java.util.Date"/>
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

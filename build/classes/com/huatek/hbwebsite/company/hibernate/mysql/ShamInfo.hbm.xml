@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.company.entity">
+	<class name="ShamInfo" table="house_artificial_report">
+		<id name="id" type="java.lang.Long" column="reporet_id">
+			<generator class="native"/>
+		</id>
+		<property name="reportName" column="name" type="java.lang.String"/>
+		<property name="emailAddr" column="email_address" type="java.lang.String"/>
+		<property name="telephone" column="telephone" type="java.lang.String"/>
+		<property name="content" column="content" type="java.lang.String"/>
+		<property name="houseType" column="house_type" type="java.lang.Integer"/>
+		<property name="houseNo" column="house_id" type="java.lang.String"/>
+		<property name="statu" column="status" type="java.lang.Integer"/>
+		<property name="createDate" column="create_time" type="java.util.Date"/>
+		<property name="operationDate" column="operation_time" type="java.util.Date"/>
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		<property name="brokerId" column="broker_id" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

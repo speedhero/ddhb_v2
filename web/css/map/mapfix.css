@@ -1,0 +1,1019 @@
+/*
+地图气泡
+*/
+.login_map{
+    background: url(../image/u5_normal.png) no-repeat;
+    height: 435px;
+    margin-left: 115px;
+    margin-top: 150px;
+    position: absolute;
+    width: 750px;
+    z-index: 103;
+}
+ .login_map .around{
+    background:url("../image/u14_normal.png") no-repeat scroll 0 0 transparent;
+    height: 258px;
+    margin-left: 7px;
+    margin-top: 65px;
+    width: 697px;
+ }
+ .map_pop, .map_pop_cur{       
+       text-align: center;
+       height: 43px;         
+ }
+ .map_pop{
+   /* background: url("../image/map_icon.png") no-repeat scroll -559px -447px transparent;  */
+    background: url("../image/map_icon.png") no-repeat scroll -266px -626px transparent;  
+    width: 47px;
+ }
+  .map_pop_cur{
+    background: url("../image/map_icon.png") no-repeat scroll -25px -627px transparent;   
+    width: 225px;
+ }
+ .map_pop_cur p.cityName{
+     background: url("../image/map_icon.png") no-repeat scroll -210px -624px transparent;
+    display: block;
+    height: 40px;
+    margin-left: 9px;
+    margin-top: -3px;
+    padding-left: 1px;
+    padding-top: 6px;
+    text-align: left;
+    width: 45px;
+ }
+ .map_pop p, .map_pop_cur p{     
+     font: 14px "微软雅黑";
+     margin-top: 4px;
+     color:white;
+ }
+  .map_pop span, .map_pop_cur span{
+     font: 14px "微软雅黑";
+     color:white;
+     line-height: 26px;
+ }
+ .map_pop span{
+     display: none;
+ }
+.map_pop01 ,.map_pop01_cur{
+    cursor: pointer;
+}
+.map_pop01 ,.map_pop01_cur,
+.map_pop_exchange,.map_pop_exchange_cur,
+.map_pop_rent,.map_pop_rent_cur{
+     height: 35px;
+     width: 25px;
+}
+.map_pop01{
+    background: url("../image/map_icon.png") no-repeat scroll -268px -886px transparent;
+}
+.map_pop01_cur{
+    background: url("../image/map_icon.png") no-repeat scroll -26px -886px transparent;
+    position: relative;
+    z-index: 100;
+}
+
+.map_pop_exchange{
+    background: url("../image/map_icon.png") no-repeat scroll -268px -800px transparent;   
+}
+.map_pop_exchange_cur{
+    background: url("../image/map_icon.png") no-repeat scroll -26px -800px transparent;    
+}
+.map_pop_rent{
+    background: url("../image/map_icon.png") no-repeat scroll -268px -844px transparent;  
+}
+.map_pop_rent_cur{
+    background: url("../image/map_icon.png") no-repeat scroll -26px -844px transparent;  
+}
+.map_pop_subway, .map_pop_subway_cur{
+    height: 38px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+} 
+.map_pop_subway p, .map_pop_subway_cur p{
+    font: 14px "微软雅黑";
+    margin-top: 3px;
+    color:white;
+    margin-left: 30px;
+    height: 38px;
+    width: 88px;
+    margin-top: 0px;
+    padding-top: 2px;
+}
+
+.map_pop_subway{    
+    background: url("../image/map_icon.png") no-repeat scroll -267px -692px transparent;    
+}
+.map_pop_subway p{
+    background: url("../image/map_icon.png") no-repeat scroll -336px -692px transparent;
+}
+.map_pop_subway_cur{
+    background: url("../image/map_icon.png") no-repeat scroll -26px -692px transparent;
+}
+.map_pop_subway_cur p{
+    background: url("../image/map_icon.png") no-repeat scroll -94px -692px transparent;
+}
+/*
+地图气泡标注
+*/
+.map_tip_1 {
+    background: url("../image/map_icon.png") no-repeat scroll -25px -559px transparent;
+    height: 41px;
+    width: 32px;
+}
+.map_tip_2 {
+    background: url("../image/map_icon.png") no-repeat scroll -80px -559px transparent;
+    height: 41px;
+    width: 32px;
+}
+.map_tip_3 {
+    background: url("../image/map_icon.png") no-repeat scroll -134px -559px transparent;
+    height: 41px;
+    width: 32px;
+}
+.map_tip_4 {
+    background: url("../image/map_icon.png") no-repeat scroll -187px -559px transparent;
+    height: 41px;
+    width: 32px;
+}
+.map_tip_5 {
+    background: url("../image/map_icon.png") no-repeat scroll -239px -559px transparent;
+    height: 41px;
+    width: 32px;
+}
+/*小区信息提示*/
+.mp_info02{
+    display: none;
+    z-index: 100;
+}
+
+.phd_box_01 .peitao, .phd_box_03{
+    display: none;
+}
+#communityDetail .phd_box_03{
+    position: absolute;
+    top: 37px;
+    left: 668px;
+    background-color: white;
+}
+
+/*小区详细评论页*/
+#communityCom{
+    left: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #f4f4f4;
+}
+.comment_box .c4_box .comment_btn_hover{
+    background: url("../image/sp_icon_v5.jpg") no-repeat scroll 0 -186px transparent;    
+}
+.comment_box .c4_box .submit_btn_hover{
+     background: url("../image/sp_icon_v5.jpg") no-repeat scroll 0 -232px transparent;
+}
+.turn_page a:link, .turn_page a:visited, .turn_page a:hover, .turn_page span.omit{
+     background: url("../image/sp_icon_v5.jpg") repeat-x scroll 0 -269px #FFFFFF;
+}
+.turn_page .selected a,.turn_page  a:hover{
+     background: none repeat scroll 0 0 #226AC4;
+}
+.turn_page{
+    width:600px;
+}
+
+.turn_pagemap .selected a,.turn_page  a:hover{
+     background: none repeat scroll 0 0 #226AC4;
+}
+.turn_pagemap{
+    width:600px;
+}
+.turn_pagemap ul li.selected a{
+    color:#FFFFFF;
+}
+
+.comment_box .snt_box{
+    display: none;
+}
+/*浏览过的小区或房源*/
+.bh_house .bh1 .item .b2{
+    display: none;
+    position: relative;
+    z-index: 100;
+}
+#browseUL .item .star_box2 li{
+    height: 22px;
+    width: 22px;
+}
+.bh_house{
+    height: 0px;
+    background: url("../image/browse_bg.jpg") repeat-x scroll left 296px #E5E5E5;
+}
+
+#center .search_box .hoverCli{
+    background:url(../image/sp_icon_v2.png) no-repeat 0 -527px;
+}
+#visitBox .disabled{
+    display: none;
+}
+
+/*
+为你推荐
+*/
+#recommendComunity .cmbox_wrap .cmbox .tool_bar01 li{
+    cursor: pointer;
+}
+#recommendComunity .cmbox_wrap .cmbox .recommendBox{
+    display: none;
+}
+#center .r_box .cmbox .t1{    
+    border-top: 1px solid #D5D4D9; 
+    border-left: 1px solid #D5D4D9; 
+    border-right: 1px solid #D5D4D9; 
+}
+#center .r_box .cmbox_wrap.nomargin{
+     margin: 0 0 0 14px;
+}
+#center .r_box .title{
+      margin: 10px 0 10px 14px;
+}
+#center .r_box .cmbox_wrap{
+    margin: 8px 0 0 14px;
+}
+
+#center .r_box .ad_box{
+    margin: 10px 0 0 14px;
+}
+#center .r_box .cmbox2{
+    margin: 8px 0 0 14px;
+}
+#center .r_box .cmbox_wrap .arrow{
+    top:-15px;
+}
+/*
+菜单
+*/
+#center .nav ul.sub,#center .nav .title .show{
+    display: none;
+}
+#center .nav{
+	position:absolute; right:310px; top:75px;
+	width:142px; height:190px;}	
+#center .nav .title{
+	position:relative;
+	width:142px; height:30px; background:url(../image/sp_icon_v2.png) no-repeat 0 -65px;}
+#center .nav .title .show,#center .nav .title .hide{
+	position:absolute; right:7px; top:7px;
+	width:16px; height:16px; background:url(../image/sp_icon_v2.png) no-repeat -195px -73px; cursor:pointer;}
+#center .nav .title .hide{
+	background:url(../image/sp_icon_v2.png) no-repeat -169px -73px;}	
+#center .nav .item_box{
+	width:135px; border:1px solid #A8A9AE; margin-left:5px; background-color:#fff;}	
+#center .nav .item_box .item{
+	position:relative;
+	width:100px; padding-left:35px; border-bottom:1px solid #CCC;
+	font:12px/30px "宋体"; text-align:left;}
+#center .nav .item_box .item_wrap{
+	background:url(../image/sp_icon_v2.png) repeat-x 0 -618px;}
+#center .nav .item_box .item .new{
+	position:absolute; right:40px; top:-22px;
+	width:35px; height:35px; background:url(../image/sp_icon_v1.png) no-repeat 0 -614px;}	
+#center .nav .item_box .item a{
+	color:#B2B2B2; text-decoration:none;}	
+#center .nav .item_box .item a.yellow{
+	color:#FF8C02;}	
+#center .nav .item_box .item.m1{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -248px;}	
+#center .nav .item_box .item.m2{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -278px;}
+#center .nav .item_box .item.m3{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -307px;}
+#center .nav .item_box .item.m4{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -337px;}
+#center .nav .item_box .item.m5{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -368px;}
+#center .nav .item_box .item.m6{
+	background:url(../image/sp_icon_v1.png) no-repeat 7px -663px;}	
+#center .nav .item_box .item.m1.current{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -574px;}
+#center .nav .item_box .item.m2.current{
+	background:url(../image/sp_icon_v1.png) no-repeat 0 -704px;}	
+#center .nav .item_box .item.m3.current{
+	background:url(../image/sp_icon_v1.png) no-repeat 2px -746px;}	
+#center .nav .item_box .item.m4.current{
+	background:url(../image/sp_icon_v1.png) no-repeat 0 -791px;}		
+/*--*/
+#center .nav ul.sub{
+	width:135px; margin-left:0; border:0; padding-bottom:10px; border-bottom:1px solid #ccc; background-color:#F0F1F5;}
+#center .nav ul.sub li{
+	width:100px; height:25px; padding-left:35px; border-bottom:0;
+	font:12px/30px "宋体"; text-align:left;}	
+.ms_popup{
+    display: none;
+}
+/*
+ 小区周边配套列表
+*/
+#center .r_box .cmbox .info_box2 .ll_box{
+    height: auto;
+}
+.menu .t1 .i2 p{
+    text-align: left;
+    padding-left: 5px;
+}
+/*
+ 搜索下拉框
+*/
+.ssb_popup_box .form_box dd .sp_box{
+   max-height: 235px;
+   overflow-y:  auto;
+   overflow-x: hidden;
+}    
+/*
+ 搜索下拉框
+*/
+#recommendPop .pr_box{
+    width: auto;
+}
+#recommendPop .pr_box li{
+    float: none;
+}
+/*
+ 小区配套工具条
+*/
+.e_toolbar ul.a1 li.i8{
+     background: url("../image/sp_icon_v4.jpg") no-repeat scroll -20px -80px transparent;
+}
+
+.e_toolbar ul.a1 li.i8.current {
+    background: url("../image/sp_icon_v4.jpg") no-repeat scroll -339px -80px transparent;
+}
+.e_toolbar ul.a1 li.i9 {
+    background: url("../image/sp_icon_v4.jpg") no-repeat scroll -54px -80px transparent;
+}
+
+.e_toolbar ul.a1 li.i9.current {
+    background: url("../image/sp_icon_v4.jpg") no-repeat scroll -373px -80px transparent;
+}
+/*
+ 大家都在看
+*/
+#center .r_box .cmbox .t1{
+    cursor: pointer;
+}
+#center .r_box .topic{
+      margin: 0 0 0 21px;
+      width: 252px;
+}
+#center .r_box .topic .next{
+    background: url("../image/sp_icon_v1.png") no-repeat scroll 0 -502px transparent;
+    left: 241px;
+}
+#center .r_box .topic .next.disable{
+      background: url("../image/sp_icon_v1.png") no-repeat scroll -30px -502px transparent;
+      left: 241px;
+}
+
+/*
+ 小区弹出框
+*/
+.phd_box_02 .aa{
+    cursor: pointer;
+}
+.phd_box_02 .bb{
+    width: 440px;
+}
+.phd_box_02 .bb .title{
+    text-align: left;
+     margin-bottom: 5px;
+  color: #5d5d5d;
+  font-weight: bold;
+}
+.phd_box_02 .bb .communityWrap{
+    float: left;
+    height: 70px;
+    width: 100px;
+    text-align: left;
+}
+.phd_box_02 .bb .communityWrap a{
+    width: 100px;
+    text-decoration: none;
+    overflow: hidden;
+}
+.phd_box_02 .bb .communityWrap a{
+    line-height: 20px;
+}
+.phd_box_02 .bb .communityWrap .communityName{
+    
+}
+.phd_box_02 .bb .community{
+    background: url("../image/flash.jpg") no-repeat scroll 0px 0px transparent;     
+    height: 64px;
+    width: 60px;
+}
+.phd_box_02 .bb .one{
+    background-position: -14px -24px;
+}
+.phd_box_02 .bb .two{
+    background-position: -119px -24px;
+}
+.phd_box_02 .bb .three{
+    background-position: -227px -24px;
+}
+.phd_box_02 .bb .four{
+    background-position: -324px -24px;
+}
+/*
+  搜索框
+*/
+.ssb_wrap{
+    left:100px;
+}
+.ssb_popup_box{
+    width:745px;
+}
+.ssb_popup_box ul li.m2{
+	background: url(../image/sp_icon_v2.png) no-repeat 0 -800px;}
+.ssb_popup_box ul li.m1_current{
+	background:url(../image/sp_icon_v2.png) no-repeat 0 -760px;
+	width: 112px;}
+.ssb_popup_box ul li .m1_t_icon{
+	position:absolute; left:0; top:-7px;
+	width:112px; height:7px; background:url(../image/sp_icon_v2.png) no-repeat 0 -753px;}	
+
+.ssb_popup_box .default_search_btn , .ssb_popup_box .go_btn1, .ssb_popup_box .go_btn2{
+    cursor: pointer;
+    float: left;
+    height: 15px;
+    margin: 10px 0 15px 638px;
+    padding: 5px 0 10px;
+    width: 87px;
+}
+.ssb_popup_box .default_search_btn{
+    background: url("../image/sp_icon_v2.png") no-repeat scroll -125px -692px transparent;
+}
+
+.ssb_popup_box .go_btn1{
+    background: url("../image/exchange_btn.png") no-repeat scroll 0px 0px transparent;
+}
+.ssb_popup_box .go_btn2{
+    background: url("../image/sp_icon_v2.png") no-repeat scroll -125px -659px transparent;
+}
+#mapExchangeKey, #mapRentKey{
+    color: #9D9D9D;
+}
+/*
+* 推荐小区工具条
+*/
+.recommendToolbar{
+    position:absolute;
+    z-index: 1000;
+    *+left:0px;
+}
+#center .r_box .tool_bar01, #center .r_box .tool_bar02{
+    display: none;
+}
+#center .r_box .tool_bar02{
+    left:-12px;
+    width:271px;
+}
+#center .r_box .tool_bar01{
+    background-image: url("../image/bj_1.png");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    height: 33px;
+    width: 276px;
+    left:-5px;
+}
+#center .r_box .tool_bar01 div{
+    cursor: pointer;
+}
+#center .r_box .tool_bar01 .map_icon{
+    float: left;
+    height: 33px;
+    width: 6px;
+}
+#center .r_box .tool_bar01 .map_main,#center .r_box .tool_bar01 .map_main_hover{
+    float:left;
+	margin-top: 8px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	line-height: 25px;
+	color: #FFFFFF;
+	height: 25px;
+    width: 90px;
+	text-align: center;
+}
+#center .r_box .tool_bar01 .map_main{
+  	background-image: url(../image/bj_3.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+#center .r_box .tool_bar01 .map_main_hover{
+	background-image: url(../image/bj_2.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+#center .r_box .tool_bar01 .map_main img{
+    vertical-align: -15%;
+	margin-right: 5px;
+}
+/*
+* 房源对比
+*/
+.contrast_box{
+    height: 520px;
+    right: 298px;
+    top: 75px;
+}
+.contrast_box .info_box .a2_box .delCommunity{
+    background-color: #6dd0f5;
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    width: 35px;
+    padding-top: 5px;
+    color: white;
+}
+.contrast_box .info_box .a2_box .hover{       
+    background-color: #28baef;
+}
+/*
+* 地图头部
+*/
+#header .city{
+    background: #62BCFB;
+    float: left;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 19px;
+}
+#header .cityHover{
+    background: url("../image/hover-bg.png") repeat scroll 0 0 transparent;
+    background-position: -15px -232px;
+}
+#header .city a:link, #header .city a:visited, #header .city a:hover{
+    background-image: url("../image/new_top_icon4.png");
+    background-position: 8px center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font: bold 12px/20px "微软雅黑";
+    outline: medium none;
+    padding: 0 10px 0 23px;
+    text-align: left;
+    text-decoration: none;
+}
+#header .nav li a:hover{
+    background-image: url("../image/new_top_icon6.gif");
+    background-repeat: repeat-x;
+}
+.citymenu {
+    background: url("../image/hover-bg.png") repeat scroll 0 0 transparent;
+    background-position: -511px -264px;
+    height: 113px;
+    left: 165px;
+    position: absolute;
+    top: 40px;
+    width: 318px;
+    z-index: 99;
+    display: none;
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+.citymenu ul {
+    padding: 25px 5px 17px 10px;
+    width: 303px;
+}
+
+.citymenu li {
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 31px;
+    line-height: 31px;
+    margin-bottom: 9px;
+}
+
+.citymenu li b {
+    background: none repeat scroll 0 0 #00ADED;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    height: 31px;
+    line-height: 31px;
+    margin-right: 5px;
+    text-align: center;
+    width: 47px;
+}
+
+.citymenu li a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 31px;
+    margin: 0 3px;
+    padding: 0 5px;
+}
+.citymenu li a:hover{
+    background-color: #00aded;
+    text-decoration: none;
+}
+.moreList,.moreList li, .moreList li.morebg02, .moreList li.morebg03, .moreList li.morebg05, .moreList li.morebg04, .moreList li.morebg06, .moreList li.morebg07, .moreList li.morebg08{
+    background: url("../image/hover-bg.png") no-repeat scroll 0 0 transparent;
+}
+.moreList{    
+    z-index: 2000;
+    background-position: -509px -40px;
+    height: 155px;
+    position: absolute;
+    left: 28px;
+    top: 64px;
+    width: 723px;
+    display: none;
+    
+}
+
+.moreList .arrow-blue {
+    height: 8px;
+    position: absolute;
+    right: 1px;
+    top: -6px;
+    width: 71px;
+}
+.moreList .arrow-blue img{
+    *+margin-bottom: 10px;
+}
+.moreList ul {
+    height: 91px;
+    padding: 25px 13px 0 24px;
+    width: 689px;
+}
+.moreList li {
+    background-position: -341px 0;
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    height: 31px;
+    line-height: 31px;
+    margin: 0 10px 29px 12px;
+    padding: 0 0 0 32px;
+    text-align: center;
+    width: 76px;
+}
+.moreList li.morebg02{
+     background-position: -341px -56px;
+}
+.moreList li.morebg03 {
+    background-position: -341px -110px;
+}
+.moreList li.morebg04 {
+    background-position: -341px -220px;
+}
+.moreList li.morebg05 {
+    background-position: -341px -276px;
+}
+.moreList li.morebg06 {
+    background-position: -341px -164px;
+}
+
+.moreList li.morebg07 {
+    background-position: -341px -332px;
+}
+.moreList li.morebg08 {
+    background-position: -341px -388px;
+}
+
+.moreList li a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    height: 31px;
+    line-height: 31px;
+    width: 76px;
+}
+.moreList li a:hover{
+    background-color: #00aded;
+    text-decoration: none;
+}
+/*
+IE7 周边配套设施hack
+*/
+ #localSearchList #searchList .cmbox .menu{
+        *+left:0px;        
+}
+.phd_box_03 .aaHover{
+    background-position: -593px -446px;
+}
+/*
+* 菜单路况信息
+*/
+#tcBtn{
+    display: none;
+}
+
+/*
+* 菜单分享功能
+*/
+.share_popup{
+     display: none;
+    height: 85px;
+    right: 138px;
+    top: 85px;
+    width: 350px;
+      position: absolute;
+    z-index: 99997
+}
+.share_popup .popup_main{
+      background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+.share_popup .popup_main .close{
+    background: url("../image/sp_icon_v7.png") no-repeat scroll -144px -93px transparent;
+    cursor: pointer;
+    height: 14px;
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    width: 14px;
+}
+.share_popup .share_title {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-bottom: 1px solid #DADADA;
+    color: #4C4C4C;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 7px;
+    text-align: left;
+}
+.share_popup .content{
+    height: 61px;
+}
+.mapshare_container, .poishare_container {
+    padding: 6px 0 0 6px;
+    white-space: normal;
+    text-align: left;
+}
+
+#getLinkBtnCon {
+    height: 26px;
+    position: absolute;
+    right: 6px;
+    top: 32px;
+    width: 48px;
+}
+#getLinkBtnCon input{
+   cursor: pointer;
+    display: block;
+    height: 26px;
+    width: 48px;
+}
+
+.getLinkInput {
+    border: 1px solid #A6A6A6;
+    height: 21px;
+    line-height: 21px;
+    width: 282px;
+}
+
+.bds_tools {
+    float: left;
+    font-size: 12px;
+    height: 25px;
+    overflow: hidden;
+    text-align: left !important;
+    width: 100%;
+    z-index: 999999;
+    padding-top:7px; 
+}
+
+.bds_tools .shareToSpan{
+    float: left;
+    margin-right: 5px;
+    margin-top: 1px;
+}
+.bds_tools .more_btn{
+    display: none;
+}
+.bds_tools .more_btn_span{
+    cursor: pointer;
+    color: #a3a3a3;
+}
+
+/*
+* 圈选弹出框
+*/
+.popup_tip .content .inner{
+    padding-left: 115px;
+}
+.popup_tip .content .arrow{
+     left: 72px;
+}
+
+/*
+* 地图新头部 地图内容 
+*/
+#center{
+    top:73px;
+    padding: 0 300px 0 0;
+}
+#center .map_box{
+    margin-top: 0px;
+}
+#new_map{
+    text-align: left;
+}
+/*
+* 搜索框
+*/
+#new_map .new_map_ss1 input{
+    width:100%;
+}
+#new_map .new_map_ss2{
+    cursor: pointer;
+}
+#new_map .subWay{
+    position: relative;
+}
+/*
+* 浏览过的房源
+*/
+.bh_house{
+    top:65px;
+}
+.bh_house .arrow{
+    left:641px;
+}
+#new_map .view_house a{
+    display: block;
+    width: 159px;
+    height:29px;
+    background: url("../image/new_map_fy.gif") no-repeat scroll 0px 0px transparent;
+}
+#new_map .view_house a:hover, #new_map .view_house .hoverCli{ 
+    background: url("../image/new_map_fy1.gif") no-repeat scroll 0px 0px transparent;
+}
+
+/*
+* 地铁
+*/
+#new_map .subWay a{
+    display: block;
+    width: 67px;
+    height:29px;
+    background: url("../image/new_map_dt.gif") no-repeat scroll 0px 0px transparent;
+}
+#new_map .subWay a:hover, #new_map .subWay .ahover{ 
+    background: url("../image/new_map_dt1.gif") no-repeat scroll 0px 0px transparent;
+}
+#new_map_xlk{
+    background: white;
+    z-index: 1001;
+    top:20px;
+    left:-18px;
+    display: none;
+}
+.new_map_xlk_wz li{
+    cursor: pointer;
+}
+
+/*
+* 星星评分
+*/
+.grade{
+	color: #555555;
+	font-size: 14px;
+}
+div.col4 h1{ background:none;height:auto;line-height:30px;font-size:14px;}
+div.col4{width:355px; padding-left:40px; background:url(../image/line-bg2.png) repeat-y;}
+div.col4 li em{color:#999;font-size:12px; margin:0px 10px;}
+div.col4 h1 input{background:#ff6000;color:#fff; text-align:center; border:none;width:40px;font-size:14px;line-height:20px;height:20px; margin-left:13px;}
+.broder_plList {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top:4px;
+    float:left;
+    margin-left:10px;
+}
+.mt6{
+	width:360px;
+}
+.broder_plList li {
+    float: left;
+}
+.broder_plList li span.star01 {
+    background: url("../image/star4.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 19px;
+    width: 19px;
+}
+.broder_plList li span.star02 {
+    background: url("../image/star3.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 19px;
+    width: 19px;
+}
+.broder_plList li span.star03 {
+    background: url("../image/star3.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 19px;
+    width: 19px;
+}
+.broder_plList a {
+    display: block;
+    height: 19px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 50;
+}
+
+.broker_tips {
+    display: inline-block;
+    right: 10px;
+    overflow: hidden;
+    position: absolute;
+    /*margin-left:100px;*/
+    margin-top:1px;
+    left:190px;
+    text-align: left;
+}
+.broker_tips p strong {
+    color: #FF3300;
+    font-size: 13px;
+    font-weight: bold;
+}
+.broker_tips p span {
+    color:#999;
+    font-size:13px;
+}
+
+.vote {
+	background-color: silver;
+	padding: 0 5px;
+}
+/*pingfen end*/	
+
+/*
+* 定位
+*/
+.position_tip{
+    display: none;
+    z-index: 99991;
+}
+.tangram-suggestion-main{
+    z-index: 99991;
+    text-align: left;
+}
+.tangram-suggestion-main .tangram-suggestion tr{
+    display: block;
+    padding: 5px;
+}
+.tangram-suggestion-main .tangram-suggestion tr td{
+    width: 100%;
+    cursor: pointer;
+}
+.m_position_box{
+    z-index: 1000;
+    left:65px;
+}
+/*
+ 个人中心
+*/
+.user_info_box .m2_popup{
+    display: none;
+}
+
+/*
+* 当前小区 二手房
+*/
+.sdr_title2{
+    background-color:#00b6ff;
+}
+#communityInfo .cmbox .t1 a{
+    text-decoration: none;
+}
+/*
+* 滚动条
+*/
+.bar_arrow{
+    display: block;
+    width: 8px;
+    height: 32px;
+    background: url("../image/bar_top.jpg") repeat-y scroll 0 0 transparent;
+    position: absolute;
+    right: -3px;
+}

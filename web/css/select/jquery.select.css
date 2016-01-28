@@ -1,0 +1,18 @@
+.cSearch {position: relative;}
+
+.cSearch .valueContainer{width:100%; position:relative; cursor:pointer;}
+
+.cSearch .selectedValue{width:99%; background-color:#fff; line-height:23px; height:23px; border:1px #ADADAD solid;}
+
+.cSearch .xlicon{width:25px; height:25px; background-color:#adadad; position:absolute; top:0px; right:0px; background-image:url('../../image/selectXL.png')}
+
+.cSearch .xlicon:hover{background-color:#f60;}
+
+.cSearch span{background-color: inherit;float:inherit;}
+
+.cSearch .xlxx{ border:1px solid #ADADAD; display:none;z-index:999; position:absolute; line-height:26px; width:99%; background-color:white; max-height: 300px; overflow: auto; }
+
+.cSearch a{display:block; line-height:26px; cursor:pointer;}
+
+.cSearch a:hover{background-color:#f60; line-height:26px; color:#fff;}
+

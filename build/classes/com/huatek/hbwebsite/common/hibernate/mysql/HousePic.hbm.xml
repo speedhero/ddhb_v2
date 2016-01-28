@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="HousePic" table="house_picture">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="houseId" column="house_id" type="java.lang.String"/>
+		
+		<property name="houseType" column="house_type" type="java.lang.Integer"/>
+		
+		<property name="picType" column="picture_type" type="java.lang.Integer"/>
+		
+		<property name="picComment" column="picture_comment" type="java.lang.String" length="1000"/>
+		
+		<property name="picUrl" column="picture_uri" type="java.lang.String" length="500"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="sortIndex" column="sortindex" type="java.lang.Integer"/>
+		
+		<property name="layoutFlag" column="layoutflag" type="java.lang.Integer"/>
+		
+		<property name="pictureFormat" column="picture_format" type="java.lang.String" length="10"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+		<property name="pictureName" column="picture_name" type="java.lang.String"/>
+		
+		<property name="shelvingID" column="shelving_id" type="java.lang.String"/>
+	</class>
+	
+</hibernate-mapping>

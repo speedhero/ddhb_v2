@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.consignment.entity">
+	<class name="EntrustSalehouse" table="entrust_salehouse">
+		<id name="id" type="java.lang.Long" column="sale_no">
+			<generator class="native"/>
+		</id>
+		<property name="communityId" column="community_no" type="java.lang.String" length="40"/>
+		
+		<property name="buildingNo" column="buildingNo" type="java.lang.Integer"/>
+		
+		<property name="unitNo" column="unitNo" type="java.lang.Integer"/>
+		
+		<property name="roomNo" column="roomNo" type="java.lang.Integer"/>
+		
+		<property name="area" column="area" type="java.lang.Integer"/>
+		
+		<property name="communityName" column="community_name" type="java.lang.String" length="100"/>
+		
+		<property name="shi" column="shi" type="java.lang.Integer"/>
+		
+		<property name="ting" column="ting" type="java.lang.Integer"/>
+		
+		<property name="price" column="price" type="java.lang.Integer"/>
+		
+		<property name="otherRequirement" column="other_requirement" type="java.lang.String" length="500"/>
+		
+		<property name="userNo" column="user_no" type="java.lang.Long"/>
+		
+		<property name="gender" column="gender" type="java.lang.Integer"/>
+		
+		<property name="userName" column="name" type="java.lang.String" length="50"/>
+		
+		<property name="telePhone" column="telephone" type="java.lang.String" length="20"/>
+		
+		<property name="otherContact" column="otherContact" type="java.lang.String" length="100"/>
+		
+		<property name="synchronizedFlag" column="synchronized_flag" type="java.lang.Integer"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="synchronizedTime" column="synchronized_time" type="java.sql.Timestamp"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

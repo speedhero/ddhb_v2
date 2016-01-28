@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huatek.hbwebsite.search.entity">
+	<class name="SearchElevator" table="search_elevator">
+		<id name="id" type="java.lang.Long" column="no">
+			<generator class="native" />
+		</id>
+		
+		<property name="title" column="title" type="java.lang.String" length="20"/>
+		
+		<property name="value" column="value" type="java.lang.Integer"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+
+	</class>
+</hibernate-mapping>

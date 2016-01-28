@@ -1,0 +1,291 @@
+/**
+ * 
+ */
+package cn.hshb.web.partner.baidu.service;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.SAXValidator;
+import org.dom4j.io.XMLWriter;
+import org.dom4j.util.XMLErrorHandler;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import cn.hshb.web.partner.baidu.common.EnumHouseStatus;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+/**
+ * @author Sheng Youfu (wdmsyf@yahoo.com)
+ * @since 2015-01
+ * @version 1.0 http://www.hshb.cn
+ * 
+ */
+public class TestForXML {
+
+	public void testForHouseSecond() {
+		// List<UrlOfHouseSecond> urlset = new ArrayList<UrlOfHouseSecond>();
+		UrlOfHouseSecond[] urlset = new UrlOfHouseSecond[2];
+		for (int ii = 0; ii < 2; ii++) {
+			UrlOfHouseSecond url = new UrlOfHouseSecond();
+			url.setLoc("http://www.hshb.cn/" + ii);
+			DataOfHouseSecond data = new DataOfHouseSecond();
+			SellingInfo dat = new SellingInfo();
+			data.setData(dat);
+
+			dat.setBroker("Broker" + ii);
+			dat.setBrokerTel("BrokerTel" + ii);
+			dat.setCheckinTime("checkinTime" + ii);
+//			dat.setDomain("domain" + ii);
+			dat.setName("name" + ii);
+			dat.setPriority(String.valueOf(ii));
+			dat.setSchoolDistrict("schoolDistrict" + ii);
+			dat.setSellingIntroduce("sellingIntroduce" + ii);
+			dat.setSellingPayment("sellingPayment" + ii);
+			dat.setSellingPrice("sellingPrice" + ii);
+			dat.setSellingPriceAvg("sellingPriceAvg" + ii);
+			dat.setSource("source" + ii);
+//			dat.setStatus("status" + ii);
+			dat.setStatus(EnumHouseStatus.ADD.getValue());
+			dat.setTaxInfo("taxInfo" + ii);
+			dat.setTimeforView("timeforView" + ii);
+//			dat.setType("type" + ii);
+
+			List<Contact> contactList = new ArrayList<Contact>();
+			for (int jj = 0; jj < 10; jj++) {
+				Contact c = new Contact();
+				c.setFlag("flag" + "_" + ii + "_" + jj);
+				c.setGender("gender" + "_" + ii + "_" + jj);
+				c.setName("name" + "_" + ii + "_" + jj);
+				c.setProfile("profile" + "_" + ii + "_" + jj);
+				c.setTelephone("telephone" + "_" + ii + "_" + jj);
+				c.setType("type" + "_" + ii + "_" + jj);
+				c.setWorksFor("worksFor" + "_" + ii + "_" + jj);
+				contactList.add(c);
+			}
+			// dat.setContactList(contactList);
+			dat.setContact(contactList.toArray(new Contact[] {}));
+
+			House house = new House();
+			house.setBuildNum("buildNum" + ii);
+			house.setBuildType("buildType" + ii);
+			house.setBuildUnit("buildUnit" + ii);
+			house.setCovorImage("covorImage" + ii);
+			house.setDecoration("decoration" + ii);
+			house.setHouseAllFloor("houseAllFloor" + ii);
+			house.setHouseFloor("houseFloor" + ii);
+			house.setHouseArea("houseArea" + ii);
+			house.setHouseImageNum("houseImageNum" + ii);
+			house.setHouseOrientation("houseOrientation" + ii);
+			house.setHouseSituation("houseSituation" + ii);
+			house.setHouseStructurename("houseStructurename" + ii);
+			house.setHouseStructureshi("houseStructureshi" + ii);
+			house.setHouseStructureting("houseStructureting" + ii);
+			house.setHouseStructurewei("houseStructurewei" + ii);
+			house.setHouseType("houseType" + ii);
+			house.setIsPartition("isPartition" + ii);
+			house.setPropertyVerified("propertyVerified" + ii);
+			house.setRoomNum("roomNum" + ii);
+			house.setTag("tag" + ii);
+			house.setUrl("url" + ii);
+			List<String> houseImageList = new ArrayList<String>();
+			for (int jj = 0; jj < 5; jj++)
+				houseImageList.add("houseImage" + "_" + ii + "_" + jj);
+			// house.setHouseImageList(houseImageList);
+			house.setHouseImage(houseImageList.toArray(new String[] {}));
+			dat.setHouse(house);
+
+			List<String> installationsList = new ArrayList<String>();
+			for (int jj = 0; jj < 5; jj++)
+				installationsList.add("installationsList" + "_" + ii + "_" + jj);
+			// dat.setInstallationsList(installationsList);
+			dat.setInstallations(installationsList.toArray(new String[] {}));
+
+			dat.setLastmod(new Date());
+			dat.setPublishTime(new Date());
+
+			RealEstateForHouse realEstate = new RealEstateForHouse();
+			realEstate.setRealestateCity("realestateCity" + ii);
+			realEstate.setRealestateID("realestateID" + ii);
+			realEstate.setRealestateName("realestateName" + ii);
+			dat.setRealEstate(realEstate);
+
+			url.setData(data);
+			// urlset.add(url);
+			urlset[ii] = url;
+		}
+
+		String strObjXML = "";
+		XStream xStream = new XStream(new DomDriver());
+		xStream.aliasPackage("", "cn.hshb.web.partner.baidu.entity");
+		xStream.alias("url", UrlOfHouseSecond.class);
+
+		strObjXML = xStream.toXML(urlset);
+		strObjXML = strObjXML.replace("url-array", "urlset");
+		System.out.println(strObjXML);
+
+		try {
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+//			Document doc = docBuilder.parse(new StringBufferInputStream(strObjXML));
+			ByteArrayInputStream bais = new ByteArrayInputStream(strObjXML.getBytes("UTF-8"));
+			Document doc = docBuilder.parse(bais);
+			
+			processList(doc, "/urlset/url/data/SellingInfo/house/houseImage", "houseImage");
+			processList(doc, "/urlset/url/data/SellingInfo/installations", "installations");
+			processSX(doc, "/urlset/url/data/SellingInfo/name", "/urlset/url/data/SellingInfo/domain");
+			processSX(doc, "/urlset/url/data/SellingInfo/domain", "/urlset/url/data/SellingInfo/type");
+			processContact(doc);
+			String strXML = update(doc);
+			System.out.println(strXML);
+			
+			validateXml("D:/Project/website/project/ddhb/hshb_src/cn/hshb/web/partner/baidu/entity/example/HouseSecondSchema.xsd", doc);
+			
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (ParserConfigurationException ex) {
+			ex.printStackTrace();
+		} catch (SAXException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	private void processList(Document doc, String baseXPath, String newElName) {
+		try {
+			XPath xpath = XPathFactory.newInstance().newXPath();
+			XPathExpression expr = xpath.compile(baseXPath);
+			NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+			for (int i = 0; i < nodes.getLength(); i++) {
+				Node houseImageNode = nodes.item(i);
+				Node pNode = houseImageNode.getParentNode();
+				expr = xpath.compile("string");
+				NodeList cnodes = (NodeList) expr.evaluate(houseImageNode, XPathConstants.NODESET);
+				for (int jj = 0; jj < cnodes.getLength(); jj++) {
+					String val = cnodes.item(jj).getTextContent();
+					Node newNode = doc.createElement(newElName);
+					newNode.setTextContent(val);
+					pNode.appendChild(newNode);
+				}
+				pNode.removeChild(houseImageNode);
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void processContact(Document doc) {
+		try {
+			XPath xpath = XPathFactory.newInstance().newXPath();
+			XPathExpression expr = xpath.compile("/urlset/url/data/SellingInfo/contact");
+			NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+			for (int i = 0; i < nodes.getLength(); i++) {
+				Node node = nodes.item(i);
+				Node pNode = node.getParentNode();
+				expr = xpath.compile("Contact");
+				NodeList cnodes = (NodeList) expr.evaluate(node, XPathConstants.NODESET);
+				for (int jj = 0; jj < cnodes.getLength(); jj++) {
+					pNode.appendChild(cnodes.item(jj));
+				}
+				pNode.removeChild(node);
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void processSX(Document doc, String xpath1, String xpath2) {
+		try {
+			XPath xpath = XPathFactory.newInstance().newXPath();
+			XPathExpression expr1 = xpath.compile(xpath1);
+			XPathExpression expr2 = xpath.compile(xpath2);
+			NodeList nodes1 = (NodeList) expr1.evaluate(doc, XPathConstants.NODESET);
+			NodeList nodes2 = (NodeList) expr2.evaluate(doc, XPathConstants.NODESET);
+			if(nodes1!=null && nodes2 !=null){
+				Node node1 = nodes1.item(0);
+				Node node2 = nodes2.item(0);
+				Node p1 = node1.getParentNode();
+				Node p2 = node2.getParentNode();
+				p1.insertBefore(node2, node1);
+//				p1.removeChild(node1);
+				p2.insertBefore(node1, node2);
+//				p2.removeChild(node2);
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private String update(Document doc) {
+		try {
+			// 创建一个TransformerFactory实例
+			TransformerFactory tff = TransformerFactory.newInstance();
+			// 通过TransformerFactory 得到一个转换器
+			Transformer tf = tff.newTransformer();
+			// 通过Transformer类的方法 transform(Source xmlSource, Result outputTarget)
+			// 将 XML Source 转换为 Result。
+			StringWriter sw = new StringWriter();
+			tf.transform(new DOMSource(doc), new StreamResult(sw));
+			sw.flush();
+			return sw.toString();
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private boolean validateXml(String xsdPath, Document doc) throws SAXException, IOException {
+		// 建立schema工厂
+		SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		// 建立验证文档文件对象，利用此文件对象所封装的文件进行schema验证
+		File schemaFile = new File(xsdPath);
+		// 利用schema工厂，接收验证文档文件对象生成Schema对象
+		Schema schema = schemaFactory.newSchema(schemaFile);
+		// 通过Schema产生针对于此Schema的验证器，利用schenaFile进行验证
+		Validator validator = schema.newValidator();
+		// 得到验证的数据源
+		//Source source = new StreamSource(xmlPath);
+		Source source = new DOMSource(doc);
+		// 开始验证，成功输出success!!!，失败输出fail
+		validator.validate(source);
+
+		return true;
+		
+	}
+
+	public static void main(String[] args) {
+		TestForXML test = new TestForXML();
+		test.testForHouseSecond();
+	}
+}

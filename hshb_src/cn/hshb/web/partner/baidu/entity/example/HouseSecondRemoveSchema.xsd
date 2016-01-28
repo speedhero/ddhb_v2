@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xsd:element name="urlset">
+		<xsd:annotation>
+			<xsd:documentation>
+				urlset用来标记整个文档的开头
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="url" minOccurs="0" maxOccurs="50000"
+					type="tUrl" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="tUrl">
+		<xsd:annotation>
+			<xsd:documentation>
+				url标记每条信息的开始和结束
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="loc" minOccurs="1" maxOccurs="1" type="tLoc" />
+			<xsd:element name="data" type="tData" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tLoc">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源id，用来定位资源进行更新、删除，要求唯一、稳定,任意url
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+			<xsd:whiteSpace value="collapse" />
+			<xsd:maxLength value="256" />
+			<xsd:minLength value="1" />
+			<xsd:pattern value="(http://)(.+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tData">
+		<xsd:sequence>
+			<xsd:element name="SellDelete" minOccurs="1" maxOccurs="1"
+				type="tSellDelete" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tSellDelete">
+		<xsd:annotation>
+			<xsd:documentation>
+				需要删除的二手房房源
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="publishTime" minOccurs="1" maxOccurs="1"
+				type="tPublishTime" />
+			<xsd:element name="lastmod" minOccurs="1" maxOccurs="1"
+				type="tLastmod" />
+			<xsd:element name="ID" minOccurs="1" maxOccurs="1" type="tID" />
+			<xsd:element name="name" minOccurs="1" maxOccurs="1"
+				type="tName" />
+			<xsd:element name="domain" minOccurs="1" maxOccurs="1"
+				type="tDomain" />
+			<xsd:element name="type" minOccurs="1" maxOccurs="1"
+				type="tType" />
+			<xsd:element name="DeleteReason" minOccurs="1" maxOccurs="1"
+				type="tDeleteReason" />
+			<xsd:element name="SellinglPrice" minOccurs="0"
+				maxOccurs="1" type="tSellinglPrice" />
+			<xsd:element name="source" minOccurs="1" maxOccurs="1"
+				type="tSource" />
+			<xsd:element name="status" minOccurs="1" maxOccurs="1"
+				type="tStatus" />
+			<xsd:element name="Broker" minOccurs="1" maxOccurs="1"
+				type="tBroker" />
+			<xsd:element name="BrokerTel" minOccurs="0" maxOccurs="1"
+				type="tBrokerTel" />
+			<xsd:element name="BuildNum" minOccurs="0" maxOccurs="1"
+				type="tBuildNum" />
+			<xsd:element name="BuildUnit" minOccurs="0" maxOccurs="1"
+				type="tBuildUnit" />
+			<xsd:element name="RoomNum" minOccurs="0" maxOccurs="1"
+				type="tRoomNum" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tPublishTime">
+		<xsd:annotation>
+			<xsd:documentation>
+				发布时间
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tLastmod">
+		<xsd:annotation>
+			<xsd:documentation>
+				指该条数据的最新一次更新时间，日期与时间之间\t分隔
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tID">
+		<xsd:annotation>
+			<xsd:documentation>
+				需要删除房源的ID
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tName">
+		<xsd:annotation>
+			<xsd:documentation>
+				即title，被删除房源title
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDomain">
+		<xsd:annotation>
+			<xsd:documentation>
+				后续处理所需数据，不用考虑，填写“房产”即可
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="房产" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tType">
+		<xsd:annotation>
+			<xsd:documentation>
+				后续处理所需数据，不用考虑，填写“HouseProperty”即可
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HouseProperty" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDeleteReason">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源的删除原因
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="已售" />
+			<xsd:enumeration value="其它" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSellinglPrice">
+		<xsd:annotation>
+			<xsd:documentation>
+				如果房源删除的原因为已售，则填写此项“出售价格”；否则请填写0；单位：元
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSource">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tStatus">
+		<xsd:annotation>
+			<xsd:documentation>
+				状态必须为"DEL“ 表示该条处于删除状态
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DEL" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBroker">
+		<xsd:annotation>
+			<xsd:documentation>
+				经纪人的姓名；如果为个人房源，请写：个人房源；如果房源删除原因是“其它”，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBrokerTel">
+		<xsd:annotation>
+			<xsd:documentation>
+				成交经纪人的电话（手机或者座机，必须是纯数字或者是区号-电话号码的格式）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\d+)|(\d+-\d+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBuildNum">
+		<xsd:annotation>
+			<xsd:documentation>
+				2014/12/4 百度站长平台_站长工具及站长交流平台
+				http://pm.zz.baidu.com/template2/schemaView?id=3656 4/5
+				楼号
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBuildUnit">
+		<xsd:annotation>
+			<xsd:documentation>
+				属于所在楼的几单元
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRoomNum">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源所在单元的房间号
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

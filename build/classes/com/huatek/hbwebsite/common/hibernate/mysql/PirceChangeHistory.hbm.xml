@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="PriceChangeHistory" table="pirce_change_history">
+		<id name="historyNo" type="java.lang.Integer" column="history_no" ><generator class="native"/>
+		</id>
+		<property name="houseId" column="house_id" type="java.lang.String" length="50"/>
+		<property name="lastPrice" column="last_price" type="java.lang.Float"></property>
+		<property name="newPrice" column="new_price" type="java.lang.Float"></property>
+		<property name="deleteFlag" column="delete_flag" type="java.lang.Integer"/>
+		<property name="houseType" column="house_type" type="java.lang.Integer"/>
+		<property name="updateTime" column="update_time" type="java.util.Date"/>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huatek.hbwebsite.search.entity">
+	<class name="SharedSearch" table="shared_search">
+		<id name="searchID" type="java.lang.String" column="search_id">
+		</id>
+		
+		<property name="searchItemFinger" column="search_item_finger" type="java.lang.String" length="100"/>
+		
+		<property name="searchContent" column="search_content" type="java.lang.String" length="1000"/>
+		
+		<property name="deleteFlag" column="delete_flag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

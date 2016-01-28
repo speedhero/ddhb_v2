@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.member.entity.UserBrowsedHistory" table="user_browsed_history">
+		<id name="historyId" type="java.lang.String" column="id">
+		</id>
+		
+		<property name="secondHandHouse" column="second_hand_house"></property>
+		
+		<property name="rentHouse" column="rent_house"></property>
+		
+		<property name="community" column="community"></property>
+		
+		<property name="lastBrowsedDate" column="last_browse_time"></property>
+		
+	</class>
+</hibernate-mapping>

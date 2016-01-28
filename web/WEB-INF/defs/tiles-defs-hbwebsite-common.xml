@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Tiles Definition -->
+	<definition name="common.definition" template="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_layout.jsp">
+		<put-attribute name="common.title" type="string" value="豪世华邦，专业因为懂你！" />
+		<put-attribute name="common.css" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_css.jsp" />
+		<put-attribute name="common.js" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_js.jsp" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.topbanner" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_top_banner.jsp"/>
+		<put-attribute name="common.image" type="template" value="" />
+		<put-attribute name="common.body" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_body.jsp" />
+		<put-attribute name="common.footer" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_footer.jsp" />
+		<put-attribute name="common.compare_history" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/compare_history.jsp" />
+	</definition>
+
+	<definition name="page.platmember.login" template="/WEB-INF/jsp/ddhb/front/member/login.jsp"></definition>
+
+	<definition name="recruit.information" extends="common.definition">
+		<put-attribute name="ddhb.search" type="template" value="/WEB-INF/jsp/ddhb/front/recruit/recruitShow.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/"></put-attribute>
+	</definition>
+
+	<definition name="contract.query" extends="common.definition">
+		<put-attribute name="common.title" value="合同查询" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/contractQuery/contractQuery.jsp" />
+	</definition>
+	
+	<definition name="activity.detail" extends="common.definition">
+		<put-attribute name="common.title" value="活动详情" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/activity_detail.jsp" />
+	</definition>
+	 
+	<!--                     company begin                        -->
+	<definition name="company.info.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_info_show.jsp"></put-attribute>
+	</definition>
+	<definition name="company.service.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_service_show.jsp"></put-attribute>
+	</definition>
+	<definition name="company.contact.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_contact_show.jsp"></put-attribute>
+	</definition>
+	<definition name="company.news.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_news_show.jsp"></put-attribute>
+	</definition>
+	<definition name="company.news.showNewsTypeList" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_news_showNewsTypeList.jsp"></put-attribute>
+	</definition>
+	<definition name="company.news.showNewsTypeListCutPage" template="/WEB-INF/jsp/hshb/front/company/company_news_showNewsTypeList_cutpage.jsp">
+	</definition>	
+	<definition name="company.news.showNewsDetail" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_news_showNewsDetail.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="company.invite.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_invite_show.jsp"></put-attribute>
+	</definition>
+	<definition name="company.invite.show.list" template="/WEB-INF/jsp/hshb/front/company/company_invite_show_list.jsp">
+	</definition>
+	<definition name="company.websitemap.show" extends="common.definition">
+		<put-attribute name="common.image" value="/WEB-INF/jsp/hshb/front/company/background.jsp"></put-attribute>
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/company/company_websitemap_show.jsp"></put-attribute>
+	</definition>
+	<!--                     company end                           -->
+	
+	<definition name="news.list" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/news/newsListShow.jsp"></put-attribute>
+	</definition>
+	<definition name="news.notice" template="/WEB-INF/jsp/ddhb/front/notice/news_notice.jsp"></definition>
+	
+	<definition name="calculator.show" template="/WEB-INF/jsp/ddhb/front/calculator.jsp"></definition>
+	
+	<!-- 二手房相关功能 -->
+	<definition name="houseSecond.list" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/houseSecondListShow.jsp" />
+	</definition>
+	<definition name="house.search.list" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/house_search_result.jsp" />
+	</definition>
+	<definition name="house.search.list.show" template="/WEB-INF/jsp/ddhb/front/house/house_search_list_show.jsp"></definition>
+	<definition name="houseSecond.detail" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/house_second_detail.jsp" />
+	</definition>
+	<definition name="houseSecond.detail.push" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/house_second_detail_push.jsp" />
+	</definition>
+	<definition name="houseSecond.bespeak" template="/WEB-INF/jsp/ddhb/front/house/houseSecondBespeak.jsp"></definition>
+	<definition name="houseSecond.compare" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/houseSecondCompare.jsp"></put-attribute>
+	</definition>
+	<definition name="houseSecond.search.list" template="/WEB-INF/jsp/ddhb/front/house/houseSecond_search_list.jsp"></definition>
+	<definition name="houseSecond.search.list" template="/WEB-INF/jsp/ddhb/front/house/houseSecond_search_list.jsp"></definition>
+	<definition name="house.second.search.list.show" template="/WEB-INF/jsp/ddhb/front/house/house_second_search_list_show.jsp"></definition>
+	<definition name="house.none" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/houseNone.jsp"></put-attribute>
+	</definition>
+
+	<!-- 出租房相关功能 -->
+	<definition name="rentHouse.List" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/rent/rent_house_list.jsp"></put-attribute>
+	</definition>
+	<definition name="houseRent.compare" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/rent/rentHouseCompare.jsp"></put-attribute>
+	</definition>
+	<definition name="houseRent.detail" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/rent/house_rent_detail.jsp"></put-attribute>
+	</definition>
+	<definition name="houseRent.ERP.detail" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/rent/house_rent_erp_detail.jsp"></put-attribute>
+	</definition>
+	<definition name="houseRent.search.list" template="/WEB-INF/jsp/ddhb/front/rent/houseRent_search_list.jsp"></definition>
+	
+	<!-- 小区相关功能 -->
+	<definition name="community.list.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/community/community_list.jsp" />
+	</definition>
+	<definition name="community.compare" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/community/community_compare.jsp" />
+	</definition>
+	<definition name="community.detail.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/community/community_detail.jsp" />
+	</definition>
+	<definition name="community.second.house.show" template="/WEB-INF/jsp/ddhb/front/community/community_houseSecond_show.jsp"></definition>
+	<definition name="community.rent.house.show" template="/WEB-INF/jsp/ddhb/front/community/community_rent_house_list.jsp"></definition>
+	<definition name="community.detail.search.list" template="/WEB-INF/jsp/ddhb/front/community/community_detail_search_list.jsp"></definition>
+	<definition name="community.detail.search.rent.list" template="/WEB-INF/jsp/ddhb/front/community/community_rent_house.jsp"></definition>
+	<definition name="community.houseSecond.search.list" template="/WEB-INF/jsp/ddhb/front/community/community_houseSecond_search_list.jsp"></definition>
+	<definition name="community.search.list" template="/WEB-INF/jsp/ddhb/front/community/community_search_list.jsp"></definition>
+	<definition name="community.houseSecond.list" extends="common.definition">
+		<put-attribute name="common.header" value="" />
+		<put-attribute name="common.footer" value="" />
+		<put-attribute name="common.title" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/house/houseSecondListShow.jsp" />
+	</definition>
+	<!-- 无用？ <definition name="community_brokers_div" template="/WEB-INF/jsp/ddhb/front/community/community_brokerlist_div.jsp"></definition> -->
+
+	<definition name="house.notice.show" template="/WEB-INF/jsp/ddhb/front/notice/house_reduce_notice.jsp"></definition>
+	
+	<!-- 新楼盘功能 -->
+	<definition name="houseNew.search.list" template="/WEB-INF/jsp/ddhb/front/houseNew/houseNew_search_list.jsp"></definition>
+	<definition name="houseNew.list.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/houseNew/house_new_list.jsp" />
+	</definition>
+	<definition name="houseNew.detail.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/houseNew/house_new_detail.jsp" />
+	</definition>
+
+	<!-- 经纪人相关功能 -->
+	<definition name="broker.detail.show" extends="common.definition">
+		<put-attribute name="ddhb.search" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/broker/broker_detail.jsp" />
+	</definition>
+	<definition name="broker.answered.show" template="/WEB-INF/jsp/ddhb/front/broker/broker_answered.jsp"></definition>
+	<definition name="brokers_div" template="/WEB-INF/jsp/ddhb/front/community/broker_div.jsp"></definition>
+	<definition name="broker.house.search.show" template="/WEB-INF/jsp/ddhb/front/broker/broker_house_searchAndlistw.jsp"></definition>
+	<definition name="broker.house.search.list" template="/WEB-INF/jsp/ddhb/front/broker/broker_house_search_list.jsp"></definition>
+	
+	<!-- 在线问答功能 -->
+	<definition name="question.list.show" template="/WEB-INF/jsp/ddhb/front/questionAnswer/question_cutpage_list.jsp"></definition>
+	<definition name="question.add.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/questionAnswer/question_add.jsp" />
+	</definition>
+	<definition name="question.Answer.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/questionAnswer/questionAnswerRaiders.jsp" />
+	</definition>
+	<definition name="question.allbytype.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/questionAnswer/question_list.jsp" />
+	</definition>
+	<definition name="question.detail.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/questionAnswer/question_detail.jsp" />
+	</definition>
+
+	<!-- 会员相关功能 -->
+	<definition name="member.userinformation.appointment.list" template="/WEB-INF/jsp/ddhb/front/member/appointment.jsp"></definition>
+	<definition name="member.userinformation.browseHistory.list" template="/WEB-INF/jsp/ddhb/front/member/browseHistory.jsp"></definition>
+	<definition name="member.userinformation.savedFieldList" template="/WEB-INF/jsp/ddhb/front/member/memberSavedField.jsp"></definition>
+	<definition name="member.userinformation.collectment.list" template="/WEB-INF/jsp/ddhb/front/member/collectment.jsp"></definition>
+	<definition name="common.member.editMember" template="/WEB-INF/jsp/ddhb/front/member/edit_memberInfo.jsp"></definition>
+	<definition name="member.score.list" template="/WEB-INF/jsp/ddhb/front/member/scoreManager.jsp"></definition>
+	<definition name="member.deliverScore.show" template="/WEB-INF/jsp/ddhb/front/member/scoreDeliver.jsp"></definition>
+	<definition name="member.userinformation.questionManage.list" template="/WEB-INF/jsp/ddhb/front/member/questionManage.jsp"></definition>
+	<definition name="member.userinformation.answerManage.list" template="/WEB-INF/jsp/ddhb/front/member/answerManage.jsp"></definition>
+	<definition name="member.userinformation.priceNotice.list" template="/WEB-INF/jsp/ddhb/front/member/reduceNotice.jsp"></definition>
+	<definition name="member.userinformation.show" extends="common.definition">
+		<put-attribute name="ddhb.search" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/member/userinformation.jsp" />
+	</definition>
+	
+	<definition name="page.platmember.register" extends="common.definition">
+		<put-attribute name="common.title" value="注册" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/member/member_register.jsp" />
+	</definition>
+
+	<definition name="member.register" template="/WEB-INF/jsp/hshb/front/member/member_register.jsp"></definition>
+	<!-- <definition name="member.register" template="/WEB-INF/jsp/ddhb/front/member/member_register.jsp"></definition>-->
+ 	
+	<definition name="page.platmember.register.success" extends="common.definition">
+		<put-attribute name="common.title" type="string"  value="注册成功" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/register_success.jsp" />
+	</definition>
+	
+	<definition name="page.platmember.register.active" extends="common.definition">
+		<put-attribute name="common.title"  value="激活注册信息" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/register_active.jsp" />
+	</definition>
+	
+	<definition name="valid.email.success" extends="common.definition">
+		<put-attribute name="common.title" type="string"  value="邮箱激活成功" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/validEmailSuccess.jsp" />
+	</definition>
+	
+	<definition name="page.forgetPassword.list" extends="common.definition">
+		<put-attribute name="common.title" type="string"  value="忘记密码" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/forgetPassword.jsp" />
+	</definition>
+	
+	<definition name="page.forgetPasswordActive.list" extends="common.definition">
+		<put-attribute name="common.title" type="string"  value="忘记密码请求成功" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/member/forgetPassword_active.jsp" />
+	</definition>
+	
+	<definition name="page.forget.changePassword.init" extends="common.definition">
+		<put-attribute name="common.title" value="修改密码" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/changePassword.jsp" />
+	</definition>
+	<definition name="page.forget.findPassword.init" extends="common.definition">
+		<put-attribute name="common.title" value="找回密码" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/member/findPassword.jsp" />
+	</definition>
+	<definition name="page.forget.changePassword.success" extends="common.definition">
+		<put-attribute name="common.title" value="修改密码成功" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/member/forgetPasswordSuccess.jsp" />
+	</definition>
+
+
+	<!-- 我要买房/我要卖房/我要租房/我要出租 等在线预约功能 -->
+	<definition name="consignment.service.show" extends="common.definition">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/ddhb/front/consignment/consignment_service.jsp" />
+	</definition>
+	<!-- 我要买房	-->
+	<definition name="consignment.house.buy" template="/WEB-INF/jsp/ddhb/front/consignment/house_buy.jsp"></definition>
+	<!-- 我要租房-->
+	<definition name="consignment.house.rent" template="/WEB-INF/jsp/ddhb/front/consignment/house_rent.jsp"></definition>
+	<!-- 我要卖房-->
+	<definition name="consignment.house.sell" template="/WEB-INF/jsp/ddhb/front/consignment/house_sell.jsp"></definition>
+	<!-- 我要出租-->
+	<definition name="consignment.house.renting" template="/WEB-INF/jsp/ddhb/front/consignment/house_renting.jsp"></definition>
+
+	<!-- 二手房看房预约  -->	
+	<definition name="consignment.house.buy.housesecond" template="/WEB-INF/jsp/ddhb/front/house/house_second_buy.jsp"></definition>
+	<!-- 租房看房预约  -->
+	<definition name="consignment.house.rent.houserent" template="/WEB-INF/jsp/ddhb/front/rent/house_rent_rent.jsp"></definition>
+
+	<!-- 出错提示 -->
+	<definition name="ddhb.out.error" template="/WEB-INF/jsp/ddhb/front/out_error_data.jsp"></definition>
+	<definition name="ddhb.search.error" template="/WEB-INF/jsp/frame/total_error.jsp"></definition>
+
+	<definition name="test.page" template="/WEB-INF/jsp/ddhb/test.jsp"></definition>
+	<definition name="test1.page" template="/WEB-INF/jsp/ddhb/test1.jsp"></definition>
+
+	<!-- 轻松毕业季专题 -->
+	<definition name="rentHouse.graduationSeason" extends="community.houseSecond.list">
+		<put-attribute name="common.title" type="string" value="月付来了，轻松毕业季【豪世华邦，专业因为懂你！】" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.body" type="template" value="/WEB-INF/jsp/ddhb/front/rent/graduationSeason.jsp" />
+		<put-attribute name="common.footer" type="template" value="" /><!-- 这个include在页面里了 -->
+	</definition>
+	
+	<!-- 地图找二手房  -->
+	<definition name="secondHouse.map" template="/WEB-INF/jsp/ddhb/front/house/search_in_map.jsp"></definition>	
+</tiles-definitions>

@@ -1,0 +1,90 @@
+.phoneMenuBar{width:100%;height: 30px; line-height: 30px; background: #4e5156; font-size: 12px;}
+
+.js_sc_phone {
+	height: 55px; position: relative; z-index: 99;
+}
+
+.js_sc_phone input{
+	width: 344px; height: 28px; padding-left: 10px; line-height: 28px; border:none;
+	font-size: 11px; background: url(../../image/scbg_2.gif) no-repeat; float: left; color: #999; 
+}
+
+.js_cona_phone{clear: both; padding: 10px; text-align: center; }
+
+
+.js_cona_phone a{
+	width: 120px; height: 34px; line-height: 32px; text-align: center; display: inline-table; font-size: 18px; color: #fff; background: #3fb8b1; cursor:pointer;
+}
+
+.js_cona_phone a:hover{color:#fff;background:#11a29a; }
+
+.menuItem_phone{
+	padding: 0 15px 0 38px; height: 30px; line-height: 34px; background-position: 15px 12px; font-size: 12px;
+	color: #fff; display:block; float:left; cursor: pointer;background-repeat: no-repeat;
+}
+
+.menuItem_phone:hover{
+	border-top: 2px solid #575f6e; line-height: 34px; height: 32px; background-position: 15px 10px; background-color: red;
+	background: #fff; margin-top: -4px; color: #575f6e;
+}
+
+.selectedMenuPhone{
+	border-top: 2px solid #575f6e; line-height: 34px; height: 32px; background-position: 15px 10px; background-color: red;
+	background: #fff; margin-top: -4px; color: #575f6e;
+}
+
+.clearDiv{clear:both;}
+
+.customSelect {width: 190px; float:left;margin-top:15px;}
+.customSelect a{text-decoration:none;}
+.customSelect>span{display:block;float:left;}
+.customSelect .label{background-color:#4E5156;font-size:12px;color:#FFFFFF;line-height:24px;padding:0 5px;}
+.searchXL{float:left; position:relative; font-size:12px; cursor: pointer;}
+.searchXL .cs .csc{float:left;background-color:#ECEDF2;height:24px; line-height:24px; width:115px; padding-left:5px;}
+.searchXL .cs .xljt{float:left; width:25px; height:25px;background-color:#ADADAD;}
+.searchXL .cs .xljt:hover{background-color:#3FB8B1}
+.searchXL a.a{padding-left:10px;background:#ecedf2;height:24px;line-height:24px;color:#333; display:block;}
+.searchXL a.a:hover{background:#ecedf2;}
+.searchXL .xlnr{border:1px solid #3fb8b1; background:#fff;line-height:20px; display:none; position:absolute;top:25px; width:143px}
+.searchXL .xlnr a{padding-left:7px;color:#333; display:block;}
+.searchXL .xlnr a:hover{ background:#3fb8b1;color:#fff;}
+.search .xlnr{width:143px; z-index:99999 }
+.search{width:145px; }
+
+.hiddenDiv{display:none;}
+
+.phone_menuId_1{background-position: 15px 10px; background-image: url("../../image/b_1a_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_2{background-position: 15px 10px; background-image: url("../../image/b_2a_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_3{background-position: 15px 10px; background-image: url("../../image/b_3a_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_1:hover{background-position: 15px 10px; background-image: url("../../image/b_1b_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_2:hover{background-position: 15px 10px; background-image: url("../../image/b_2b_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_3:hover{background-position: 15px 10px; background-image: url("../../image/b_3b_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_1_selected{background-position: 15px 10px; background-image: url("../../image/b_1b_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_2_selected{background-position: 15px 10px; background-image: url("../../image/b_2b_ihp.gif"); background-repeat: no-repeat;}
+
+.phone_menuId_3_selected{background-position: 15px 10px; background-image: url("../../image/b_3b_ihp.gif"); background-repeat: no-repeat;}
+
+@media screen and (max-width: 470px) {
+	.customSelect {width: 220px; float:left;margin-top:15px;}
+	.searchXL .cs .csc{width:155px;color:#575f6e;}
+	.search{width:185px; }
+	.searchXL .xlnr{width:183px;}
+	.js_sc_phone input{width:219px;background: url(../../image/scbg_3.gif) no-repeat;height: 28px; padding-left: 10px; line-height: 28px; font-size: 11px;border: none;}
+	.menuItem_phone{width:50px;float:left;padding: 0 10px 0 25px; background-position: 5px 12px;}
+	.js_sc_phone{height:40px;}
+	.t_jsuo{margin: 25px auto 0 auto;}
+	.js_cona_phone{padding-top:12px;}
+	
+	.phone_menuId_1:hover{background-position: 5px 10px; background-image: url("../../image/b_1b_ihp.gif"); background-repeat: no-repeat;}
+
+	.phone_menuId_2:hover{background-position: 5px 10px; background-image: url("../../image/b_2b_ihp.gif"); background-repeat: no-repeat;}
+
+	.phone_menuId_3:hover{background-position: 5px 10px; background-image: url("../../image/b_3b_ihp.gif"); background-repeat: no-repeat;}
+}

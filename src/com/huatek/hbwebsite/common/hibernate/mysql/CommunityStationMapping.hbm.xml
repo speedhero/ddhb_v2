@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="CommunityStationMapping" table="house_community_station_mapping">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<many-to-one name="community" column="community_id" unique="true" class="Community"   not-found="ignore"/>
+		
+		<many-to-one name="station" column="station_id" unique="true" class="com.huatek.hbwebsite.common.entity.Station"   not-found="ignore"/>
+		
+		<property name="distance" column="distance" type="java.lang.Float"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+	</class>
+</hibernate-mapping>

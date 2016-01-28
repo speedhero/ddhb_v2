@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseRent" table="house_rent_house">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="hourseNo" column="house_id" type="java.lang.String" length="50"/>
+		
+		<property name="title" column="title" type="java.lang.String" length="100"/>
+		
+		<property name="content" column="content" type="java.lang.String" length="500"/>
+		
+		<property name="rentPrice" column="rent_price" type="java.lang.Float"/>
+
+		<property name="previousRentPrice" column="previous_rent_price" type="java.lang.Float"/>
+		
+		<property name="area" column="area" type="java.lang.Float"/>
+		
+		<property name="tags" column="tags" type="java.lang.String" length="1500"/>
+		
+		<many-to-one name="usage" class="com.huatek.hbwebsite.common.entity.Usage" not-found="ignore">
+			<column name="usage_id"></column>
+		</many-to-one>
+		
+		<property name="vervicalLocation" column="house_vervical_location" type="java.lang.Integer"/>
+
+		<property name="storyCount" column="storey_count" type="java.lang.Integer"/>
+		
+		<property name="shi" column="shi" type="java.lang.Integer"/>
+		
+		<property name="ting" column="ting" type="java.lang.Integer"/>
+		
+		<property name="wei" column="wei" type="java.lang.Integer"/>
+		
+		<many-to-one name="orientations" class="com.huatek.hbwebsite.common.entity.Orientations" not-found="ignore">
+			<column name="orientation_no"></column>
+		</many-to-one>
+		
+		<property name="payforWay" column="payfor_way" type="java.lang.String" length="50"/>
+		
+		<property name="storey" column="storey" type="java.lang.Integer"/>
+		
+		<many-to-one name="decoration" class="com.huatek.hbwebsite.common.entity.Decorations" not-found="ignore">
+			<column name="decoration_id"></column>
+		</many-to-one>
+		
+		<property name="decorationTime" column="decoration_time" type="java.lang.String" length="20"/>
+		
+		<property name="timeToSee" column="time_to_see" type="java.lang.String" length="20"/>
+		
+		<property name="useageStatus" column="usage_status" type="java.lang.String" length="20"/>
+		
+		<property name="browsed" column="browsed" type="java.lang.Integer"/>
+		
+		<property name="daikan" column="daikan" type="java.lang.Integer"/>
+		
+		<property name="sortIndex" column="sortindex" type="java.lang.Integer"/>
+		
+		<property name="furniture" column="furniture" type="java.lang.String" length="1500"/>
+		
+		<property name="haslift" column="haslift" type="java.lang.Integer"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="primaryFlag" column="primaryflag" type="java.lang.Integer"/>
+		
+		<property name="exclusiveFlag" column="exclusiveflag" type="java.lang.Integer"/>
+		
+		<property name="focusFlag" column="focusflag" type="java.lang.Integer"/>
+		
+		<property name="qualityFlag" column="quality" type="java.lang.Integer"/>
+		
+		<property name="homepageRecommandFlag" column="homepage_recommand_flag" type="java.lang.Integer"/>
+		
+		<property name="homepageRecommandTime" column="homepage_recommand_time" type="java.util.Date"/>
+		
+		<property name="hasKey" column="haskey" type="java.lang.Integer"/>
+		
+		<property name="schoolRegionFlag" column="schoolregionflag" type="java.lang.Integer"/>
+		
+		<property name="subwayRegionFlag" column="subwayregionflag" type="java.lang.Integer"/>
+		
+		<property name="lastupdatecontent" column="lastupdatecontent" type="java.lang.String"/>
+		
+		<many-to-one name="rentType" class="com.huatek.hbwebsite.common.entity.RentType" not-found="ignore">
+			<column name="rent_type_id"></column>
+		</many-to-one>
+		
+		<property name="appCount" column="appraise_count" type="java.lang.Integer"/>
+		
+		<many-to-one name="community" class="com.huatek.hbwebsite.common.entity.Community" not-found="ignore">
+            <column name="community_id" not-null="false">
+            </column>
+        </many-to-one>
+        
+        <many-to-one name="broker" class="com.huatek.hbwebsite.broker.entity.Broker" not-found="ignore">
+            <column name="publisher_id" not-null="false">
+            </column>
+        </many-to-one>
+        
+        <property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+        
+        <property name="shelvingID" column="shelving_id" type="java.lang.String"/>
+        
+		<property name="toErpSynFlag" column="toErpSynFlag" type="java.lang.Integer"/>
+
+        <set name="appraises" inverse="true" lazy="true" fetch="select">
+            <key column="shelving_id" ></key>
+            <one-to-many class="com.huatek.hbwebsite.house.entity.HouseAppraise"/>
+        </set>
+        
+        <!-- 优先级  -->
+        <property name="housePriority" column="house_priority" type="java.lang.Integer">
+        
+        </property>
+	</class>
+</hibernate-mapping>

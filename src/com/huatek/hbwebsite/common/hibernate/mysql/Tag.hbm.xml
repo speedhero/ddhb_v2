@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="Tag" table="common_flag">
+		<id name="erpId" type="java.lang.String" column="erp_id"></id>
+		
+		<property name="tagName" column="tag_name" type="java.lang.String" length="50"/>
+		
+		<property name="iconUrl" column="icon_url" type="java.lang.String" length="80"></property>
+		
+		<property name="moduleId" column="module_id" type="java.lang.Integer"></property>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="tagColor" column="flagcolor" type="java.lang.String" length="10"/>
+		
+		<property name="fontColor" column="fontcolor" type="java.lang.String" length="10"/>
+		
+		<property name="isSearchIndividual" column="is_search_individual" type="java.lang.Integer"/>
+	</class>
+	
+</hibernate-mapping>

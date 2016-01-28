@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="School" table="common_study_zone">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="stuName" column="sz_name" type="java.lang.String" length="100"/>
+		
+		<many-to-one name="studyZoneType" column="sz_type_id" unique="true" class="com.huatek.hbwebsite.common.entity.StudyZoneType"  not-found="ignore">
+		</many-to-one>
+		
+		<many-to-one name="region" column="region_id" unique="true" class="com.huatek.hbwebsite.common.entity.Area"  not-found="ignore">
+		</many-to-one>
+		
+		<property name="gps" column="gps_coordinate" type="java.lang.String" length="30"/>
+		<property name="isStudyZone" column="isschoolzone" type="java.lang.Integer"/>
+		
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="sortinddex" column="sortindex" type="java.lang.Integer"/>
+		
+		<property name="associatedSchoolid" column="associatedschool_id" type="java.lang.String"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseSecondBrowseAnalyse" table="house_second_browse_analyse">
+		<id name="analyseId" type="java.lang.String" column="analyse_id">
+		</id>
+		<property name="houseId" column="house_id" type="java.lang.String" length="50"/>
+		
+		<property name="browseTime" column="browse_time" type="java.util.Date"/>
+		
+		<property name="countyId" column="county_id" type="java.lang.String" length="40"/>
+		
+		<property name="countyName" column="county_name" type="java.lang.String" length="40"/>
+		
+		<property name="cbdId" column="cbd_id" type="java.lang.String" length="40"/>
+		
+		<property name="cbdName" column="cbd_name" type="java.lang.String" length="60"/>
+		
+		<property name="communityId" column="community_id" type="java.lang.String" length="60"/>
+		
+		<property name="communityName" column="community_name" type="java.lang.String" length="200"/>
+		
+		<property name="houseArea" column="house_area" type="java.lang.Float"/>
+		
+		<property name="housePrice" column="house_price" type="java.lang.Float"/>
+		
+		<property name="isMember" column="is_member" type="java.lang.Integer"/>
+		
+		<property name="memberName" column="member_name" type="java.lang.String" length="64"/>
+		
+		<property name="registerTime" column="register_time" type="java.util.Date"/>
+		
+		<property name="clientFlag" column="clientflag" type="java.lang.String" length="40"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

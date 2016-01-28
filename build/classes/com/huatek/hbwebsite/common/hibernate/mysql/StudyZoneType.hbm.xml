@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="StudyZoneType" table="common_sz_type">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="stutName" column="szt_name" type="java.lang.String" length="40"/>
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+	
+</hibernate-mapping>

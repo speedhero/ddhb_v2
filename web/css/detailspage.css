@@ -1,0 +1,696 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0 auto;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+ul,di,dd,h1,h2,h3,h4,h5,h6,form,p {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style: none
+}
+
+img {
+	border: 0px;
+}
+
+/* a {
+	color: #05a;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f00;
+} */
+/*body*/
+#container {
+	width: 948px;
+	margin: 0 auto;
+}
+
+.font {
+	font-size: 18px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+#head {
+	/* jason mao
+	margin-left: 27px;
+	*/
+	margin-left:5px;
+}
+/*header*/
+#header {
+	width: 100%;
+	margin-bottom: 8px;
+	height: 415px;
+}
+
+#header01 {
+	float: left;
+	width: 326px;
+	height: 415px;
+	background: #FFF;
+	/* jason mao
+	margin-left: 25px;
+	*/
+}
+
+#h01 {
+	height: 282px;
+	width: 321px;
+	background: #FFF;
+	margin: 1px 1px;
+}
+
+#h011 {
+	height: 236px;
+	width: 321px;
+}
+
+#rent_house_map {
+	height: 236px;
+	width: 321px;
+}
+
+#h011 img {
+	max-width: 321px;
+	width: 321px;
+	max-height: 236px;
+}
+
+#h012 {
+	height: 46px;
+	width: 96px;
+	background-image: url("/ddhb/images/img/u124_normal.png");
+	float: right;
+	margin-top: -3px;
+	margin-right: -2px;
+}
+
+#h012 p {
+	padding: 15px 0;
+}
+
+#h013 {
+	height: 46px;
+	width: 96px;
+	background-image: url("/ddhb/images/img/u124_normal.png");
+	float: right;
+	margin-top: -3px;
+	margin-right: -6px;
+}
+
+#h013 p {
+	padding: 15px 0;
+}
+
+#header02 {
+	float: left;
+	width: 185px;
+	height: 415px;
+	background: #FFF;
+	margin-left: 20px;
+}
+
+#shoujia {
+	margin: 0 35px 0 0;
+	height: 114px;
+	width: 150px;
+}
+
+#danjia {
+	margin: 0 35px 0 0;
+	height: 68px;
+	width: 150px;
+}
+
+#bijia {
+	margin: 0 auto;
+	height: 50px;
+	width: auto;
+}
+
+#bijia01 {
+	margin: 0;
+	height: 51px;
+	width: 87px;
+}
+
+#bijia02 {
+	margin: 0;
+	height: 51px;
+	width: 87px;
+}
+
+#bijia03 {
+	margin: 0 119px 0 0;
+	height: 16px;
+	width: 66px;
+	background-color: #33F;
+}
+
+#mianji {
+	margin: 0 35px 0 0;
+	height: 68px;
+	width: 150px;
+}
+
+#daikuan {
+	height: 45px;
+	width: 185px;
+}
+
+#daikuan01 {
+	margin: 20px 119px 0 0;
+	height: 16px;
+	width: 66px;
+	background-color: #33F;
+}
+
+#header03 {
+	float: left;
+	width: 200px;
+	height: 415px;
+	background: #FFF;
+	margin-left: 20px;
+}
+
+#huxing {
+	margin-bottom: 10px;
+	height: 75px;
+	width: 140px;
+	float: left;
+}
+
+#huxing font1 {
+	font-size: 36px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+#huxing font2 {
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+#shuxing {
+	margin-bottom: 10px;
+	width: 60px;
+	height: 75px;
+	float: left
+}
+
+#shuxing p {
+	text-align: center;
+	background-image: url("/ddhb/images/img/btn_u20_normal.png");
+	background-repeat: no-repeat;
+	position: relative;
+	top: 50px;
+	width: 55px;
+	height: 20px;
+}
+
+.louceng {
+	margin-bottom: 10px;
+	height: 50px;
+	width: 140px;
+	float: left;
+}
+
+.louceng font1 {
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+.slouceng {
+	margin-bottom: 10px;
+	width: 60px;
+	height: 50px;
+	float: left
+}
+
+.slouceng p {
+	text-align: center;
+	background-image: url("/ddhb/images/img/btn_u20_normal.png");
+	background-repeat: no-repeat;
+	position: relative;
+	top: 32px;
+	width: 55px;
+	height: 20px;
+}
+
+#daikan {
+	height: 70px;
+	width: 220px;
+	margin-bottom: 10px;
+}
+
+#daikan div {
+	height: 70px;
+	width: 70px;
+	background-image: url("/ddhb/images/img/u52_normal.png");
+	float: left;
+	margin-left: -2px;
+	text-align: center;
+}
+
+#daikan p {
+	padding: 15px;
+}
+
+.dkan {
+	width: 198px;
+	height: 51px;
+	background-image: url("/ddhb/images/img/btn-_u28_normal.png");
+	margin-top: 265px;
+	margin-left: -2px;
+}
+
+.fenxiang {
+	width: 200px;
+	height: 35px;
+}
+
+.fenxiang div {
+	width: 60px;
+	height: 25px;
+	float: left;
+	background-image: url("/ddhb/images/img/btn-_u251_normal.png");
+	margin-left: 4px;
+	text-align: center;
+}
+
+.fenxiang p {
+	margin-top: 6px;
+}
+
+#header04 {
+	float: left;
+	width: 164px;
+	height: 415px;
+	background: #ffffff;
+	margin-left: 20px;
+}
+
+.brokerInfo {
+	FONT-SIZE: 20px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal
+}
+
+.brokerTitle {
+	margin-top: 7px;
+	text-align: center;
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	border: 1px solid #ffffff
+}
+
+#broker {
+	width: 176px;
+	float: left;
+	text-align: center
+}
+
+#borkerDiv {
+	width: 176px;
+	height: 270px;
+	border: solid;
+	border-width: 1px;
+	border-color: gray;
+	float: left;
+	text-align: center
+}
+
+.brokerPic {
+	margin-top: 5px;
+	border: 1px solid #ffffff;
+	text-align: center
+}
+
+.brokerImage {
+	height: 133px;
+	margin-left:25px;
+	width: 99px;
+}
+
+.imageText {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	FONT-STYLE: italic;
+	border-top: 1px solid gray;
+	text-align: center;
+	height: 20px;
+	margin-top: 120px
+}
+
+.brokerInfoImage {
+	text-align: center;
+	border: 1px solid #ffffff;
+	height: 60px
+}
+
+.brokerName {
+	height: 50px;
+	text-align: center
+}
+
+.houseInfo {
+	position:relative;
+	width: 176px;
+	height: 88px;
+	float: left;
+	border: 1px solid black;
+	margin-top: 10px;
+}
+
+.houseInfoDetil {
+	position: absolute;
+	width: 88px;
+	height: 88px;
+	background-color:white;
+	top:0px;
+	left:0px;
+}
+
+.InfoDe {
+	text-align: center;
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	height: 44px
+}
+
+.queryNum {
+	text-align: center;
+	margin-top: 3px
+}
+
+.scann {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal
+}
+/*main*/
+#nav {
+	height: 55px;
+	background: #FFFFFF;
+	/* jason mao
+	margin: 0 25px 8px 25px;
+	*/
+	margin: 0px 25px 8px 0px;
+	
+}
+
+.fu-dong {
+	width: 946px;
+	background: none repeat scroll 0 0 #FFFFFF;
+	height: 58px;
+}
+
+.fu-dong div{
+	height: 55px;
+	float: left;
+	line-height: 52px;
+	width: 122px;
+	text-align: center;
+	border-bottom: 1px solid #c8c6c6;
+	border-top: 3px solid #fff;
+	cursor:pointer;
+}
+
+.fu-dong div a{
+	font-size: 18px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+.fu-dong div a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.fu-dong div:hover {
+	background: #226ac4;
+	border-top: 3px solid #226ac4;
+	color: #FFF;
+}
+
+
+.fu-dong div.f-navon {
+	width: auto;
+	padding: 0 7px 0 7px;
+	border-bottom: 1px #fff solid;
+	border-top: 3px #1466b4 solid;
+	border-left: 1px #cac8c8 solid;
+	border-right: 1px #cac8c8 solid;
+	color: #0081fa;
+}
+
+.fu-dong div.w-max1 {
+	width: 124px;
+	height: 55px;
+	float: right;
+	background-image: url("/ddhb/images/img/u87_normal.png");
+	background-repeat: no-repeat;
+}
+
+.fu-dong div.w-max1:HOVER{
+	background: #ffffff;
+	border-top: 3px solid #ffffff;
+	background-image: url("/ddhb/images/img/u87_normal.png");
+	background-repeat: no-repeat;
+}
+
+#main {
+	margin-bottom: 8px;
+}
+
+.m-01 {
+	/*jason mao
+	margin: 10px 50px 0 50px;
+	*/
+	margin: 10px 20px 0 20px;
+	background: #ffffff;
+	/* height: 550px; */
+}
+
+.m-02 {
+	margin: 0 20px; 
+	padding-top: 10px;
+}
+
+.m1-03 {
+	height: 70px;
+	padding: 8px 0;
+}
+
+.m3-01 {
+	height: 55px;
+	width: 90px;
+	margin-left: 42px;
+	float: left;
+}
+
+.m3-01 p {
+	text-align: left;
+	line-height: 18px;
+}
+
+.m1-04 {
+	height: 380px;
+	margin: 0 45px;
+	line-height: 1.2;
+}
+
+.m2-03 {
+	/*jason mao 
+	margin: 10px 50px 0 50px; */
+	margin: 10px 50px 0 47px;
+	background: #FFF;
+	width: 810px;
+	height: 410px;
+}
+
+.m2-031 {
+	height: 196px;
+	width: 261px;
+	margin: 11px 0 0 5px;
+	float: left;
+	cursor: pointer;
+}
+
+.m3-03 {
+	padding: 8px 0;
+}
+
+.m3-04 {
+	margin-left: 40px;
+	margin-top: 30px;
+	z-index: 500px;
+}
+
+
+.m4-03 {
+	/*jason mao 
+	margin: 10px 50px 0 50px; */
+	margin: 10px 50px 0 32px;
+	background: #FFF;
+	width: 816px;
+	height: 156px;
+}
+
+.m4-031 {
+	height: 145px;
+	/* width: 193px; */
+	width: 195px;
+	margin: 11px 0 0 7px;
+	float: left;
+}
+
+.m5-h {
+	height: 250px;
+}
+
+.m5h1 {
+	float: left;
+	width: 405px;
+	height: 225px;
+	/* margin-left: 25px; */
+	margin-left:40px;
+}
+
+.m5h11 {
+	margin-top: 38px;
+}
+
+.m5h12 {
+	margin-top: 98px;
+}
+
+.m6-03 {
+	/*jason mao
+	 margin: 0px 50px; */
+	margin: 0px 42px;
+	padding: 10px 0 0;
+}
+
+.m6b1 {
+	height: 170px;
+	width: 825px;
+}
+
+.m6b11 {
+	margin-bottom: 10px;
+	padding: 12px;
+	height: 140px;
+	width: 790px;
+	border: 1px solid #000;
+}
+
+.m6b111 {
+	height: 0;
+	width: auto;
+	float: left;
+}
+
+.m7-03 {
+	/* jason mao
+	margin: 20px 40px 0 40px; */
+	margin: 20px 0px 0 21px;
+	height: 460px;
+	/*jason mao width: 825px; */
+	width: 850px;
+}
+
+.m7b1 {
+	width: 259px;
+	height: 460px;
+	float: left;
+	/* jason mao
+	margin-left: 20px; */
+	margin-left: 20px;
+}
+
+.m7b11 {
+	/* jason mao
+	margin: -3px 0 0 -3px; */
+	margin: -3px 0px 0px -3px;
+}
+
+.m7b12 {
+	height: 250px;
+	width: 254px;
+	border: 1px solid #000;
+	margin-top: -3px;
+}
+.m7b121 {
+	height: 233px;
+	width: auto;
+	padding: 10px;
+	line-height: 1.2;
+	float: left;
+}
+
+.m7b121 p {
+	text-align: left;
+}
+
+.m7b122 {
+	float: left;
+	text-align: right;
+	width: 250px;
+	position: relative;
+	top: -254px;
+}
+
+.m7b122 div {
+	margin-top: 18px;
+	position: relative;
+	left: 60px;
+	text-align: right;
+	width: 185px;
+}
+
+.hot-event{position:relative;height:236px;width:321px;margin:0 auto;}
+.hot-event .switch-tab{text-align:center;position:relative; bottom:-210px;z-index:999;}
+.hot-event .switch-tab a, .hot-event .switch-tab .current{margin:0 2px;display:inline-block;width:15px;height:15px;line-height:99em;overflow:hidden;background-image:url("/ddhb/images/house_image/bg.png");background-position:-161px 0;}
+.hot-event .switch-tab .current{background-image:url("/ddhb/images/house_image/bg.png");background-position:-195px 0;}
+.hot-event .switch-nav{position:absolute;right:12px;top:254px;z-index:2;}
+.hot-event .switch-nav .i-prev{background-image:url("/ddhb/images/house_image/bg.png");background-position:-127px 0;}
+.hot-event .switch-nav .prev{border-radius:3px 0 0 3px;border-width:1px;}
+.hot-event .switch-nav .next{border-radius:0 3px 3px 0;border-width:1px 1px 1px 0;}
+.hot-event .switch-nav .i-next{background-image:url("/ddhb/images/house_image/bg.png");background-position:-144px 0;}
+.hot-event .switch-nav a{display:inline-block;padding:7px 16px;background:rgba(0,0,0,.3);border-style:solid;border-color:rgba(255,255,255,.6);}
+.hot-event .switch-nav a:hover{background:rgba(0,0,0,.2);}
+.hot-event .event-item{height:236px;width:321px;position:absolute;z-index:1;left:0;top:0;}
+.ico{display:inline-block;width:16px;height:16px;line-height:999em;overflow:hidden;}

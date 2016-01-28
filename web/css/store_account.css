@@ -1,0 +1,12 @@
+/* account page style --- please make sure the following part only exist in current page and include this this stylesheet after store.css and global.css files */
+.accountPrimary{margin-bottom:50px;}
+.act-menu{width:18%;border:1px solid #eee;border-top-width:2px;display:block;padding:10px 0;background:#fbfbfb;float:left;}
+.mt-menu-tree{overflow:hidden;_position:relative;font-family: Microsoft Yahei,SimHei,Arial;}
+.mt-menu-tree .mt-menu-item a:link,.mt-menu-tree .mt-menu-item a:visited{display:block;overflow:hidden;text-decoration:none;line-height:28px;color:#3c3c3c;text-indent: 5px;height:28px;padding: 0 23px;width: 96px;}
+.mt-menu-tree .mt-menu-item a:hover,.mt-menu-tree .mt-menu-item a.selected{color:#f60}
+.mt-menu-tree dt{font-weight:700;line-height:28px;margin: 5px 0px 1px 0;color: #444;*margin-bottom:3px;font-size:14px;padding: 0 20px;}
+.mt-menu-tree .mt-menu-item dt a:link,.mt-menu-tree .mt-menu-item dt a:visited{padding-left:0;background:0}
+.mt-menu-tree .mt-menu-item dd.active a{background:#f2f2f2;color: #7aab2b;}
+.mt-menu-tree .mt-menu-item dd{color: #999;}
+.frameBox{width:80%;float:left;font-family:Microsoft Yahei,SimHei,Arial;}
+

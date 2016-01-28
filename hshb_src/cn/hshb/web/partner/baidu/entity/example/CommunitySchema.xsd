@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xsd:element name="urlset">
+		<xsd:annotation>
+			<xsd:documentation>
+				urlset用来标记整个文档的开头
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="url" minOccurs="0" maxOccurs="50000"
+					type="tUrl" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="tUrl">
+		<xsd:annotation>
+			<xsd:documentation>
+				url标记每条信息的开始和结束
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="loc" minOccurs="1" maxOccurs="1" type="tLoc" />
+			<xsd:element name="data" type="tData" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tLoc">
+		<xsd:annotation>
+			<xsd:documentation>
+				该条数据唯一的id
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+			<xsd:whiteSpace value="collapse" />
+			<xsd:maxLength value="256" />
+			<xsd:minLength value="1" />
+			<xsd:pattern value="(http://)(.+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tData">
+		<xsd:sequence>
+			<xsd:element name="RealEstate" minOccurs="1" maxOccurs="1"
+				type="tRealEstate" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tRealEstate">
+		<xsd:sequence>
+			<xsd:element name="domain" minOccurs="1" maxOccurs="1"
+				type="tDomain" />
+			<xsd:element name="type" minOccurs="1" maxOccurs="1"
+				type="tType" />
+			<xsd:element name="name" minOccurs="1" maxOccurs="1"
+				type="tName" />
+			<xsd:element name="lastmod" minOccurs="1" maxOccurs="1"
+				type="tLastmod" />
+			<xsd:element name="publishTime" minOccurs="0" maxOccurs="1"
+				type="tPublishTime" />
+			<xsd:element name="changefreq" minOccurs="0" maxOccurs="1"
+				type="tChangefreq" />
+			<xsd:element name="ResidenceName" minOccurs="1"
+				maxOccurs="1" type="tResidenceName" />
+			<xsd:element name="Url" minOccurs="1" maxOccurs="1" type="t1Url" />
+			<xsd:element name="PropertyCompany" minOccurs="1"
+				maxOccurs="1" type="tPropertyCompany" />
+			<xsd:element name="HouseType" minOccurs="1" maxOccurs="1"
+				type="tHouseType" />
+			<xsd:element name="HouseAge" minOccurs="1" maxOccurs="1"
+				type="tHouseAge" />
+			<xsd:element name="SchoolDistrict" minOccurs="1"
+				maxOccurs="1" type="tSchoolDistrict" />
+			<xsd:element name="Developers" minOccurs="1" maxOccurs="1"
+				type="tDevelopers" />
+			<xsd:element name="Introduce" minOccurs="1" maxOccurs="1"
+				type="tIntroduce" />
+			<xsd:element name="Price" minOccurs="1" maxOccurs="1"
+				type="tPrice" />
+			<xsd:element name="VolumeRate" minOccurs="1" maxOccurs="1"
+				type="tVolumeRate" />
+			<xsd:element name="TotalConArea" minOccurs="1" maxOccurs="1"
+				type="tTotalConArea" />
+			<xsd:element name="TotalHoushold" minOccurs="0"
+				maxOccurs="1" type="tTotalHoushold" />
+			<xsd:element name="GreenRate" minOccurs="1" maxOccurs="1"
+				type="tGreenRate" />
+			<xsd:element name="TotalBuilding" minOccurs="0"
+				maxOccurs="1" type="tTotalBuilding" />
+			<xsd:element name="SurroundFacility" minOccurs="1"
+				maxOccurs="unbounded" type="tSurroundFacility" />
+			<xsd:element name="BadSurroundFacility" minOccurs="0"
+				maxOccurs="unbounded" type="tBadSurroundFacility" />
+			<xsd:element name="onsale_num" minOccurs="0" maxOccurs="1"
+				type="tOnsale_num" />
+			<xsd:element name="onrent_num" minOccurs="0" maxOccurs="1"
+				type="tOnrent_num" />
+			<xsd:element name="Place" minOccurs="1" maxOccurs="1"
+				type="tPlace" />
+			<xsd:element name="SubwayInfo" minOccurs="0" maxOccurs="unbounded"
+				type="tSubwayInfo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tDomain">
+		<xsd:annotation>
+			<xsd:documentation>
+				后续处理所需数据，不用考虑，填写“房产”即可
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="房产" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tType">
+		<xsd:annotation>
+			<xsd:documentation>
+				后续处理所需数据，不用考虑，填写“HouseProperty”即可
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HouseProperty" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tName">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区名
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tLastmod">
+		<xsd:annotation>
+			<xsd:documentation>
+				指该条数据的最新一次更新时间
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tPublishTime">
+		<xsd:annotation>
+			<xsd:documentation>
+				发布时间
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tChangefreq">
+		<xsd:annotation>
+			<xsd:documentation>
+				指该条数据的更新频率
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="always" />
+			<xsd:enumeration value="hourly" />
+			<xsd:enumeration value="daily" />
+			<xsd:enumeration value="weekly" />
+			<xsd:enumeration value="monthly" />
+			<xsd:enumeration value="yearly" />
+			<xsd:enumeration value="never" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tResidenceName">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区详情页标题
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="t1Url">
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tPropertyCompany">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseType">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseAge">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSchoolDistrict">
+		<xsd:annotation>
+			<xsd:documentation>
+				是否为学区房，有效值：是/否/未知
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="是" />
+			<xsd:enumeration value="否" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDevelopers">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tIntroduce">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tPrice">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区平均房价
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tVolumeRate">
+		<xsd:annotation>
+			<xsd:documentation>
+				精确到小数点后两位
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTotalConArea">
+		<xsd:annotation>
+			<xsd:documentation>
+				总建面。数字 （单位：平方米）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTotalHoushold">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区住户数，数字 （单位：户）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tGreenRate">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区绿化率，数字 （单位 %）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTotalBuilding">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区建筑数，数字（单位：栋）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSurroundFacility">
+		<xsd:annotation>
+			<xsd:documentation>
+				交通、餐饮娱乐、学校医院、景观设施等（受人关注且欢迎的设施），如：XX中学 双榆树公园 华联商厦 丽亭华苑酒店 XX卫生服
+				务站等。一个标签填写一个设施，多个设施允许出现多个标签
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBadSurroundFacility">
+		<xsd:annotation>
+			<xsd:documentation>
+				嫌恶设施，如加油站、垃圾场等。一个标签一个设施，多个设施运行出现多个标签
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tOnsale_num">
+		<xsd:annotation>
+			<xsd:documentation>
+				在售房源数
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tOnrent_num">
+		<xsd:annotation>
+			<xsd:documentation>
+				在租房源数
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tPlace">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区的地址
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="City" minOccurs="1" maxOccurs="1"
+				type="tCity" />
+			<xsd:element name="District" minOccurs="1" maxOccurs="1"
+				type="tDistrict" />
+			<xsd:element name="LocalBusiness" minOccurs="1"
+				maxOccurs="1" type="tLocalBusiness" />
+			<xsd:element name="Street" minOccurs="1" maxOccurs="1"
+				type="tStreet" />
+			<xsd:element name="Map" minOccurs="0" maxOccurs="1" type="tMap" />
+			<xsd:element name="Coordinate" minOccurs="1" maxOccurs="1"
+				type="tCoordinate" />
+			<xsd:element name="CoordinateSys" minOccurs="1"
+				maxOccurs="1" type="tCoordinateSys" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tCity">
+		<xsd:annotation>
+			<xsd:documentation>
+				城市命名无需在后方加市，直接写XX；如果没有城市内容，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDistrict">
+		<xsd:annotation>
+			<xsd:documentation>
+				区域名称无需在后方加区，直接写XX；如果没有区域内容，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tLocalBusiness">
+		<xsd:annotation>
+			<xsd:documentation>
+				商圈，如果没有商圈内容，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tStreet">
+		<xsd:annotation>
+			<xsd:documentation>
+				街道；如果没有街道内容，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tMap">
+		<xsd:annotation>
+			<xsd:documentation>
+				地图页面
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tCoordinate">
+		<xsd:annotation>
+			<xsd:documentation>
+				格式AAA,BBB，其中AAA为经度坐标，BBB纬度坐标，中间以”,“隔开
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern
+				value="(\d+\.\d+,\d+\.\d+)|(\d+,\d+\.\d+)|(\d+\.\d+,\d+)|(\d+,\d+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tCoordinateSys">
+		<xsd:annotation>
+			<xsd:documentation>
+				填写坐标系所属类型的数字代码（0-8有效）。1：GPS设备获取的角度坐标; 2：GPS获取的米制坐标、sogou地图所用坐标; 3：
+				google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标 4：3中列表地图坐标对应的米制坐标
+				5：百度地图采用的经纬度坐标
+				6：百度地图采用的米制坐标 7：mapbar地图坐标; 8：51地图坐标。如果没有坐标信息，此项填0
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0" />
+			<xsd:enumeration value="1" />
+			<xsd:enumeration value="2" />
+			<xsd:enumeration value="3" />
+			<xsd:enumeration value="4" />
+			<xsd:enumeration value="5" />
+			<xsd:enumeration value="6" />
+			<xsd:enumeration value="7" />
+			<xsd:enumeration value="8" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tSubwayInfo">
+		<xsd:annotation>
+			<xsd:documentation>
+				地铁信息，包括地铁线路subwayline、地铁站subwaystation，距离distance，若有多个地铁站或者地铁线路，该标签可以多次出现
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SubwayLine" minOccurs="1" maxOccurs="1"
+				type="tSubwayLine" />
+			<xsd:element name="SubwayStation" minOccurs="1"
+				maxOccurs="1" type="tSubwayStation" />
+			<xsd:element name="Distance" minOccurs="1" maxOccurs="1"
+				type="tDistance" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tSubwayLine">
+		<xsd:annotation>
+			<xsd:documentation>
+				地铁线路
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSubwayStation">
+		<xsd:annotation>
+			<xsd:documentation>
+				地铁站的站名
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDistance">
+		<xsd:annotation>
+			<xsd:documentation>
+				小区和该地铁站的距离，单位：米
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

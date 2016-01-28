@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:/*500px*/100%;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F89ae308eef3e2575023bdf38c140db6"></script>
+	<title>添加自定义覆盖物</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<!--
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=杭州市政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.16164297887,"lat":30.279699716615},"precise":1,"confidence":80,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=上城区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.17581903481,"lat":30.247995862158},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=下城区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.18777681514,"lat":30.286864238037},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=拱墅区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.14786571217,"lat":30.325670201941},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=江干区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.21162831761,"lat":30.263172198928},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=萧山区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.27069828107,"lat":30.190856265355},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=余杭区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.30612211175,"lat":30.424769390122},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=西湖区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.13669859701,"lat":30.265913857345},"precise":0,"confidence":50,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=富阳区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":119.96681471686,"lat":30.054657250148},"precise":1,"confidence":80,"level":""}})
+
+http://api.map.baidu.com/geocoder/v2/?ak=F89ae308eef3e2575023bdf38c140db6&callback=renderOption&output=json&address=滨江区政府&city=杭州市
+renderOption&&renderOption({"status":0,"result":{"location":{"lng":120.21821240742,"lat":30.214658041639},"precise":0,"confidence":50,"level":""}})
+-->
+<script type="text/javascript">
+
+	// 百度地图API功能
+	var mp = new BMap.Map("allmap");
+	//mp.centerAndZoom(new BMap.Point(116.3964,39.9093), 15);
+	//mp.centerAndZoom(new BMap.Point(116.3964,39.9093), 18);			//天安门
+	mp.centerAndZoom(new BMap.Point(120.16164297887,30.279699716615), 12);	//杭州市政府
+	mp.enableScrollWheelZoom();
+	
+	/**
+	 * 复杂的自定义覆盖物
+	 * point：定位点
+	 * offsetX, offsetY: 横向、纵向偏移
+	 * text：文字
+	 * color, bgColor: 前景色、背景色
+	 * width, height: 宽、高
+	 * shape: 形状，目前只支持rect、circle
+	 * borderRadius: 圆角半径，对于圆形无效
+	 */
+  function ComplexCustomOverlay(point, offsetX, offsetY, text, color, bgColor, width, height, shape, borderRadius ){
+    this._point = point;
+    this._text = text;
+    this._color = color;
+    this._bgColor = bgColor;
+    this._width = width;
+    this._height = height;
+    this._shape = shape;
+    this._borderRadius = borderRadius;
+    this._fontSize = "16px";
+    this._border = "1px solid #5868E4";
+    this._padding = "2px";
+    this._textAlign = "center";
+    this._fontWeight = "bold";
+    this._offsetX = offsetX;
+    this._offsetY = offsetY;
+    
+		this._title = "未命名";
+		this._id = -1;
+		
+		this.setFontSize = function(fSize){ this._fontSize = fSize + "px"; }
+		this.setBorderStyle = function(borderStyle){this._border = borderStyle; }
+		this.setPadding = function(padding){ this._padding = padding + "px"; }
+		this.setTextAlign = function(isCenter){ this._textAlign = isCenter && isCenter? "center" : ""; }
+		this.setFontWeight = function(fWeight){ this._fontWeight = fWeight; }
+		this.setOffsetX = function(offsetX){ this._offsetX = offsetX + "px"; }
+		this.setOffsetY = function(offsetY){ this._offsetY = offsetY; }
+		
+		this.setTitle = function(title) {this._title = title;}
+		this.setID = function(id) {this._id = id;}		
+
+  }
+
+	
+  ComplexCustomOverlay.prototype = new BMap.Overlay();
+  ComplexCustomOverlay.prototype.initialize = function(map){
+    this._map = map;
+    var div = this._div = document.createElement("div");
+    div.style.position = "absolute";
+    div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+    div.style.border = this._border;
+
+    div.style.color = this._color;
+    div.style.backgroundColor = this._bgColor;
+    div.style.padding = this._padding;
+
+    //div.style.lineHeight = "18px";
+    div.style.whiteSpace = "nowrap";
+    div.style.MozUserSelect = "none";
+
+    div.style.fontWeight = this._fontWeight;
+    div.style.fontSize  = this._fontSize;
+    
+    div.style.width = this._width + "px";
+    div.style.height = this._height + "px";
+		div.style.textAlign = this._textAlign;
+		div.style.lineHeight = this._height + "px";
+    div.style.borderRadius = this._borderRadius + "px";
+    div.style.cursor = "pointer";
+    
+    if(this._shape=="circle"){
+    	div.style.borderRadius = (parseInt(this._height) / 2 + 5) + "px";
+    }
+
+    var span = this._span = document.createElement("span");
+    div.appendChild(span);
+    
+    span.appendChild(document.createTextNode(this._text));
+    
+    var that = this;
+
+		div.onclick = function(){
+      //document.location.href="http://www.baidu.com?title="+that._title+"&id="+that._id;
+      alert(that._map.getZoom());
+    }
+		
+    mp.getPanes().labelPane.appendChild(div);
+
+    return div;
+  }
+  ComplexCustomOverlay.prototype.draw = function(){
+    var map = this._map;
+    var pixel = map.pointToOverlayPixel(this._point);
+ 		this._div.style.left = (pixel.x + parseInt(this._offsetX)) + "px";
+		this._div.style.top  = (pixel.y + parseInt(this._offsetY)) + "px";
+  }
+
+	mp.addEventListener("zoomend", function(type, target){ 
+		//这里可以控制当缩放比例达到一定时切换到小区房源显示
+		alert("当前缩放比例："+this.getZoom()+", " + type + ", " + target); 
+	});	
+
+	var topLeftControl = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var topLeftNavigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	
+	//添加控件和比例尺
+	function addControl(){
+		mp.addControl(topLeftControl);        
+		mp.addControl(topLeftNavigation);     
+	}
+	//移除控件和比例尺
+	function deleteControl(){
+		mp.removeControl(topLeftControl);     
+		mp.removeControl(topLeftNavigation);  
+	}
+	addControl();
+
+	var color = "white";
+	var bgColor = "#28AE87";
+	/*
+	var myRectOverlay = new ComplexCustomOverlay(new BMap.Point(120.16164297887,30.279699716615), 0, 0, "上城", color, bgColor, 40, 25, "rect", 5 );
+	var myCircleOverlay = new ComplexCustomOverlay(new BMap.Point(120.16164297887,30.279699716615), 0, 50, "1432", color, bgColor, 40, 40, "circle", 25 );
+	myRectOverlay._fontSize = "14px";
+	myCircleOverlay._fontSize = "14px";
+  mp.addOverlay(myRectOverlay);
+  mp.addOverlay(myCircleOverlay);
+	*/
+
+	var townArr = [
+	{ title: "上城区", "id": 18, "lng":120.17581903481,"lat":30.247995862158, "housecount": 543 },
+	{ title: "下城区", "id": 21, "lng":120.18777681514,"lat":30.286864238037, "housecount": 562 },
+	{ title: "拱墅区", "id": 15, "lng":120.14786571217,"lat":30.325670201941, "housecount": 1423 },
+	{ title: "江干区", "id": 16, "lng":120.21162831761,"lat":30.263172198928, "housecount": 432 },
+	{ title: "萧山区", "id": 22, "lng":120.27069828107,"lat":30.190856265355, "housecount": 2130 },
+	{ title: "余杭区", "id": 24, "lng":120.30612211175,"lat":30.424769390122, "housecount": 1245 },
+	{ title: "西湖区", "id": 20, "lng":120.13669859701,"lat":30.265913857345, "housecount": 981 },
+	{ title: "富阳区", "id": 14, "lng":119.96681471686,"lat":30.054657250148, "housecount": 1241 },
+	{ title: "滨江区", "id": 13, "lng":120.21821240742,"lat":30.214658041639, "housecount": 321 }
+	];
+
+	townArr.forEach(
+		function(obj, index){
+			var myRectOverlay = new ComplexCustomOverlay(new BMap.Point(obj.lng, obj.lat), 0, 0, obj.title, color, bgColor, 40, 25, "rect", 5 );
+			var myCircleOverlay = new ComplexCustomOverlay(new BMap.Point(obj.lng, obj.lat), 5, -40, obj.housecount, color, bgColor, 30, 30, "circle", 25 );
+			myRectOverlay.setFontSize(12);
+			myCircleOverlay.setFontSize(12);
+			myRectOverlay.setTitle(obj.title);
+			myRectOverlay.setID(obj.id);
+			myCircleOverlay.setTitle(obj.title);
+			myCircleOverlay.setID(obj.id);
+			
+		  mp.addOverlay(myRectOverlay);
+		  mp.addOverlay(myCircleOverlay);
+		}
+	);
+	
+
+
+</script>

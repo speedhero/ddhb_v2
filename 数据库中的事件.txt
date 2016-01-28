@@ -1,0 +1,5 @@
+CREATE EVENT IF NOT EXISTS e_update_house_count
+-- 每天一次定时统计商圈、小区、经纪人的房源量
+ON SCHEDULE EVERY 1 DAY
+ON COMPLETION PRESERVE
+DO CALL backjob_calccountandprice();

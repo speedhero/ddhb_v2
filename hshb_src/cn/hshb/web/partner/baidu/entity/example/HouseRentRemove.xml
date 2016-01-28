@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+	<!-- urlset，urlset用来标记整个文档的开头，最少出现1次 最多出现1次 -->
+	<url>
+		<!-- url，url标记每条信息的开始和结束，最少出现0次 最多出现50000次 -->
+		<loc>http://baidu.com/</loc>
+		<!-- loc，用来定位资源进行更新、删除，要求唯一、稳定,任意url，最少出现1次 最多出现1次，类型为URL地址，最小长度1个字符 最大长度256个 
+			字符 必须符合正则表达式(http://)(.+) -->
+		<data>
+			<!-- data，，最少出现1次 最多出现1次 -->
+			<RentDelete>
+				<!-- RentDelete: 删除租房房源，需要删除的租房房源，最少出现1次 最多出现1次 -->
+				<publishTime>2014-06-06T08:12:12 </publishTime>
+				<!-- publishTime: 发布时间，发布时间，最少出现1次 最多出现1次，类型为日期或日期时间，格式为YYYY-MM-DD的日期或者格式为YYYY 
+					MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<lastmod>2013-01-01T12:01:01</lastmod>
+				<!-- lastmod，指该条数据的最新一次更新时间，日期与时间之间\t分隔，最少出现1次 最多出现1次，类型为日期或日期时间，格式为YYYY 
+					MM-DD的日期或者格式为YYYY-MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<changefreq>always</changefreq>
+				<!-- changefreq，指该条数据的更新频率，最少出现1次 最多出现1次，类型为字符串，有效值为：always、hourly、daily、weekly、 
+					monthly、yearly、never -->
+				<ID>http://beijing.homelink.com.cn/xxx</ID>
+				<!-- ID: 房源ID，需要删除房源的ID，最少出现1次 最多出现1次，类型为字符串 -->
+				<name>定慧西里次顶层南北两居总价最便宜的两居随时看房</name>
+				<!-- name，即title，被删除房源title，最少出现1次 最多出现1次，类型为字符串 -->
+				<domain>房产</domain>
+				<!-- domain: 房产，后续处理所需数据，不用考虑，填写“房产”即可，最少出现1次 最多出现1次，类型为字符串，有效值为：房产 -->
+				<type>HouseProperty</type>
+				<!-- type: 类型，后续处理所需数据，不用考虑，填写“HouseProperty”即可，最少出现1次 最多出现1次，类型为字符串，有效值为： 
+					HouseProperty -->
+				<DeleteReason>房源已出租</DeleteReason>
+				<!-- DeleteReason: 删除原因，房源的删除原因，最少出现1次 最多出现1次，类型为字符串 -->
+				<RentalPrice>1600</RentalPrice>
+				<!-- RentalPrice: 出租价格，如果房源删除的原因为已出租，则填写此项“出租价格”；否则请填写0；单位：元/月，最少出现1次 
+					最多出 现1次，类型为整数 -->
+				<source>58同城/链家在线/我爱我家</source>
+				<!-- source: 来源站点，，最少出现1次 最多出现1次，类型为字符串 -->
+				<status>DEL</status>
+				<!-- status: 状态，状态必须为"DEL“ 表示该条处于删除状态，最少出现1次 最多出现1次，类型为字符串，有效值为：DEL -->
+				<Broker>李四</Broker>
+				<!-- Broker: 经纪人，经纪人的姓名；如果为个人房源，请写：个人房源，最少出现1次 最多出现1次，类型为字符串 -->
+				<BrokerTel>13812344321</BrokerTel>
+				<!-- BrokerTel: 经纪人电话，经纪人的电话（手机或者座机，必须是纯数字或者是区号-电话号码的格式），最少出现0次 最多出现1次，类 
+					型为字符串，必须符合正则表达式(\d+)|(\d+-\d+) -->
+				<BuildNum>1</BuildNum>
+				<!-- BuildNum: 楼号，楼号。，最少出现0次 最多出现1次，类型为字符串 -->
+				<BuildUnit>2</BuildUnit>
+				<!-- BuildUnit: 单元号，属于所在楼的几单元，最少出现0次 最多出现1次，类型为字符串 -->
+				<RoomNum>301</RoomNum>
+				<!-- RoomNum: 房间号，房源所在单元的房间号，最少出现0次 最多出现1次，类型为字符串 -->
+			</RentDelete>
+		</data>
+	</url>
+</urlset>

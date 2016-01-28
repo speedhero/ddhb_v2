@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="huatek" uri="http://www.dongdao.net/j2ee"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript">
+_baseSearchUrl = "${globalUrl}/community.show?actionMethod=dimquery";
+var comparedItemsArray;
+var historyItemsArray;
+var searchInput = "";
+//var searchURL = "";
+var currentURL = '${sharedUrl}';
+
+$(document).ready(function() {
+//	initSearchMap();
+
+	try{
+		console.log(">>>>>>>>>>>>>>>>>>>>>>>");
+	  console.log($.fn.replaceAllSelect);
+		$("#selectorder").replaceAllSelect();	
+	}catch(e){
+		if(window.console) console.log(e);
+	}
+	
+});
+
+</script>
+<div style="margin-top: 5px;" class="Location"><a onclick='window.location.href="welcome.show?actionMethod=welcome"' style="cursor: pointer;color: #999999;">首页</a> > 杭州小区</div>
+<div>
+	<div class="x">
+		<div id="searchMenuDiv" class="companyRight" style="width:100%;"></div>
+	</div>
+</div>
+
+<div class="lbt">
+	<div class="tab_co">
+	  <a id="checkbtn1" onclick="saveCookies('imgShape');" href="javascript:void(0);" class="a_1 lbta">大图模式</a>
+		<a id="checkbtn2" onclick="saveCookies('dataShape');" href="javascript:void(0);" class="a_2 a_2a lbta">列表模式</a>
+	</div>
+	<div class="paixu">
+		<span>排序：</span>
+		<span><a id="orderRules1" class="one"  onclick="orderCommunity('${globalUrl}/community.show?actionMethod=dimquery' , 'sortIndex','1');">默认</a></span>		
+		<span><a id="orderRules2"  onclick="orderCommunity('${globalUrl}/community.show?actionMethod=dimquery' , 'floorArea','2');">面积</a></span>
+		<span><a id="orderRules3"  onclick="orderCommunity('${globalUrl}/community.show?actionMethod=dimquery' , 'currentSHAvePrice','3');">价格</a></span>
+		<span><a id="orderRules4"  onclick="orderCommunity('${globalUrl}/community.show?actionMethod=dimquery' , 'startSaleDate','4');">年份</a></span>
+	</div>
+	<%-- 当前页和总页数 --%>
+	<div class="fenPage">
+		<a id="pageAId1" onclick="nextPage(-1)" >&lt;</a>
+		<span>
+				<fmt:formatNumber var="pageNumber" value="${(pageBean.totalRows / pageBean.pageSize) }" pattern="#"/>
+				<c:if test="${pageBean.totalRows % pageBean.pageSize == 0 }"><fmt:formatNumber var="page_1" value="0" pattern="#"/></c:if>
+				<c:if test="${pageBean.totalRows % pageBean.pageSize != 0 }"><fmt:formatNumber var="page_1" value="1" pattern="#"/></c:if>
+				<label style="color:#f60;" id="pageLabel">${pageBean.currentPage }</label> /
+				<label id="totalPages">
+				${pageNumber + page_1}
+				</label>
+		</span>
+		<a id="pageAId2" onclick="nextPage(1,${pageNumber})">&gt;</a>
+	</div>
+
+	<div style="float:right;padding-right:10px; text-align:left;"><span style="float:left;">共有</span><span style="color:#f60; float:left; font-weight:bold;" id="dynamichousecount">${pageBean.totalRows}</span><span style="float:left;">个小区</span></div>
+</div>
+<form name="community">
+	<div id="changelist">
+		<%@include file="/WEB-INF/jsp/ddhb/front/community/community_search_list.jsp" %>
+	</div>
+	<img id="searchPicture" src="" style="display:none;"/>
+</form>
+
+<%@include file="/WEB-INF/jsp/ddhb/front/ad/adButtompBar.jsp" %>

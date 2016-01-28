@@ -1,0 +1,251 @@
+body {
+    font-size: 12px;
+    color: #333;
+    margin: 0px auto;
+}
+table{border-collapse:collapse;border-spacing:0;}
+.font7blue {font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;}
+.contentmain {
+ 	/* border: 1px solid red;	 */
+	width: 708px;
+	margin:15px 0 0 0;
+	position: relative;
+	margin-top: 15px;
+	background-color:#FFFFFF;
+}
+
+.newlistitem {
+	position:relative;
+	width: 708px;
+	height: 360px;
+	margin-top: 20px;
+	background-color:#FFFFFF;
+}
+.rightlist {
+	float :right;
+	border: 1px solid #CCCCCC;
+	width: 219px;
+	height: 380px;
+	margin-top: 0px;
+	margin-right:-250px;
+	background-color:#FFFFFF;
+}
+.basedatadiv {
+	width: 380px;
+	margin: 15px 50px 0px 20px;
+	float:right;
+	
+}
+
+.groupbuydiv {
+	position:absolute;
+	width: 708px;
+	height: 80px;
+	top:160px;
+	filter:alpha(opacity=80);
+	 -moz-opacity:0.8;
+	  opacity:0.8;
+}
+.gotoseeborder {
+	position:relative;
+	width: 204px;
+	height: 55px;
+	float: right;
+	background-image:url("../../images/newhouse/toSee.png");
+	margin-right:-58px;
+	text-align: center;
+}
+.gotoseeborder1 {
+	position:relative;
+	width: 204px;
+	height: 55px;
+	float: right;
+	background-image:url("../../images/newhouse/toSee_1.png");
+	margin-right:-58px;
+	text-align: center;
+}
+.gotoseediv {
+	font-size: 28px;
+	text-align: center;
+	line-height: 44px;
+	text-decoration: none;
+	color:#FFFFFF;
+}
+.gotoseeborderright {
+	width: 250px;
+	height: 62px;
+	margin-top:5px;
+	float: left;
+	background-image:url("../../images/newhouse/contect_background.png");
+}
+.recommandcontentarea {
+	position:absolute;
+	width: 458px;  
+	height:62px;
+	margin-left: 250px;
+	top: 5px;
+	background-image:url("../../images/newhouse/contect_background.png");
+}
+.projectnoarea {
+	position:absolute;
+	width: 110px;
+	height:30px;
+	left: 5px;
+	text-align: center;
+	background-image:url("../../images/newhouse/projectNo.png");
+}
+.peopleinfolist {
+	width: 59%; 
+	margin: 0 auto; 
+	font-size: 14px;
+	background-color:#FFFFFF;
+}
+.peopleinfolist div {
+	margin-top: 10px;
+}
+
+.newitemfoot {
+	position: absolute;
+	width: 92%;
+	height: 70px;
+	bottom: 44px;
+	left: 28px;
+	margin-top:0px;
+}
+.twodimensiondiv {
+	height: 80px;
+	width: 80px;
+	background-size:contain;          /*保持图像本身的宽高比例，将图片缩放到宽度或高度正好适应定义背景的区域*/  
+    background-repeat:no-repeat;	 /*图像不重复显示*/
+    float: left;
+}
+
+.twodimensrightdiv {
+	width: 107px;
+	height: 25px;
+	color: #000000;
+	text-align: center;
+	line-height: 25px;
+	background-image:url("../../images/newhouse/share.png");
+}
+
+.newMenubar {
+	width:798px;
+	vertical-align:top;
+	float:left;
+	z-index:999;
+}
+.newMenubaritem {
+	height: 42px;
+	width: 120px;
+	float: left;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	background-image:url("../../images/newhouse/detail_title.png");
+	color:#FFFFFF;
+	cursor: pointer;
+}
+.newdetaildiv {
+	width: 668px;
+	margin-left: 25px;
+	margin-top: 15px;
+}
+.recommandContentStyle{
+	font-size:12px;
+	color:#FFFFFF;
+	margin-left:20px;
+	margin-top:5px;
+}
+.lastDaysRight{
+	width:100px;
+	float:right;
+	margin-top:0px;
+	margin-right:0px;
+	font-size: 16px;
+}
+.newMenubarItemLast{
+	height: 49px;
+	width: 7px;
+	float: left;
+	background-image:url("../../images/newhouse/detail_title_right.png"); 
+}
+.guideStyle {
+  background-image: url("../../images/newhouse/share.png");
+  font-size: 18px;
+  font-weight: bold;
+  height: 35px;
+  line-height: 30px;
+  margin-left: 16px;
+  margin-top: 13px;
+  text-align: center;
+  width: 90px;
+}
+.rightListBackgroundImg{
+	width:230px;
+	height:93px;
+	background-image:url('../../images/newhouse/activeDetail.png');
+}
+.firstRightListBlock{
+	font-size: 14px;
+	margin-top:0px;
+	margin-left:0px;
+	width:50px;
+	text-align:center;
+}
+.firstRightListFirstBlock1{
+	padding-top:10px;
+	padding-left:10px;
+	width:70px;
+	color:#FFFFFF;
+}
+.firstRightListSecondBlock2{
+	font-size: 36px;
+	margin-top:0px;
+	margin-left:0px;
+	color:#F39E44;
+	width:50px;
+}
+.secondRightListBlock{
+	font-size: 14px;
+	float: right;
+	margin-top:-70px;
+	padding-right:10px;
+	color:#FFFFFF;
+}
+.secondRightListBlock2{
+	font-size: 36px;
+	color:#F39E44;
+	float: right;
+	margin-top:0px;
+	margin-right:55px;
+}
+.detailsOfCase{
+	background-color: #dcdcdc; 
+	margin-top: 0px;
+	width:707px;
+	float:left;
+	height:1px;
+}
+.priceOfCase{
+	font-size: 40px;
+	 margin-top: 0px; 
+	 line-height: 40px;
+	 color:#F87A13;
+	 height:40px
+}
+.endDateOfCase{
+	font-size: 16px;
+	 margin-top: 13px;
+}
+.font{
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	color:#333333;
+}
+.hrefLine a{
+	color:#999999;
+}

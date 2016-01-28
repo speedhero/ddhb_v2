@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.consignment.entity">
+	<class name="EntrustBhouse" table="entrust_buyhouse">
+		<id name="id" type="java.lang.Long" column="buy_no">
+			<generator class="native"/>
+		</id>
+		<property name="locFlag" column="location_requirement_flag" type="java.lang.Integer"/>
+		
+		<property name="cbdNo" column="cbd_no" type="java.lang.String" length="40"/>
+		
+		<property name="communityId" column="community_no" type="java.lang.String" length="40"/>
+		
+		<property name="communityName" column="community_name" type="java.lang.String" length="100"/>
+		
+		<property name="maxShi" column="maxShi" type="java.lang.Integer"/>
+		
+		<property name="ting" column="ting" type="java.lang.Integer"/>
+		
+		<property name="minShi" column="minShi" type="java.lang.Integer"/>
+		
+		<property name="minPrice" column="minprice" type="java.lang.Integer"/>
+		
+		<property name="maxPrice" column="maxprice" type="java.lang.Integer"/>
+		
+		<property name="other" column="other_requirement" type="java.lang.String" length="200"/>
+		
+		<property name="userNo" column="user_no" type="java.lang.Long"/>
+		
+		<property name="gender" column="gender" type="java.lang.Integer"/>
+		
+		<property name="name" column="name" type="java.lang.String" length="50"/>
+		
+		<property name="phone" column="telephone" type="java.lang.String" length="20"/>
+		
+		<property name="otherContect" column="otherContect" type="java.lang.String" length="100"/>
+		
+		<property name="synchronizedFlag" column="synchronized_flag" type="java.lang.Integer"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="synchronizedTime" column="synchronized_time" type="java.sql.Timestamp"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		
+	</class>
+</hibernate-mapping>

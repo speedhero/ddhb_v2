@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseNewGroupbuy" table="house_newhouse_groupbuy">
+		<id name="id" type="java.lang.Long" column="group_buy_no">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="houseNew" class="com.huatek.hbwebsite.house.entity.HouseNew"  not-found="ignore">
+            <column name="newhouse_no">
+            </column>
+        </many-to-one>
+		
+		<property name="clientName" column="client_name" type="java.lang.String" length="50"/>
+		
+		<property name="clientTelephone" column="client_telephone" type="java.lang.String" length="15"/>
+		
+		<property name="clientEmail" column="client_email" type="java.lang.String" length="11"/>
+		
+		<property name="clientproperties" column="client_properties" type="java.lang.String" length="11"/>
+		
+		<property name="applyDate" column="apply_date" type="java.util.Date"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

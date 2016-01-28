@@ -1,0 +1,135 @@
+.itemMenuPhone { width: 20%; height: 28px; float:left; cursor: pointer; line-height: 30px; text-align: center; color: #ffffff; }
+
+#searchContent{ width:100%; height:auto; background-color:#FFFFFF; }
+
+.phoneItemMenuSelected{color: #575f6e; height: 34px; font-size: 12px; background: rgb(255, 255, 255); border-top: 3px solid rgb(63, 184, 177); margin-top:-3px;}
+
+#searchMenuBarPhone{ width:100%; height: 28px; background: rgb(63, 184, 177); }
+
+#searchItemContent{padding-top: 13px; padding-left:10px; width:100%;}
+
+#privateSearchItemContent{ width:100%; }
+
+#notHiddenDiv{ width:100%; padding-bottom: 20px; }
+
+#isHiddenDiv{ width:100%; border-top:1px dashed #adadad; padding-bottom:20px; display:none; }
+
+.hiddenPrivateDiv{ display: none; }
+
+.diaplayPrivateDiv{ display: block; }
+
+#hiddenButtonBar{ width:100%; text-align: center; margin-top: 20px; margin-bottom:15px; height:60px; }
+
+.clearDiv{ clear: both; height: 0px; }
+
+#hm1{ width:100%; margin-top:18px; }
+
+#hp1{ width:100%; }
+
+#hp2{ width:100%; }
+
+#hm2{ width:100%; margin-top:10px;}
+
+.multiItem{margin: 2px 5px; padding:0 8px; float:left; line-height:34px; cursor: pointer;}
+
+.multiItem:hover{background-color: #3fb8b1; color:#FFFFFF;}
+
+.displayClass{ display:block; }
+
+.hiddenClass{ display:none; }
+
+#operationDivForPhone{ float:left; height:auto; width:100%; }
+
+.operationItemPhone{ width:33%; float:left; }
+
+.operationItemContainerPhone{height:auto; cursor:pointer; line-height: 40px; font-size: 12px; color: #666666; width:50px;}
+
+#shareContainerPhone{ float:right; }
+
+#saveContainerPhone{ margin:0 auto; }
+
+#clearContainerPhone{ float:left; }
+
+.operationLabel{ padding-left:5px; float:left; }
+
+.oprationIcon{width: 20px; height: 20px; background-repeat:no-repeat; float:left; margin-top:10px;}
+
+#selectedItemPanel{ border-top:1px dashed #adadad; }
+
+.shareIcon{background-image: url("../../images/search/shareSearch.png");}
+
+.saveIcon{background-image: url("../../images/search/savesearch.png");}
+
+.clearIcon{background-image: url("../../images/search/clearSearch.png");}
+
+.disabledShareIcon{background-image: url("../../images/search/shareSearch_disable.png");}
+
+.disabledSaveIcon{background-image: url("../../images/search/savesearch_disable.png");}
+
+.disabledClearIcon{background-image: url("../../images/search/clearSearch_disable.png");}
+
+#expandOrHiddenBar{display: inline-block;margin: 0 auto;width: 92px;height: 26px;line-height: 26px;font-size: 12px;color: #FFFFFF;cursor:pointer;background-color:#3fb8b1;}
+
+#expandOrHiddenBar:hover{background-color:#189a92;}
+
+
+.anabledOperation{color:#7fccc9;}
+
+.disableOperation{color:#ababab;}
+
+.searchLabelContainer{float:left;}
+
+.hiddenButtonBarClass{display:none;}
+
+.selectItemContainer{margin-right:20px;float:left;}
+
+.selectContent{margin-top:5px;background-color:#ffffff;}
+
+.selectItemContainer select{margin-left:10px;}
+
+.customSelect {width: 148px; float:left;margin-top:15px;}
+
+.customSelect a{text-decoration:none;}
+
+.customSelect>span{display:block;float:left;}
+
+.customSelect .label{background-color:#4E5156;font-size:12px;color:#FFFFFF;line-height:24px;padding:0 5px;}
+
+.searchXL{float:left; position:relative; font-size:12px; cursor: pointer;}
+
+.cs .csc{overflow: hidden;}
+
+.searchXL .cs .csc{float:left;background-color:#ECEDF2;height:25px; line-height:24px; width:65px; padding-left:5px;}
+
+.searchXL .cs .cscShort{float:left;background-color:#ECEDF2;height:25px; line-height:24px; width:41px; padding-left:5px;}
+
+.searchXL .cs .xljt{float:left; width:25px; height:25px;background-color:#ADADAD;}
+
+.searchXL .cs .xljt:hover{background-color:#3FB8B1}
+
+.searchXL a.a{padding-left:10px;background:#ecedf2;height:25px;line-height:24px;color:#333; display:block;}
+
+.searchXL a.a:hover{background:#ecedf2;}
+
+.searchXL .xlnr{border:1px solid #3fb8b1; background:#fff;line-height:20px; display:none; position:absolute;top:25px; max-height: 200px; overflow: auto;}
+
+.searchXL .xlnr a{padding-left:7px;color:#333; display:block;}
+
+.searchXL .xlnr a:hover{ background:#3fb8b1;color:#fff;}
+
+
+.search{width:100px; }
+
+.search2{width:72px; }
+
+.search2 .xlnr{width:70px; z-index:99;}
+
+.search .xlnr{width:93px; z-index:99999 }
+
+.selectHover{background-color:red;}
+
+@media screen and (max-width: 758px){
+	.searchMenuBarPhone{height:28px;}
+	
+	#hiddenButtonBar a{width: 92px; height: 26px; font-size: 12px;line-height: 26px;}
+}

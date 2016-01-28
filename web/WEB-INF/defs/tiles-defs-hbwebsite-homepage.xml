@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!-- Base Tiles Definition -->
+	<definition name="base.definition" template="/WEB-INF/jsp/ddhb/front/homePageLayout/frontCommon.jsp">
+		<put-attribute name="ddhb.title" type="string" value="豪世华邦，专业因为懂你！" />
+		<put-attribute name="ddhb.header" type="template" value="/WEB-INF/jsp/ddhb/front/homePageLayout/front_header.jsp" />
+		<put-attribute name="ddhb.body" type="template" value="/WEB-INF/jsp/ddhb/front/homePageLayout/front_body.jsp" />
+		<put-attribute name="ddhb.footer" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_footer.jsp" />
+	</definition>
+	
+	<definition name="page.homepage2" template="/WEB-INF/jsp/ddhb/front/homePageLayout/homepage.jsp">
+		<put-attribute name="ddhb.title" type="string" value="豪世华邦，专业因为懂你！" />
+		<put-attribute name="ddhb.footer" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_footer.jsp" />
+	</definition>
+
+</tiles-definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseRentPriceTrend" table="house_rent_price_trend">
+		<id name="id" type="java.lang.Long" column="trend_no">
+			<generator class="native"/>
+		</id>
+		
+		<property name="houseId" column="house_id" type="java.lang.String" length="40"></property>
+		
+		<property name="price" column="rent_price" type="java.lang.Float"/>
+		
+		<property name="dateAndMonth" column="dateandmonth" type="java.util.Date"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+	</class>
+</hibernate-mapping>

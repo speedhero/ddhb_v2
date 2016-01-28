@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+	<html>
+		<div
+			style="height: auto;min-height: 450px;overflow: auto;width: auto;">
+			<div
+				style="background-color: #42B187;color: #FFFFFF;height=40px;">
+				<span style="font-size:18px;padding-left:10px;"></span>
+			</div>
+			<div style="padding-top:10px;">
+				<table width="100%" style="color:#000;font-size:12px;float: left;">
+					<tr>
+						<td>{0}</td>
+					</tr>
+					<tr>
+						<td>{1}</td>
+					</tr>
+					<tr>
+						<td>{2}</td>
+					</tr>
+					<tr>
+						<td>{3}</td>
+					</tr>
+				</table>
+			</div>
+			<div style='padding-top: 25px;text-align: center;font-size:12px;'>Copyright © 北京东道形象设计制作有限责任公司 版权所有</div>
+		</div>
+	</html>
+</xml-body>

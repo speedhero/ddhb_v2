@@ -1,0 +1,287 @@
+@charset "utf-8";
+/* CSS Document */
+/*body*/
+body{
+	margin: 0 auto;
+	
+}
+.font{
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight:500;
+	font-style:inherit;
+	text-decoration:none;
+	color:black;
+}
+p{
+	padding: 0;
+	margin: 0;
+}
+
+.container{
+	width: 100%;
+	height: auto;
+	margin: 0 25px;
+}
+.head{
+	height: 20px;
+	width: 150px;
+	margin-top:20px;
+}
+.nav{
+	height: 40px;
+	width: 820px;
+	margin-top:25px;
+}
+.navc{
+	height:38px;
+	width:105px;
+	float:left;
+	margin-left:-2px;
+	margin-top:-3px;
+	cursor: pointer;
+}
+.navcimg {
+    height: 38px;
+    width: 105px;
+	background-image:url("/ddhb/images/search/searchUnselectedMenu.png")
+}
+.navimg {
+    height: 38px;
+    width: 103px;
+	background-image:url("/ddhb/images/search/searchSelectedMenu.png")
+}
+.navctext{
+	height:20px;
+	width:90px;
+	position:relative;
+	top:-31px;
+	left:6px;
+}
+.main{
+	height: 900px;
+	width: 580px;
+	margin:25px 180px 0 0;
+}
+.main1{
+	height:480px;
+	width:575px;
+}
+.main1_01{
+	height:60px;
+	width:710px;
+	margin:0 6px;
+	/* background:#fff; */
+}
+.main1_01b{
+	height:40px;
+	width:100%;
+	border-bottom:1px solid #CCC;
+}
+.main1_02{
+	margin-left:30px;
+	height:355px;
+	width:555px;
+}
+.main1_021{
+	height:105px;
+	width:550px;
+	/* background:#fff; */
+}
+.m1_021{
+	width:67px;
+	height:105px;
+	float:left;
+}
+.mian1_0211{
+	height:17px;
+	width:75px;
+	text-align:left;
+}
+.m1_022{
+	height:105px;
+	width:475px;
+	float:left;
+}
+.m1_0221{
+	height:17px;
+	width:475px;
+}
+.mian1_0212{
+	height:17px;
+	width:25px;
+	float:left;
+}
+.mian1_0213{
+	height:17px;
+	width:100px;
+	text-align:left;
+	float:left;
+}
+.mian1_0214{
+	height:20px;
+	width:95px;
+	float:left;
+	margin-top:-3px;
+	margin-left:5px;
+}
+.main1_0215{
+	float:left; 
+	margin-top:-3px;
+	margin-left:5px;
+}
+.main1_022{
+	height:30px;
+	width:550px;
+	/* background:#fff; */
+	margin-top:10px;
+}
+.main1_022 div{
+	float:left;
+}
+.main1_0222{
+	height:17px;
+	width:auto;
+	text-align:right;
+	margin-top:5px;
+	margin-right:14px;
+}
+.main1_023{
+	height:30px;
+	width:550px;
+	/* background:#fff; */
+	margin-top:10px;
+}
+.main1_023 div{
+	float:left;
+}
+.main1_0232{
+	height:3px;
+	width:18px;
+	background-image:url("/ddhb/images/u257_line.png");
+	margin:13px 5px;
+}
+.main1_024{
+	height:135px;
+	width:550px;
+	/* background:#fff; */
+	margin-top:10px;
+}
+.main1_024 div{
+	float:left;
+}
+#s1{
+	height:22px;
+	width:72px;
+}
+#s2{
+	height:22px;
+	width:110px;
+}
+.m1t1{
+	height:15px;
+	width:341px;
+	/*color:#CCCCCC;*/
+	margin-left:-3px;
+	margin-top:-2px;
+}
+.m1t2{
+	height:15px;
+	width:69px;
+	margin-left:-3px;
+	margin-top:4px;
+}
+.m1ta1{
+	height:132px;
+	width:436px;
+	color:#CCC;
+	margin-top:5px;
+	margin-left: -3px;
+}
+.m1s3{
+	height:22px;
+	width:38px;
+	margin-top:2px;
+	margin-left:-3px;
+}
+.m2t1{
+	/*color: #CCCCCC;*/
+    font-size: 13px;
+    height: 15px;
+    text-align: left;
+    width: 107px;
+	margin-left:11px;
+	margin-top:4px;
+}
+.main2{
+	height:300px;
+	width:575px;
+	margin-top:10px;
+}
+.mian2_0211{
+	height:17px;
+	margin-top:5px;
+	text-align:right;
+	width:84px;
+}
+.main2_02b{
+	margin-top:5px;
+	height:17px;
+	width:55px;
+}
+.m2s1{
+	color: #000000;
+    font-size: 13px;
+    height: 25px;
+    width: 60px;
+	margin-top:2px;
+}
+.m2t2{
+	width:160px;
+	height:15px;
+	/*color:#CCC;*/
+	font-size:13px;
+	margin-left:11px;
+	margin-top:4px;
+}
+.m2su1{
+	height:45px;
+	width:160px;
+	color:#FFFFFF;
+	margin-left:71px;
+	font-size:18px;
+}
+.navcimgLast {
+    height: 38px;
+    width: 437px;
+	background-image:url("/ddhb/images/search/searchUnselectedMenu.png")
+}
+.navcLast{
+	height:38px;
+	width:407px;
+	float:left;
+	margin-left:-2px;
+	margin-top:-3px;
+	cursor: pointer;
+}
+.btnImg {
+	background-image:url("/ddhb/images/search/expandButton.png");
+	margin-left:350px;
+	margin-top:10px;
+	cursor: pointer;
+	width:114px;
+	height:32px
+}
+.mainBackgroundColor{
+	background:#FFFFFF;
+	width:849px;
+	margin-top:-5px;
+	margin-left:-3px;
+}
+.submitBtnChar{
+	color:#FFFFFF;
+	font-size:15px;
+	margin-left:42px;
+	line-height:32px; 
+
+}

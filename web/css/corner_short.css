@@ -1,0 +1,4 @@
+.inputLeft{float:left;width:9px;height:25px;background-image:url('../images/corner_short/gray_left.png')}
+.inputMiddle{float:left;height:25px;background-image:url('../images/corner_short/gray_middle.png');}
+.inputRight{float:left;width:9px;height:25px;background-image:url('../images/corner_short/gray_right.png')}
+.customerInput{border:none;margin-top:2px;outline:none;line-height:29px;}

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huatek.hbwebsite.search.entity">
+	<class name="SearchItem" table="search_item">
+		<!--  
+		<meta attribute="sync-DAO">false</meta>
+		-->
+		<id name="id" type="java.lang.Long" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="searchLabel" column="searchlabel" type="java.lang.String" length="40"/>
+		
+		<property name="isParent" column="isParent" type="java.lang.Integer" />
+		
+		<property name="parent" column="parent" type="java.lang.Long" />
+		
+		<property name="modulename" column="modulename" type="java.lang.String" length="60"/>
+		
+		<property name="isHidden" column="ishidden" type="java.lang.Integer"/>
+		
+		<property name="isRange" column="isrange" type="java.lang.Integer"/>
+		
+		<property name="isNeedInput" column="isneedinput" type="java.lang.Integer"/>
+		
+		<property name="colunmName" column="columnname" type="java.lang.String" length="30"/>
+		
+		<property name="isFromTable" column="isfromtable" type="java.lang.Integer"/>
+		
+		<property name="isPublic" column="ispublic" type="java.lang.Integer"/>
+		
+		<property name="hasSubValue" column="hassubvalue" type="java.lang.Integer"/>
+		
+		<property name="subValueLabel" column="subValueLabel" type="java.lang.String"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="sortindex" column="sortindex" type="java.lang.Integer"/>
+		
+		<property name="ismulty" column="ismulty" type="java.lang.Integer"/>
+		
+		<property name="entityName" column="entityname" type="java.lang.String" length="50"/>
+		
+		<property name="onlyShowPrivate" column="onlyShowPrivate" type="java.lang.Integer"/>
+		
+		<property name="subEntityName" column="subentityname" type="java.lang.String" length="50"/>
+		
+		<property name="unitName" column="unitname" type="java.lang.String" length="20"/>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,108 @@
+<project name="www.hshb.cn" basedir=".">
+    <!--############################################################项目目录 -->
+
+    <!--项目根-->
+    <property name="project" value="ddhb" />
+    <property name="src" value="${project}/src" />
+    <property name="resources" value="${project}/src"/>
+    <property name="test" value="${project}/test"></property>
+    <property name="target" value="${project}/target"></property>
+    <property name="main-target" value="${project}/target/classes"/>
+    <property name="test-target" value="${project}/target/test-classes"/>
+    <!--web 目录 -->
+    <property name="web-root" value="${project}/web"/>
+
+    <!-- ant 属性文件 -->
+    <property file="build.properties"/>
+
+    <!--############################################################软件依赖 -->
+    <!--ant lib目录-->
+    <property name="ant-lib" value="${ant.home}/lib"/>
+    <!-- tomcat lib目录 -->
+    <property name="tomcat-lib" value="${tomcat.home}/lib"/>
+
+    <!-- 定义classpath-->
+    <path id="classpath">
+        <fileset dir="${ant-lib}" includes="***.jar"></fileset>
+        <fileset dir="${tomcat-lib}" includes="***.jar"></fileset>
+        <fileset dir="${web-root}/WEB-INF/lib" includes="***.jar"></fileset>
+    </path>
+
+    <!-- 清理-->
+    <target name="clean">
+        <delete dir="${project}"></delete>
+    </target>
+
+    <!-- 初始化-->
+    <target name="init" depends="clean">
+        <mkdir dir="${project}"/>
+        <mkdir dir="${main-target}"/>
+        <mkdir dir="${test-target}"/>
+    </target>
+
+    <!-- 检出代码 这里使用 export 不是checkout 二者区别 checkout会svn相关信息文件检出，export只是检出最新的文件-->
+    <path id="path.svnant">
+      <fileset dir="${basedir}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+  <typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="path.svnant"/>
+  <target name="checkout" depends="init"> 
+    <svnSetting id="svnparams" username="${svn.username}" password="${svn.password}" javahl="false"/>
+    <svn refid="svnparams">
+      <checkout url="${svn.url}" destPath="${project}" />
+    </svn>
+  </target>
+
+
+    <!-- 编译 -->
+    <target name="compile" depends="checkout">
+        <javac srcdir="${src}" destdir="${main-target}" encoding="UTF-8" includeAntRuntime="false">
+            <classpath refid="classpath"></classpath>
+        </javac>
+        <copy todir="${main-target}">
+            <fileset dir="${resources}">
+                <exclude name="sql/**"/>
+            </fileset>
+        </copy>
+    </target>
+    
+    <!-- 打war包 -->
+    <target name="build" depends="compile">
+        <war destfile="${target}/${deploy.name}.war" webxml="${web-root}/WEB-INF/web.xml">
+            <fileset dir="${web-root}"></fileset>
+            <classes dir="${main-target}"></classes>
+        </war>
+        <delete dir="${main-target}"></delete>
+        <delete dir="${test-target}"></delete>
+    </target>
+    
+    
+    <!--shutdowntomcat -->
+    <target name="shutdowntomcat" description="========shutdowntomcat===========">
+        <echo message="正在关闭服务器。。。" />
+        <exec executable="${tomcat.home}/bin/shutdown.bat" failonerror="false"></exec>
+        <echo message="服务器成功关闭" />
+        <sleep seconds="10"/>
+        <!-- 删除之前解压的war包-->
+        <delete dir="${tomcat.home}/webapps/${deploy.name}"></delete>
+    </target>
+    
+    <!--startuptomcat -->
+    <target name="startuptomcat" description="========startuptomcat===========">
+        <sleep seconds="5"/>
+        <echo message="正在启动服务器。。。" />
+        <exec executable="${tomcat.home}/bin/startup.bat" failonerror="false"></exec>
+        <echo message="服务器启动成功" />
+    </target>
+    
+    <!--部署到tomcat下面 -->
+    <target name="deploy" depends="build">
+        <ant target="shutdowntomcat"/>
+        <copy file="${target}/${deploy.name}.war" todir="${tomcat.home}/webapps" />
+        <ant target="startuptomcat"/>
+    </target> 
+
+    
+</project>

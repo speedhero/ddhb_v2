@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseNew" table="house_newhouse">
+		<id name="id" type="java.lang.Long" column="newhouse_no">
+			<generator class="native"/>
+		</id>
+		<property name="projectNo" column="project_no" type="java.lang.String" length="15"/>
+
+		<property name="averagePrice" column="average_price" type="java.lang.Integer"/>
+		
+		<property name="minPrice" column="house_price" type="java.lang.Integer"/>
+	
+		<property name="publishDate" column="publish_date" type="java.util.Date"/>
+		
+		<property name="createDate" column="create_date" type="java.util.Date"/>
+		
+		<property name="endDate" column="end_date" type="java.util.Date"/>
+		
+		<property name="pictureUrl" column="picture_url" type="java.lang.String" length="100"/>
+		
+		<property name="hotline" column="hotline" type="java.lang.String" length="20"/>
+		
+		<property name="adv" column="house_adv" type="java.lang.String" length="49"/>
+		
+		<property name="buildingName" column="building_name" type="java.lang.String" length="200"/>
+		
+		<property name="buildingAddress" column="building_address" type="java.lang.String" length="300"/>
+		
+		<property name="developer" column="developer" type="java.lang.String" length="200"/>
+		
+		<property name="recommandContent" column="recommand_content" type="java.lang.String" length="500"/>
+		
+		<property name="sellingPoint" column="selling_point" type="java.lang.String"/>
+		
+		<property name="salesPromotion" column="sales_promotion" type="java.lang.String"/>
+		
+		<property name="facilityName" column="house_facility" type="java.lang.String"/>
+		
+		<property name="buildingIntroduce" column="building_introduce" type="java.lang.String"/>
+		
+		<property name="homepageRecommandFlag" column="homepage_recommand_flag" type="java.lang.Integer"/>
+		
+		<property name="homepageRecommandTime" column="homepage_recommand_time" type="java.util.Date"/>
+		
+		<many-to-one name="city" class="com.huatek.hbwebsite.house.entity.CityForNewHouse"  not-found="ignore">
+            <column name="city_no">
+            </column>
+        </many-to-one>
+		
+		<many-to-one name="area" class="com.huatek.hbwebsite.house.entity.CountyForNewHouse"  not-found="ignore">
+            <column name="county_no">
+            </column>
+        </many-to-one>
+        
+		<many-to-one name="decoration" class="com.huatek.hbwebsite.common.entity.Decorations"  not-found="ignore">
+            <column name="decoration_no">
+            </column>
+        </many-to-one>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

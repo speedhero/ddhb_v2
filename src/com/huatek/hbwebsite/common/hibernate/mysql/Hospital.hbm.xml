@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="Hospital" table="common_hospital_table">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		
+		<property name="hospitalName" column="hospital_name" type="java.lang.String" length="500"/>
+		
+		<many-to-one name="region" column="region_id" unique="true" class="com.huatek.hbwebsite.common.entity.Area"  not-found="ignore"/>
+		
+		<property name="hospitalType" column="hospital_type" type="java.lang.String" length="30"/>
+		
+		<property name="location" column="gps_location" type="java.lang.String" length="50"/>
+		
+		<property name="sortIndex" column="sortindex" type="java.lang.Integer"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+	</class>
+</hibernate-mapping>

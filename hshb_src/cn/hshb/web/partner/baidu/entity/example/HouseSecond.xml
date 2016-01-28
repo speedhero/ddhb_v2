@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+	<!-- urlset，urlset用来标记整个文档的开头，最少出现1次 最多出现1次 -->
+	<url>
+		<!-- url，url标记每条信息的开始和结束，最少出现0次 最多出现50000次 -->
+		<loc>http://beijing.homelink.com.cn/xxx</loc>
+		<!-- loc，用来定位资源进行更新、删除，要求唯一、稳定,任意url，最少出现1次 最多出现1次，类型为URL地址，最小长度1个字符 最大长度256个 
+			字符 必须符合正则表达式(http://)(.+) -->
+		<data>
+			<!-- data，，最少出现1次 最多出现1次 -->
+			<SellingInfo>
+				<!-- SellingInfo: 出售信息，，最少出现1次 最多出现1次 -->
+				<name>定慧西里次顶层南北两居总价最便宜的两居随时看房</name>
+				<!-- name，可以填标题，最少出现1次 最多出现1次，类型为字符串 -->
+				<domain>房产</domain>
+				<!-- domain: 房产，房产，最少出现1次 最多出现1次，类型为字符串，有效值为：房产 -->
+				<type>HouseProperty</type>
+				<!-- type: 类型，类型，最少出现1次 最多出现1次，类型为字符串，有效值为：HouseProperty -->
+				<lastmod>2013-01-01T12:01:01</lastmod>
+				<!-- lastmod，指该条数据的最新一次更新时间，日期与时间之间\t分隔，最少出现1次 最多出现1次，类型为日期或日期时间，格式为YYYY 
+					MM-DD的日期或者格式为YYYY-MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<publishTime>2014-06-06T08:12:12 </publishTime>
+				<!-- publishTime: 发布时间，发布时间，最少出现1次 最多出现1次，类型为日期或日期时间，格式为YYYY-MM-DD的日期或者格式为YYYY-MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<priority>1.0</priority>
+				<!-- priority，用来指定此链接相对于其他链接的优先权比值，此值定于0.0-1.0之间，最少出现0次 最多出现1次，类型为小数 -->
+				<source>58同城/链家在线/我爱我家</source>
+				<!-- source: 来源站点，，最少出现1次 最多出现1次，类型为字符串 -->
+				<status>ADD</status>
+				<!-- status: 状态，表示该条数据的状态：ADD表示这是增加的数据；MOD表示修改的数据，最少出现1次 最多出现1次，类型为字符串，有效 
+					值为：ADD、MOD -->
+				<SchoolDistrict>1</SchoolDistrict>
+				<!-- SchoolDistrict: 学区房，是否为学区房,1表示是，0表示不是，最少出现0次 最多出现1次，类型为布尔型，有效值为：true、false -->
+				<SellingPrice>1600000</SellingPrice> <!-- SellingPrice: 出售价格，总价，单位：元，最少出现1次 最多出现1次，类型为整数 -->
+				<SellingPriceAvg>35800</SellingPriceAvg>
+				<!-- SellingPriceAvg，出售均价，单元：元/m2，最少出现1次 最多出现1次，类型为字符串 -->
+				<SellingPayment>全款</SellingPayment>
+				<!-- SellingPayment: 接受付款方式，全款/公积金贷款/商业贷款/组合贷款/其它/未知，最少出现1次 最多出现1次，类型为字符串，有效 
+					值为：全款、公积金贷款、商业贷款、组合贷款、其它、未知 -->
+				<TaxInfo>满五唯一</TaxInfo>
+				<!-- TaxInfo: 交税信息，满五唯一/唯一不满五/不满五唯一/其它/未知，最少出现1次 最多出现1次，类型为字符串，有效值为：满五唯 
+					一、唯一不满五、不满五唯一、其它、未知 -->
+				<Contact>
+					<!-- Contact: 联系人，房源的联系人，个人房源填写房东信息；中介房源填写经纪人信息。该标签可以重复出现，填写多个经纪人信息。， 
+						最少出现1次 不限制最多出现次数 -->
+					<Type>中介</Type>
+					<!-- Type: 类型，中介/个人/房东/其它，最少出现1次 最多出现1次，类型为字符串，有效值为：中介、个人、房东、其它 -->
+					<name>张三</name>
+					<!-- name: 姓名，，最少出现1次 最多出现1次，类型为字符串 -->
+					<telephone>13812345678</telephone>
+					<!-- telephone: 联系电话，，最少出现1次 最多出现1次，类型为字符串 -->
+					<worksFor>链家地产</worksFor>
+					<!-- worksFor: 工作单位，工作单位；如果是个人房源，请填写"个人"，最少出现1次 最多出现1次，类型为字符串 -->
+					<Profile>http://img1n.soufun.com/usercenter/2014_04/10/13/avatar/120_163381591_0.jpg
+					</Profile>
+					<!-- Profile: 中介/个人/房东头像， 中介/个人/房东头像，最少出现0次 最多出现1次，类型为URL地址 -->
+					<Gender>男</Gender>
+					<!-- Gender: 性别，，最少出现0次 最多出现1次，类型为字符串，有效值为：男、女 -->
+					<flag>0</flag>
+					<!-- flag: 经济人标记，如果同一房源有多个联系人，并且此联系人为主要联系人，填1，最少出现0次 最多出现1次，类型为字符串， 
+						有效值为：0、1 -->
+				</Contact>
+				<Installations>独立阳台</Installations>
+				<!-- Installations: 屋内设施，标签可以出现多次，每次包含一种设施；有n种设施就出现n次（不得重复）；设施内容为枚举设定：独立阳 
+					台 卫生间 宽带 电视 暖气 空调 热水器 洗衣机 冰箱 床 衣柜 沙发 煤气 未知，最少出现1次 最多出现14次，类型为字符串，有效值为：独立阳台、卫生 
+					间、宽带、电视、暖气、空调、热水器、洗衣机、冰箱、床、衣柜、沙发、煤气、未知 -->
+				<CheckinTime>随时/9月底</CheckinTime>
+				<!-- CheckinTime: 入住时间，，最少出现0次 最多出现1次，类型为字符串 -->
+				<TimeforView>随时</TimeforView>
+				<!-- TimeforView: 看房时间，，最少出现0次 最多出现1次，类型为字符串 -->
+				<SellingIntroduce>1、大卧室朝阳，采光通风非常好。屋内配备的家具家电都是全新的。整体厨卫，采用优质材质，无公害，无异味。
+					2、小区环境优美，空气清新，有四季常青的植被供人们观赏，有公共误乐场所供人们休闲。附近的配套设施十分完善，医院、商场、超市、饭店等应有尽有。
+					3、出小区就是公交站，小区有24小时保洁人员打扫、保安巡逻、门禁站岗。安全系数高！
+				</SellingIntroduce>
+				<!-- SellingIntroduce: 售房简介，，最少出现1次 最多出现1次，类型为字符串 -->
+				<House>
+					<!-- House: 房屋信息，，最少出现1次 最多出现1次 -->
+					<PropertyVerified>0</PropertyVerified>
+					<!-- PropertyVerified: 房源是否认证，0/1，最少出现1次 最多出现1次，类型为字符串，有效值为：0、1 -->
+					<Url>http://beijing.homelink.com.cn/zufang/BJFT87954007.shtml</Url>
+					<!-- Url: 房源的详情页，，最少出现1次 最多出现1次，类型为URL地址 -->
+					<HouseArea>2.5m2</HouseArea>
+					<!-- HouseArea: 房屋面积，统一单位为m2 , 是指整个房子的面积，非出租房屋面积；如果没有，填写0m2，最少出现1次 最多出现1 
+						次，类型为字符串，必须符合正则表达式(([0-9]+.[0-9]*)|([0-9]+))m2 -->
+					<HouseType>其它</HouseType>
+					<!-- HouseType: 类型，普通住宅/公寓/别墅/平房/商住两用/经济适用房/其它/未知 （只能从这些中任选其一），最少出现1次 
+						最多出 现1次，类型为字符串，有效值为：普通住宅、公寓、别墅、平房、经济适用房、商住两用、其它、未知 -->
+					<HouseOrientation>南北通透</HouseOrientation>
+					<!-- HouseOrientation: 朝向，房子朝向：朝东/朝南/朝西/朝北/南北通透/东西朝向/东南朝向/东北朝向/西北朝向/西南朝向/其它/未 
+						知 （只能从这些中任选其一），最少出现1次 最多出现1次，类型为字符串，有效值为：朝东、朝南、朝西、朝北、南北通透、东西朝向、东南朝向、东北朝 向、西北朝向、西南朝向、其它、未知 -->
+					<HouseAllFloor>6层</HouseAllFloor>
+					<!-- HouseAllFloor: 总楼层，格式规定为 整数 +层，最少出现1次 最多出现1次，类型为字符串 -->
+					<HouseSituation>闲置</HouseSituation>
+					<!-- HouseSituation: 房屋现状，自住/出租/闲置/其它/未知，最少出现0次 最多出现1次，类型为字符串，有效值为：自住、出租、闲 
+						置、其它、未知 -->
+					<Decoration>中等装修</Decoration>
+					<!-- Decoration: 装修，豪华装修/精装修/中等装修/简单装修/毛坯/其它/未知 （只能从这些中任选其一），最少出现1次 
+						最多出现1 次，类型为字符串，有效值为：豪华装修、精装修、中等装修、简单装修、毛坯、其它、未知 -->
+					<CovorImage>http://image.5i5j.com/picture/house/3111/31114502/shinei/domlgodl00ee3849.jpg</CovorImage>
+					<!-- CovorImage: 封面图片，单值，最少出现1次 最多出现1次，类型为URL地址 -->
+					<HouseImage>http://image.5i5j.com/picture/house/3111/31114502/shinei/domlgodl00ee3849.jpg</HouseImage>
+					<!-- HouseImage: 房屋图片，如果有多个，可以多次出现此标签，一个标签表示一个图片，不要与CovorImage重复，最少出现1次 
+						不限 制最多出现次数，类型为URL地址 -->
+					<HouseImageNum>23张</HouseImageNum>
+					<!-- HouseImageNum: 房屋图片数，，最少出现1次 最多出现1次，类型为字符串，必须符合正则表达式\d+张 -->
+					<Tag>精装修</Tag>
+					<!-- Tag: 特色标签，特色标签，如果有多个特色，可以多次出现，一个标签为一个特色。标签示例：精装修 学区房 紧邻地铁 免中介 费 
+						独门独卫 南北通透……，最少出现0次 不限制最多出现次数，类型为字符串 -->
+					<HouseFloor>6层</HouseFloor>
+					<!-- HouseFloor: 楼层数，房源楼层数，格式规定为 整数 +层/地下，最少出现1次 最多出现1次，类型为字符串 -->
+					<BuildNum>1</BuildNum>
+					<!-- BuildNum: 楼号，楼号，最少出现1次 最多出现1次，类型为字符串 -->
+					<BuildUnit>2</BuildUnit>
+					<!-- BuildUnit: 单元号，单元号,属于所在楼的几单元，最少出现0次 最多出现1次，类型为整数 -->
+					<RoomNum>301</RoomNum>
+					<!-- RoomNum: 房间号，房源所在单元的房间号，最少出现0次 最多出现1次，类型为整数 -->
+					<BuildType>塔楼</BuildType>
+					<!-- BuildType: 建筑类型，建筑类型：塔楼/板楼/平房/ 其它/ 未知，最少出现1次 最多出现1次，类型为字符串，有效值为：塔楼、 
+						板楼、平房、其它、未知 -->
+					<HouseStructurename>一居</HouseStructurename>
+					<!-- HouseStructurename: 户型名，户型名，必须为 一居/两居/三居/其它/未知。。。 几居这种汉字写法，最少出现1次 
+						最多出现1 次，类型为字符串，有效值为：一居、两居、三居、四居、五居、六居、七居、八居、九居、十居、其它、未知 -->
+					<HouseStructureshi>1室</HouseStructureshi>
+					<!-- HouseStructureshi: 几室，N室，N必须为整数数字；如果没有，请写0室，最少出现1次 最多出现1次，类型为字符串，必须符合正 
+						则表达式\d+室 -->
+					<HouseStructureting>1厅</HouseStructureting>
+					<!-- HouseStructureting: 厅，N厅，N必须为整数数字；如果没有，请写0厅，最少出现1次 最多出现1次，类型为字符串，必须符合正 
+						则表达式\d+厅 -->
+					<HouseStructurewei>2卫</HouseStructurewei>
+					<!-- HouseStructurewei: N卫，N卫，N必须为整数数字；如果没有，请写0卫，最少出现1次 最多出现1次，类型为字符串，必须符合正 
+						则表达式\d+卫 -->
+					 <LayoutImage>http://beijing.anjuke.com/community/photos/model/57688</LayoutImage>
+                    <!-- LayoutImage: 户型图，户型图，多个图以列表形式，如果没有该信息填写“0”，最少出现0次 不限制最多出现次数，类型为URL地址 -->
+                    <!-- IndoorImage: 室内图，室内图，多个图可以列表形式，如果没有该信息填写“0”，最少出现0次 不限制最多出现次数，类型为URL地址 -->
+                    <outdoorImage>http://beijing.anjuke.com/community/photos2/b/details/57688_1</outdoorImage>
+                    <!-- outdoorImage: 室外图，室外图，多个图可以列表形式，如果没有该信息填写“0”，最少出现0次 不限制最多出现次数，类型为URL地址 -->
+				</House>
+				<RealEstate>
+					<!-- RealEstate: 小区，，最少出现1次 最多出现1次 -->
+					<RealestateID>http://beijing.homelink.com.cn/xiaoqu/1111027375225/</RealestateID>
+					<!-- RealestateID: 小区id，对应小区的id，要与提交的小区的xml的loc字段一致且需要使用url来唯一标识；没有小区资料，填 
+						写”0“，最少出现1次 最多出现1次，类型为 -->
+					<RealestateName>新龙城</RealestateName>
+					<!-- RealestateName: 小区名，对应小区的名字；如果没有小区资料，填写”未知"，最少出现1次 最多出现1次，类型为字符串 -->
+					<RealestateCity>北京</RealestateCity>
+					<!-- RealestateCity: 小区所在城市，对应小区所在城市，字段可选，最少出现0次 最多出现1次，类型为字符串 -->
+				   	<RealestateDistrict>西湖区</RealestateDistrict>
+				    <!-- RealestateDistrict: 对应小区的区域，区域名称无需在后方加区，直接写XX；没有该信息填写“未知”，最少出现0次 最多出现1次，类型为字符串 -->
+				    <!-- 新增 RealestateStreet,LocalBusiness 20150611-->
+				    <RealestateStreet>海淀区西二旗地铁站东侧200米芳园南里9号院 </RealestateStreet>
+                    <!-- RealestateStreet: 小区地址，小区地址，没有该信息填写“未知”，最少出现0次 最多出现1次，类型为字符串 -->
+                    <LocalBusiness>西二旗</LocalBusiness>
+                    <!-- LocalBusiness: 商圈，商圈，如果没有商圈内容，填写“未知”，最少出现0次 最多出现1次，类型为字符串 -->
+				</RealEstate>
+				<Broker>李四</Broker>
+				<!-- Broker: 经纪人，如有contact信息请勿填写此项。经纪人的姓名；如果为个人房源，请写：个人房源，最少出现0次 最多出现1次，类 
+					型为字符串 -->
+				<BrokerTel>13812344321</BrokerTel>
+				<!-- BrokerTel: 经纪人电话，如有contact信息请勿填写此项。成交经纪人的电话（手机或者座机，必须是纯数字或者是区号-电话号码的格 
+					式），最少出现0次 最多出现1次，类型为字符串 -->
+				 <IsFreeTax>1</IsFreeTax>
+                <!-- IsFreeTax: 是否免税，是否免税，是填写1，不是填写0，最少出现0次 最多出现1次，类型为字符串，有效值为：0、1 -->
+			</SellingInfo>
+		</data>
+	</url>
+</urlset>

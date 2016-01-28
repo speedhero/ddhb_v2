@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+	<!-- urlset，urlset用来标记整个文档的开头，最少出现1次 最多出现1次 -->
+	<url>
+		<!-- url，url标记每条信息的开始和结束，最少出现0次 最多出现50000次 -->
+		<loc>http://baidu.com/</loc>
+		<!-- loc，该条数据唯一的id，最少出现1次 最多出现1次，类型为URL地址，最小长度1个字符 最大长度256个字符 必须符合正则表达式(http://) 
+			(.+) -->
+		<data>
+			<!-- data，，最少出现1次 最多出现1次 -->
+			<RealEstate>
+				<!-- RealEstate: 小区，，最少出现1次 最多出现1次 -->
+				<domain>房产</domain>
+				<!-- domain: 房产，后续处理所需数据，不用考虑，填写“房产”即可，最少出现1次 最多出现1次，类型为字符串，有效值为：房产 -->
+				<type>HouseProperty</type>
+				<!-- type: 类型，后续处理所需数据，不用考虑，填写“HouseProperty”即可，最少出现1次 最多出现1次，类型为字符串，有效值为： 
+					HouseProperty -->
+				<name>首开智慧社</name>
+				<!-- name: 小区名，小区名，最少出现1次 最多出现1次，类型为字符串 -->
+				<lastmod>2013-01-01T12:01:01</lastmod>
+				<!-- lastmod，指该条数据的最新一次更新时间，最少出现1次 最多出现1次，类型为日期或日期时间，格式为YYYY-MM-DD的日期或者格式为 
+					YYYY-MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<publishTime>2014-06-06T08:12:12 </publishTime>
+				<!-- publishTime: 发布时间，发布时间，最少出现0次 最多出现1次，类型为日期或日期时间，格式为YYYY-MM-DD的日期或者格式为YYYY 
+					MM-DDThh:mm:ss的日期时间（请注意日期与时间之间以“T”分隔） -->
+				<changefreq>always</changefreq>
+				<!-- changefreq，指该条数据的更新频率，最少出现0次 最多出现1次，类型为字符串，有效值为：always、hourly、daily、weekly、 
+					monthly、yearly、never -->
+				<ResidenceName>新龙城</ResidenceName>
+				<!-- ResidenceName: 小区名，小区详情页标题，最少出现1次 最多出现1次，类型为字符串 -->
+				<Url>http://bj.58.com/xiaoqu/yichengdongyuan/</Url>
+				<!-- Url: 小区url，，最少出现1次 最多出现1次，类型为URL地址 -->
+				<PropertyCompany>诚智慧中物业公司</PropertyCompany>
+				<!-- PropertyCompany: 物业公司，，最少出现1次 最多出现1次，类型为字符串 -->
+				<HouseType>住宅/商住。。</HouseType>
+				<!-- HouseType: 物业类型，，最少出现1次 最多出现1次，类型为字符串 -->
+				<HouseAge>2002年</HouseAge>
+				<!-- HouseAge: 建筑年代，，最少出现1次 最多出现1次，类型为字符串 -->
+				<SchoolDistrict>是</SchoolDistrict>
+				<!-- SchoolDistrict: 学区房，是否为学区房，有效值：是/否/未知，最少出现1次 最多出现1次，类型为字符串，有效值为：是、否、未知 -->
+				<Developers>万科</Developers>
+				<!-- Developers: 开发商，，最少出现1次 最多出现1次，类型为字符串 -->
+				<Introduce>龙跃苑东二区是2007年的新小区同时也是一个非常成熟的社区，小区绿化率高，环境很好而且很安静楼间距宽，互不遮挡，而且
+					小区都是南北通透的户型，一梯两户的板楼，采光与通风一级棒，内部管理完善，人文素质高，特别适合居住，是您的居家首选。
+				</Introduce>
+				<!-- Introduce: 小区简介，，最少出现1次 最多出现1次，类型为字符串 -->
+				<Price>40180</Price>
+				<!-- Price: 小区平均房价，小区平均房价，最少出现1次 最多出现1次，类型为整数 -->
+				<VolumeRate>2.91</VolumeRate>
+				<!-- VolumeRate: 容积率，精确到小数点后两位，最少出现1次 最多出现1次，类型为小数 -->
+				<TotalConArea>400000</TotalConArea>
+				<!-- TotalConArea: 总建面，总建面。数字 （单位：平方米），最少出现1次 最多出现1次，类型为整数 -->
+				<TotalHoushold>3237</TotalHoushold>
+				<!-- TotalHoushold: 总户数，小区住户数，数字 （单位：户），最少出现0次 最多出现1次，类型为整数 -->
+				<GreenRate>30</GreenRate>
+				<!-- GreenRate: 绿化率，小区绿化率，数字 （单位 %），最少出现1次 最多出现1次，类型为整数 -->
+				<TotalBuilding>57</TotalBuilding>
+				<!-- TotalBuilding: 楼栋总数，小区建筑数，数字（单位：栋），最少出现0次 最多出现1次，类型为整数 -->
+				<SurroundFacility>朝阳公园</SurroundFacility>
+				<!-- SurroundFacility: 周边设施，交通、餐饮娱乐、学校医院、景观设施等（受人关注且欢迎的设施），如：XX中学 双榆树公园 
+					华联商 厦 丽亭华苑酒店 XX卫生服务站等。一个标签填写一个设施，多个设施允许出现多个标签，最少出现1次 不限制最多出现次数，类型为字符串 -->
+				<BadSurroundFacility>加油站</BadSurroundFacility>
+				<!-- BadSurroundFacility: 嫌恶设施，嫌恶设施，如加油站、垃圾场等。一个标签一个设施，多个设施运行出现多个标签，最少出现0次 
+					不 限制最多出现次数，类型为字符串 -->
+				<onsale_num>342</onsale_num>
+				<!-- onsale_num，在售房源数，最少出现0次 最多出现1次，类型为整数 -->
+				<onrent_num>122</onrent_num>
+				<!-- onrent_num，在租房源数，最少出现0次 最多出现1次，类型为整数 -->
+				<Place>
+					<!-- Place: 地点，小区的地址，最少出现1次 最多出现1次 -->
+					<City>北京</City>
+					<!-- City: 城市，城市命名无需在后方加市，直接写XX；如果没有城市内容，填写“未知”，最少出现1次 最多出现1次，类型为字符串 -->
+					<District>海淀</District>
+					<!-- District: 区，区域名称无需在后方加区，直接写XX；如果没有区域内容，填写“未知”，最少出现1次 最多出现1次，类型为字符 
+						串 -->
+					<LocalBusiness>西二旗</LocalBusiness>
+					<!-- LocalBusiness: 商圈，商圈，如果没有商圈内容，填写“未知”，最少出现1次 最多出现1次，类型为字符串 -->
+					<Street>西二旗大街56号</Street>
+					<!-- Street: 街道，街道；如果没有街道内容，填写“未知”，最少出现1次 最多出现1次，类型为字符串 -->
+					<Map>http://xxxx</Map>
+					<!-- Map: 地图页面，地图页面，最少出现0次 最多出现1次，类型为字符串 -->
+					<Coordinate>116.307854,40.055878</Coordinate>
+					<!-- Coordinate: 经纬度坐标，格式AAA,BBB，其中AAA为经度坐标，BBB纬度坐标，中间以”,“隔开，最少出现1次 
+						最多出现1次，类型 为字符串，必须符合正则表达式(\d+\.\d+,\d+\.\d+)|(\d+,\d+\.\d+)|(\d+\.\d+,\d+)|(\d+,\d+) -->
+					<CoordinateSys>2</CoordinateSys>
+					<!-- CoordinateSys: 地图坐标系，填写坐标系所属类型的数字代码（0-8有效）。1：GPS设备获取的角度坐标; 2：GPS获取的米制坐 
+						标、sogou地图所用坐标; 3：google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标 4：3中列表地图坐标对应的米制坐标 
+						5：百度地图采用的 经纬度坐标 6：百度地图采用的米制坐标 7：mapbar地图坐标; 8：51地图坐标。如果没有坐标信息，此项填0，最少出现1次 
+						最多出现1次，类型为字符串，有 效值为：0、1、2、3、4、5、6、7、8 -->
+				</Place>
+				<SubwayInfo>
+					<!-- SubwayInfo: 地铁信息，地铁信息，包括地铁线路subwayline、地铁站subwaystation，距离distance，若有多个地铁站或者地铁线路， 
+						该标签可以多次出现，最少出现0次 不限制最多出现次数 -->
+					<SubwayLine>13号线</SubwayLine>
+					<!-- SubwayLine: 地铁线路，地铁线路，最少出现1次 最多出现1次，类型为字符串 -->
+					<SubwayStation>回龙观</SubwayStation>
+					<!-- SubwayStation: 地铁站，地铁站的站名，最少出现1次 最多出现1次，类型为字符串 -->
+					<Distance>1500</Distance>
+					<!-- Distance: 距离，小区和该地铁站的距离，单位：米，最少出现1次 最多出现1次，类型为整数 -->
+				</SubwayInfo>
+			</RealEstate>
+		</data>
+	</url>
+</urlset>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 数据字典服务 -->
+	<bean id="com.huatek.dictionary.service.CategoryService" class="com.huatek.dictionary.service.CategoryServiceImpl"></bean>
+	<bean id="com.huatek.dictionary.service.DictionaryService" class="com.huatek.dictionary.service.DictionaryServiceImpl"></bean>
+	<!-- 注入数据字典控制器  -->
+	<context:component-scan base-package="com.huatek.dictionary.action" />
+	<!-- 数据字典权限控制 -->
+	<aop:config>
+		<aop:aspect id="dicOperationLog" ref="operationLogAspec">
+			<aop:pointcut expression="execution(* com.huatek.dictionary.action.*.*(..))" id="dicLogCut" />
+			<aop:after method="log" pointcut-ref="dicLogCut" />
+		</aop:aspect>
+		<aop:aspect id="dicPermit" ref="permitAspec">
+			<aop:pointcut expression="execution(* com.huatek.dictionary.action.*.*(..))" id="dicPermitCut" />
+			<aop:before method="check" pointcut-ref="dicPermitCut" />
+		</aop:aspect>
+	</aop:config>
+	<!-- 数据字典事务控制 -->
+	<aop:config>
+		<aop:pointcut id="dictionaryMethods" expression="execution(* com.huatek.dictionary.service.*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="dictionaryMethods" />
+	</aop:config>
+
+</beans>

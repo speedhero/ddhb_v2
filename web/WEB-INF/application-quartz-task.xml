@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+			>
+	
+	<context:component-scan base-package="com.huatek.schedule.action" />
+
+	<bean id="browseCacheUtil" class="com.huatek.hbwebsite.util.BrowseCacheUtil" scope="singleton" />
+
+	<bean id="communityCalculateUtil" class="com.huatek.hbwebsite.util.CommunityCalculateUtil" scope="singleton" />
+
+	<bean id="housePriceTrendCalculateUtil" class="com.huatek.hbwebsite.util.HouseSecondCalculateUtil" scope="singleton" />
+
+	<bean id="reduceNoticeUtil" class="com.huatek.hbwebsite.util.ReduceNoticeUtil" scope="singleton" />
+
+	<bean id="browsedUtilDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="browseCacheUtil" />
+		</property>
+		<property name="targetMethod">
+			<value>saveToDatabase</value>
+		</property>
+	</bean>
+
+	<bean id="communityCalculateDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="communityCalculateUtil" />
+		</property>
+		<property name="targetMethod">
+			<value>doCalculate</value>
+		</property>
+	</bean>
+
+	<!-- houseSecondCalculateDetail -->
+	<bean id="housePriceTrendCalculateDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="housePriceTrendCalculateUtil" />
+		</property>
+		<property name="targetMethod">
+			<value>houseSecondCalculate</value>
+		</property>
+	</bean>
+
+	<bean id="reduceNoticeDetails" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="reduceNoticeUtil" />
+		</property>
+		<property name="targetMethod">
+			<value>reduceNotice</value>
+		</property>
+	</bean>
+	
+	<!-- 配置触发器 -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="browsedUtilDetail" />
+		</property>
+		<!-- 每隔5分钟触发，具体说明见附录 -->
+		<property name="cronExpression">
+			<value>0 0/5 * * * ?</value>
+		</property>
+	</bean>
+
+	<!-- 配置触发器 -->
+	<bean id="communityTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="communityCalculateDetail" />
+		</property>
+		<!-- 每隔5分钟触发，具体说明见附录 -->
+		<property name="cronExpression">
+			<value>0 0 3 * * ?</value>
+		</property>
+	</bean>
+
+	<!-- 配置触发器 houseSecondTrigger -->
+	<bean id="housePriceTrendTriggerLastDay" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="housePriceTrendCalculateDetail" />
+		</property>
+		<!-- 每5分钟触发，具体说明见附录 -->
+		<property name="cronExpression">
+			<value>0 0 2 L * ?</value>
+		</property>
+	</bean>
+
+	<bean id="housePriceTrendTriggerFirstDay" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="housePriceTrendCalculateDetail" />
+		</property>
+		<!-- 每5分钟触发，具体说明见附录 -->
+		<property name="cronExpression">
+			<value>0 0 2 1 * ?</value>
+		</property>
+	</bean>
+
+	<bean id="houseReduceNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="reduceNoticeDetails" />
+		</property>
+		<!-- 每隔5分钟触发，具体说明见附录 -->
+		<property name="cronExpression">
+			<value>0 0/1 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 添加触发器 -->
+		<property name="triggers">
+			<list>
+				<ref local="cronTrigger" />
+				<ref local="communityTrigger" />
+				<ref local="housePriceTrendTriggerLastDay" />
+				<ref local="housePriceTrendTriggerFirstDay" />
+				<ref local="houseReduceNoticeTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>

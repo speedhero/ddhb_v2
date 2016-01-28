@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="PageAccessQuantity" table="page_access_quantity">		
+		<!-- 页面信息，指定哪张页面 -->
+		<id name="pageInformationId" column="page_information_Id" type="java.lang.String" length="50"/>
+		
+		<!-- 页面访问量 -->
+		<property name="accessQuantity" column="access_quantity" type="java.lang.Integer" length="11"/>
+		
+		<!-- 页面描述 -->
+		<property name="description" column="description" type="java.lang.String" length="50"/>
+	</class>
+</hibernate-mapping>

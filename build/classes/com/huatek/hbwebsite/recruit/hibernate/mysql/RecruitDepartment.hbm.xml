@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.recruit.entity.RecruitDepartment" table="recruit_department">
+		<id name="id" type="java.lang.Long" column="ID">
+			<generator class="native">
+			</generator>
+		</id>
+		
+		<property name="departmentName" column="departmentname" type="java.lang.String" length="100"></property>
+		
+		<property name="city" column="city" type="java.lang.String" length="20"></property>
+		
+		<property name="location" column="location" type="java.lang.String" length="100"></property>
+		
+		<property name="departmentComment" column="departmentcomment" type="java.lang.String" length="500"></property>
+		
+		<property name="createTime" column="createtime" type="java.sql.Timestamp"></property>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"></property>
+		
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="CBDWebsite" table="common_cbd_website">
+		<id name="websiteId" type="java.lang.Integer" column="website_id">
+			<generator class="native" />
+		</id>
+
+		<property name="name" type="java.lang.String" column="name" length="150"></property>
+		
+		<many-to-one name="area" class="com.huatek.hbwebsite.common.entity.Area"  not-found="ignore">
+            <column name="county_id">
+            </column>
+        </many-to-one>
+		
+		<property name="lastModified" type="java.sql.Timestamp" column="last_modified" length="150"></property>
+		
+		<property name="deleteFlag" type="java.lang.Integer" column="delete_flag" length="11"></property>
+		
+		<property name="cbdSearch" type="java.lang.String" column="cbd_search" length="150"></property>
+		
+		<property name="initial" type="java.lang.String" column="initial"></property>
+		
+		<!-- 新增字段 百度坐标和QQ坐标-->
+		<property name="lngQQ" type="java.lang.String" column="lng_qq" length="20"></property>
+		
+		<property name="latQQ" type="java.lang.String" column="lat_qq" length="20"></property>
+		
+		<property name="lngBaidu" type="java.lang.String" column="lng_baidu" length="20"></property>
+		
+		<property name="latBaidu" type="java.lang.String" column="lat_baidu" length="20"></property>
+		
+	</class>
+</hibernate-mapping>

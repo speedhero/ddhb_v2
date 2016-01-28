@@ -1,0 +1,265 @@
+.font7blue {font-size:12px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;}
+.contentmain {
+	width: 100%;
+	margin:0 auto;
+	position: relative;
+	margin-top: 15px;
+}
+#searchdiv {
+	border: 1px solid #CCCCCC;
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	border-radius: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.newlistitem {
+	position:relative;
+	width: 708px;
+	height: 227px;
+	margin-top: 10px;
+	background-color:#FFFFFF;
+}
+.rightlist {
+	float :right;
+	border: 1px solid #CCCCCC;
+	width: 219px;
+	height: 380px;
+	margin-top: 10px;
+	background-color:#FFFFFF;
+	margin-right:7px;
+}
+.basedatadiv {
+	width: 380px;
+	margin: 15px 50px 0px 20px;
+	float:right;
+	
+}
+
+.groupbuydiv {
+	position:absolute;
+	width: 758px;
+	height: 80px;
+	top:160px;
+	filter:alpha(opacity=80);
+	 -moz-opacity:0.8;
+	  opacity:0.8;
+}
+.gotoseeborder {
+	position:relative;
+	width: 204px;
+	height: 55px;
+	float: right;
+	background-image:url("/ddhb/images/newhouse/toSee.png");
+	margin-right:-58px;
+	text-align: center;
+}
+.gotoseediv {
+	font-size: 28px;
+	line-height: 44px;
+	text-decoration: none;
+	color:#FFFFFF;
+}
+.gotoseeborderright {
+	width: 250px;
+	height: 58px;
+	margin-top:9px;
+	float: left;
+	background-image:url('/ddhb/images/newhouse/contect_background.png');
+}
+.recommandcontentarea {
+	position:absolute;
+	width: 458px;  
+	height:58px;
+	margin-left: 250px;
+	top: 9px;
+	background-image:url('/ddhb/images/newhouse/contect_background.png');
+}
+.projectnoarea {
+	position:absolute;
+	width: 110px;
+	height:30px;
+	left: 5px;
+	text-align: center;
+	background-image:url("/ddhb/images/newhouse/projectNo.png");
+}
+.peopleinfolist {
+	width: 59%; 
+	margin: 0 auto; 
+	font-size: 14px;
+}
+.peopleinfolist div {
+	margin-top: 10px;
+}
+
+/**搜索条件**/
+#selectedplan{
+	margin:10px;
+}
+.show_no{display:none}
+.show_yes{display:inline-block}
+h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0;}
+ul,ol,li{list-style:none;}
+input,button{margin:0;font-size:12px;vertical-align:middle;}
+body{font-size:12px;color:#333; margin:0 auto; }
+table{border-collapse:collapse;border-spacing:0;}
+dd a{font-size:12px; color:#333; text-decoration:none;cursor:pointer;}
+dd a:hover{ text-decoration:none;}
+
+.selectNumberScreen{width:auto; height:auto; margin:0px auto; font-size:12px; }
+.screenBox dl {width:auto; overflow: hidden;margin:20px 0}
+.screenBox dl.noborder {border-bottom: 0px; border-left: 0px; border-top: 0px; border-right: 0px}
+.screenBox dl.goodstype {border-bottom: #e6e6e6 1px dashed}
+.screenBox dl dt {float: left; height: 30px}
+.screenBox dl dt {text-align: right; height: auto; font-weight: 600;margin-left: 5px; padding-left: 10px; padding-top: 4px; padding-bottom: 4px;padding-right: 4px;background-color: #d0d0d0;}
+.screenBox dl dd {position: relative; padding-bottom: 5px; width: 700px; padding-right: 48px; float: left; height: auto; overflow: hidden; padding-top: 0px}
+.screenBox dl dd a {line-height: 14px; margin: 6px 5px 0px 0px;display: inline-block; color: #7a7a7a; overflow: hidden; text-decoration: none;padding:3px; border-radius: 3px;font-weight: 600;}
+.screenBox dl dd a:hover {background: transparent; color: #68c4c4;}
+.screenBox dl dd a.selected {color: #68c4c4;font-weight:bold}
+.screenBox dl dd a.selected:hover {cursor:default}
+.screenBox dl dd span.more {position: absolute; width: 39px; display: block; height: 14px; top: 6px; cursor: pointer; right: 1px}
+.screenBox dl dd span.more label {display: inline-block; cursor: pointer}
+.hasBeenSelected {width:auto;padding-top: 10px;overflow: hidden; background:#FFF}
+.hasBeenSelected dl dt {float: left}
+.hasBeenSelected dl dd {float: left}
+.hasBeenSelected dl dt {text-align: right; line-height: 30px; width: 108px; height: 30px; font-weight: 600;}
+.hasBeenSelected dl dd {padding-bottom: 4px; padding-left: 0px; width: 676px; padding-right: 0px; padding-top: 0px}
+.selectedInfor {border-bottom: #3fb8b1 1px solid; position: relative; border-left: #3fb8b1 1px solid; padding-bottom: 1px; margin: 4px 10px 0px 0px; padding-left: 5px; padding-right: 17px; display: block; white-space: nowrap; background: #fff; float: left; height: 17px; border-top: #3fb8b1 1px solid; border-right: #3fb8b1 1px solid; padding-top: 1px}
+.selectedInfor label {color: #3fb8b1}
+.eliminateCriteria {line-height: 21px; margin-top: 4px; width: 80px; float: left; color: #f60; cursor: pointer; font-weight: 600}
+.selectedInfor em {background: url("../../img/x.gif") no-repeat;cursor: pointer;display: block;height: 13px;overflow: hidden;position: absolute;right: 2px;top: 3px;width: 13px;}
+.screenBox dl dd a.show_no{display:none}
+.screenBox dl dd a.show_yes{display:inline-block}
+.screenBox dl dd b{margin:0;padding:0;}
+.screenBox dl dd b.show_no{display:none}
+.screenBox dl dd b.show_yes{display:inline-block}
+.screenBox.show{
+	display:block;
+}
+.screenBox.not-show{display:none}
+#expandAll{
+	text-align:center;margin:5px 0px;padding:6px 0px;background-color:#E9E9E9;cursor:pointer;
+}
+#expandAll:hover{
+	color:#000;
+	background-color:#EEE;
+}
+dl.not-show{
+	display:none;
+}
+dl.show{
+	display:block;
+}
+.condition{
+	width:30px;
+	height:12px;
+	top: -10px;
+	position: relative;
+}
+.condition:focus{
+	border:2px solid #999;
+	outline:#EEE Solid 1px;
+}
+.unitName{
+	margin:0;
+	padding:0;
+	display:inline-block;
+	height: 12px;
+	top: -8px;
+	position: relative;
+}
+.priceOfCase{
+	font-size: 40px;
+	 margin-top: 0px; 
+	 line-height: 40px;
+	 color:#F87A13;
+	 height:40px;
+	 font-weight:bolder;
+}
+.endDateOfCase{
+	font-size: 16px;
+	 margin-top: 13px;
+}
+.lastDaysRight{
+	width:90px;
+	float:right;
+	margin-top:0px;
+	margin-right:0px;
+	font-size: 16px;
+}
+.recommandContentStyle{
+	font-size:12px;
+	margin-left:16px;
+	margin-top:5px;
+}
+.rightListBackgroundImg{
+	width:230px;
+	height:93px;
+	background-image:url('/ddhb/images/newhouse/activeDetail.png');
+}
+.firstRightListBlock{
+	font-size: 14px;
+	margin-top:0px;
+	margin-left:0px;
+	width:50px;
+	text-align:center;
+}
+.firstRightListFirstBlock1{
+	padding-top:10px;
+	padding-left:10px;
+	width:70px;
+	color:#FFFFFF;
+}
+.firstRightListSecondBlock2{
+	font-size: 36px;
+	margin-top:0px;
+	margin-left:0px;
+	color:#F39E44;
+	width:50px;
+}
+.secondRightListBlock{
+	font-size: 14px;
+	float: right;
+	margin-top:-70px;
+	padding-right:10px;
+	color:#FFFFFF;
+}
+.secondRightListBlock2{
+	font-size: 36px;
+	color:#F39E44;
+	float: right;
+	margin-top:0px;
+	margin-right:55px;
+}
+.mainimgdiv {
+	width:250px;
+	height: 226px;
+	float: left;
+	margin-top: 0px;
+	cursor: pointer; 
+    background-repeat:no-repeat;	 /*图像不重复显示*/
+}
+.hrefLine a{
+	color:#999999;
+}
+.imgZIndex{
+	position:relative;
+	z-index:0;
+	width:100.3%;
+}
+
+a:link {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: none;
+}
+a:active {
+ text-decoration: none;
+}
+
+/**搜索条件**/

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.member.entity.MemberBrowseHistory" table="member_browse_history">
+		<id name="id" type="java.lang.Long" column="id">
+        	<generator class="native">
+	        </generator>
+		</id>
+		<many-to-one name="platMemberInfo" class="com.huatek.hbwebsite.member.entity.PlatMemberInfo" fetch="select"   not-found="ignore">
+            <column name="member_id" not-null="true">
+                <comment>会员信息</comment>
+            </column>
+        </many-to-one>
+        <property name="objectType" type="java.lang.Integer">
+        	<column name="object_type" not-null="true">
+        		<comment>实体类型</comment>
+        	</column>
+        </property>
+        <property name="objectId" type="java.lang.String">
+        	<column name="object_id" not-null="true">
+        		<comment>实体标志</comment>
+        	</column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+        	<column name="created_time" not-null="true">
+        		<comment>创建时间</comment>
+        	</column>
+        </property>
+        <property name="modifiedTime" type="java.util.Date">
+        	<column name="modified_time">
+        		<comment>更新时间</comment>
+        	</column>
+        </property>
+        <property name="deleteFlag" type="java.lang.Integer">
+        	<column name="deleteflag">
+        		<comment>删除标记</comment>
+        	</column>
+        </property>
+	</class>
+</hibernate-mapping>

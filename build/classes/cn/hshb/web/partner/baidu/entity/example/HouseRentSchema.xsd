@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xsd:element name="urlset">
+		<xsd:annotation>
+			<xsd:documentation>
+				urlset用来标记整个文档的开头
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="url" minOccurs="0" maxOccurs="50000"
+					type="tUrl" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="tUrl">
+		<xsd:annotation>
+			<xsd:documentation>
+				url标记每条信息的开始和结束
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="loc" minOccurs="1" maxOccurs="1" type="tLoc" />
+			<xsd:element name="data" type="tData" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tLoc">
+		<xsd:annotation>
+			<xsd:documentation>
+				用来定位资源进行更新、删除，要求唯一、稳定,任意url
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+			<xsd:whiteSpace value="collapse" />
+			<xsd:maxLength value="256" />
+			<xsd:minLength value="1" />
+			<xsd:pattern value="(http://)(.+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tData">
+		<xsd:sequence>
+			<xsd:element name="RentalInfo" minOccurs="1" maxOccurs="1"
+				type="tRentalInfo" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tRentalInfo">
+		<xsd:annotation>
+			<xsd:documentation>
+				struct value (包含出租状态 )
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="name" minOccurs="1" maxOccurs="1"
+				type="tName" />
+			<xsd:element name="domain" minOccurs="1" maxOccurs="1"
+				type="tDomain" />
+			<xsd:element name="type" minOccurs="1" maxOccurs="1"
+				type="tType" />
+			<xsd:element name="lastmod" minOccurs="1" maxOccurs="1"
+				type="tLastmod" />
+			<xsd:element name="publishTime" minOccurs="1" maxOccurs="1"
+				type="tPublishTime" />
+			<xsd:element name="priority" minOccurs="0" maxOccurs="1"
+				type="tPriority" />
+			<xsd:element name="source" minOccurs="1" maxOccurs="1"
+				type="tSource" />
+			<xsd:element name="status" minOccurs="1" maxOccurs="1"
+				type="tStatus" />
+			<xsd:element name="RentalType" minOccurs="1" maxOccurs="1"
+				type="tRentalType" />
+			<xsd:element name="RentalPrice" minOccurs="1" maxOccurs="1"
+				type="tRentalPrice" />
+			<xsd:element name="RentalPayment" minOccurs="1"
+				maxOccurs="1" type="tRentalPayment" />
+			<xsd:element name="Contact" minOccurs="1" maxOccurs="unbounded"
+				type="tContact" />
+			<xsd:element name="Installations" minOccurs="1"
+				maxOccurs="14" type="tInstallations" />
+			<xsd:element name="CheckinTime" minOccurs="0" maxOccurs="1"
+				type="tCheckinTime" />
+			<xsd:element name="RentRoom" minOccurs="0" maxOccurs="1"
+				type="tRentRoom" />
+			<xsd:element name="TimeforView" minOccurs="0" maxOccurs="1"
+				type="tTimeforView" />
+			<xsd:element name="RentalIntroduce" minOccurs="1"
+				maxOccurs="1" type="tRentalIntroduce" />
+			<xsd:element name="House" minOccurs="1" maxOccurs="1"
+				type="tHouse" />
+			<xsd:element name="RealEstate" minOccurs="1" maxOccurs="1"
+				type="tRealEstate" />
+			<xsd:element name="Broker" minOccurs="0" maxOccurs="1"
+				type="tBroker" />
+			<xsd:element name="BrokerTel" minOccurs="0" maxOccurs="1"
+				type="tBrokerTel" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tName">
+		<xsd:annotation>
+			<xsd:documentation>
+				可以填标题
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDomain">
+		<xsd:annotation>
+			<xsd:documentation>
+				房产
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="房产" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tType">
+		<xsd:annotation>
+			<xsd:documentation>
+				类型
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HouseProperty" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tLastmod">
+		<xsd:annotation>
+			<xsd:documentation>
+				指该条数据的最新一次更新时间，日期与时间之间\t分隔
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tPublishTime">
+		<xsd:annotation>
+			<xsd:documentation>
+				发布时间
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:date" />
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime" />
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="tPriority">
+		<xsd:annotation>
+			<xsd:documentation>
+				用来指定此链接相对于其他链接的优先权比值，此值定于0.0-1.0之间
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tSource">
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tStatus">
+		<xsd:annotation>
+			<xsd:documentation>
+				表示该条数据的状态：ADD表示这是增加的数据；MOD表示修改的数据
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ADD" />
+			<xsd:enumeration value="MOD" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRentalType">
+		<xsd:annotation>
+			<xsd:documentation>
+				整租 合租 床位 短租 其它 未知 （只能从这些中任选其一）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="整租" />
+			<xsd:enumeration value="合租" />
+			<xsd:enumeration value="床位" />
+			<xsd:enumeration value="短租" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRentalPrice">
+		<xsd:annotation>
+			<xsd:documentation>
+				单位：元/月
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRentalPayment">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tContact">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源的联系人，个人房源填写房东信息；中介房源填写经纪人信息。该标签可以重复出现，填写多个经纪人信息。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" minOccurs="1" maxOccurs="1"
+				type="t1Type" />
+			<xsd:element name="name" minOccurs="1" maxOccurs="1"
+				type="t1Name" />
+			<xsd:element name="telephone" minOccurs="1" maxOccurs="1"
+				type="tTelephone" />
+			<xsd:element name="worksFor" minOccurs="1" maxOccurs="1"
+				type="tWorksFor" />
+			<xsd:element name="Profile" minOccurs="0" maxOccurs="1"
+				type="tProfile" />
+			<xsd:element name="Gender" minOccurs="0" maxOccurs="1"
+				type="tGender" />
+			<xsd:element name="flag" minOccurs="0" maxOccurs="1"
+				type="tFlag" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="t1Type">
+		<xsd:annotation>
+			<xsd:documentation>
+				中介/个人/房东/其它/未知
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="中介" />
+			<xsd:enumeration value="个人" />
+			<xsd:enumeration value="房东" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="t1Name">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTelephone">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tWorksFor">
+		<xsd:annotation>
+			<xsd:documentation>
+				工作单位；如果是个人房源，请填写"个人"
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tProfile">
+		<xsd:annotation>
+			<xsd:documentation>
+				中介/个人/房东头像
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tGender">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="男" />
+			<xsd:enumeration value="女" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tFlag">
+		<xsd:annotation>
+			<xsd:documentation>
+				如果同一房源有多个联系人，并且此联系人为主要联系人，填1
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0" />
+			<xsd:enumeration value="1" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tInstallations">
+		<xsd:annotation>
+			<xsd:documentation>
+				标签可以出现多次，每次包含一种设施；有n种设施就出现n次（不得重复）；设施内容为枚举设定：独立阳台 卫生间 宽带 电视
+				暖气 空调 热水器 洗衣机 冰箱 床 衣柜 沙发 煤气 未知
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="独立阳台" />
+			<xsd:enumeration value="卫生间" />
+			<xsd:enumeration value="宽带" />
+			<xsd:enumeration value="电视" />
+			<xsd:enumeration value="暖气" />
+			<xsd:enumeration value="空调" />
+			<xsd:enumeration value="热水器" />
+			<xsd:enumeration value="洗衣机" />
+			<xsd:enumeration value="冰箱" />
+			<xsd:enumeration value="床" />
+			<xsd:enumeration value="衣柜" />
+			<xsd:enumeration value="沙发" />
+			<xsd:enumeration value="煤气" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tCheckinTime">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tRentRoom">
+		<xsd:annotation>
+			<xsd:documentation>
+				若整租，忽略此项
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RoomArea" minOccurs="1" maxOccurs="1"
+				type="tRoomArea" />
+			<xsd:element name="RoomOrientation" minOccurs="1"
+				maxOccurs="1" type="tRoomOrientation" />
+			<xsd:element name="AdditionalInformation" minOccurs="0"
+				maxOccurs="1" type="tAdditionalInformation" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tRoomArea">
+		<xsd:annotation>
+			<xsd:documentation>
+				统一单位为m2 , 是指出租房屋的面积，非整个房子面积
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+			<xsd:pattern value="\d+m2" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRoomOrientation">
+		<xsd:annotation>
+			<xsd:documentation>
+				房间朝向。东 西 南 北 东北 东南 西北 西南 南北 东西 其它 未知 （只能从中任选其一）
+				2014/12/4 百度站长平台_站长工具及站长交流平台
+				http://pm.zz.baidu.com/template2/schemaView?id=3518 7/13
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="东" />
+			<xsd:enumeration value="西" />
+			<xsd:enumeration value="南" />
+			<xsd:enumeration value="北" />
+			<xsd:enumeration value="东北" />
+			<xsd:enumeration value="东南" />
+			<xsd:enumeration value="西北" />
+			<xsd:enumeration value="西南" />
+			<xsd:enumeration value="南北" />
+			<xsd:enumeration value="东西" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tAdditionalInformation">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTimeforView">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRentalIntroduce">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="collapse" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tHouse">
+		<xsd:sequence>
+			<xsd:element name="PropertyVerified" minOccurs="1"
+				maxOccurs="1" type="tPropertyVerified" />
+			<xsd:element name="Url" minOccurs="1" maxOccurs="1" type="t1Url" />
+			<xsd:element name="HouseArea" minOccurs="1" maxOccurs="1"
+				type="tHouseArea" />
+			<xsd:element name="HouseType" minOccurs="1" maxOccurs="1"
+				type="tHouseType" />
+			<xsd:element name="HouseOrientation" minOccurs="1"
+				maxOccurs="1" type="tHouseOrientation" />
+			<xsd:element name="HouseAllFloor" minOccurs="1"
+				maxOccurs="1" type="tHouseAllFloor" />
+			<xsd:element name="HouseSituation" minOccurs="0"
+				maxOccurs="1" type="tHouseSituation" />
+			<xsd:element name="Decoration" minOccurs="1" maxOccurs="1"
+				type="tDecoration" />
+			<xsd:element name="CovorImage" minOccurs="1" maxOccurs="1"
+				type="tCovorImage" />
+			<xsd:element name="HouseImage" minOccurs="1" maxOccurs="unbounded"
+				type="tHouseImage" />
+			<xsd:element name="HouseImageNum" minOccurs="1"
+				maxOccurs="1" type="tHouseImageNum" />
+			<xsd:element name="IsPartition" minOccurs="0" maxOccurs="1"
+				type="tIsPartition" />
+			<xsd:element name="Tag" minOccurs="0" maxOccurs="unbounded"
+				type="tTag" />
+			<xsd:element name="HouseFloor" minOccurs="1" maxOccurs="1"
+				type="tHouseFloor" />
+			<xsd:element name="BuildNum" minOccurs="1" maxOccurs="1"
+				type="tBuildNum" />
+			<xsd:element name="BuildUnit" minOccurs="0" maxOccurs="1"
+				type="tBuildUnit" />
+			<xsd:element name="RoomNum" minOccurs="0" maxOccurs="1"
+				type="tRoomNum" />
+			<xsd:element name="BuildType" minOccurs="1" maxOccurs="1"
+				type="tBuildType" />
+			<xsd:element name="HouseStructurename" minOccurs="1"
+				maxOccurs="1" type="tHouseStructurename" />
+			<xsd:element name="HouseStructureshi" minOccurs="1"
+				maxOccurs="1" type="tHouseStructureshi" />
+			<xsd:element name="HouseStructureting" minOccurs="1"
+				maxOccurs="1" type="tHouseStructureting" />
+			<xsd:element name="HouseStructurewei" minOccurs="1"
+				maxOccurs="1" type="tHouseStructurewei" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tPropertyVerified">
+		<xsd:annotation>
+			<xsd:documentation>
+				0/1
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1" />
+			<xsd:enumeration value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="t1Url">
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseArea">
+		<xsd:annotation>
+			<xsd:documentation>
+				统一单位为m2 , 是指整个房子的面积，非出租房屋面积；如果没有，填写0m2
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(([0-9]+.[0-9]*)|([0-9]+))m2" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				普通住宅/公寓/别墅/平房/商住两用/经济适用房/其它/未知 （只能从这些中任选其一）
+				2014/12/4 百度站长平台_站长工具及站长交流平台
+				http://pm.zz.baidu.com/template2/schemaView?id=3518 8/13
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="普通住宅" />
+			<xsd:enumeration value="公寓" />
+			<xsd:enumeration value="别墅" />
+			<xsd:enumeration value="平房" />
+			<xsd:enumeration value="经济适用房" />
+			<xsd:enumeration value="商住两用" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseOrientation">
+		<xsd:annotation>
+			<xsd:documentation>
+				房子朝向：朝东/朝南/朝西/朝北/南北通透/东西朝向/东南朝向/东北朝向/西北朝向/西南朝向/其它/未知 （只能从这些中任选其
+				一）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="朝东" />
+			<xsd:enumeration value="朝南" />
+			<xsd:enumeration value="朝西" />
+			<xsd:enumeration value="朝北" />
+			<xsd:enumeration value="南北通透" />
+			<xsd:enumeration value="东西朝向" />
+			<xsd:enumeration value="东南朝向" />
+			<xsd:enumeration value="东北朝向" />
+			<xsd:enumeration value="西北朝向" />
+			<xsd:enumeration value="西南朝向" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseAllFloor">
+		<xsd:annotation>
+			<xsd:documentation>
+				格式规定为 整数 +层
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseSituation">
+		<xsd:annotation>
+			<xsd:documentation>
+				房屋现状。自住/出租/闲置/其它/未知
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="自住" />
+			<xsd:enumeration value="出租" />
+			<xsd:enumeration value="闲置" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tDecoration">
+		<xsd:annotation>
+			<xsd:documentation>
+				装修。豪华装修/精装修/中等装修/简单装修/毛坯/其它/未知 （只能从这些中任选其一）
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="豪华装修" />
+			<xsd:enumeration value="精装修" />
+			<xsd:enumeration value="中等装修" />
+			<xsd:enumeration value="简单装修" />
+			<xsd:enumeration value="毛坯" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tCovorImage">
+		<xsd:annotation>
+			<xsd:documentation>
+				单值
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseImage">
+		<xsd:annotation>
+			<xsd:documentation>
+				如果有多个，可以多次出现此标签，一个标签表示一个图片，不要与CovorImage重复
+				2014/12/4 百度站长平台_站长工具及站长交流平台
+				http://pm.zz.baidu.com/template2/schemaView?id=3518 9/13
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseImageNum">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d+张" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tIsPartition">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="有" />
+			<xsd:enumeration value="无" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tTag">
+		<xsd:annotation>
+			<xsd:documentation>
+				特色标签，如果有多个特色，可以多次出现，一个标签为一个特色。标签示例：精装修 学区房 紧邻地铁 免中介费 独门独卫 南北
+				通透……
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseFloor">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源楼层，格式规定为 整数 +层/地下
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBuildNum">
+		<xsd:annotation>
+			<xsd:documentation>
+				楼号。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBuildUnit">
+		<xsd:annotation>
+			<xsd:documentation>
+				属于所在楼的几单元
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRoomNum">
+		<xsd:annotation>
+			<xsd:documentation>
+				房源所在单元的房间号
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBuildType">
+		<xsd:annotation>
+			<xsd:documentation>
+				建筑类型：塔楼/板楼/平房/其它/未知
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="塔楼" />
+			<xsd:enumeration value="板楼" />
+			<xsd:enumeration value="平房" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseStructurename">
+		<xsd:annotation>
+			<xsd:documentation>
+				户型名，必须为 一居/两居/三居/其它/未知。。。 几居这种汉字写法
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="一居" />
+			<xsd:enumeration value="两居" />
+			<xsd:enumeration value="三居" />
+			<xsd:enumeration value="四居" />
+			<xsd:enumeration value="五居" />
+			<xsd:enumeration value="六居" />
+			<xsd:enumeration value="七居" />
+			<xsd:enumeration value="八居" />
+			<xsd:enumeration value="九居" />
+			<xsd:enumeration value="十居" />
+			<xsd:enumeration value="其它" />
+			<xsd:enumeration value="未知" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseStructureshi">
+		<xsd:annotation>
+			<xsd:documentation>
+				N室，N必须为整数数字；如果没有，请写0室
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d+室" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseStructureting">
+		<xsd:annotation>
+			<xsd:documentation>
+				N厅，N必须为整数数字；如果没有，请写0厅
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d+厅" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tHouseStructurewei">
+		<xsd:annotation>
+			<xsd:documentation>
+				N卫，N必须为整数数字；如果没有，请写0卫
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d+卫" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="tRealEstate">
+		<xsd:sequence>
+			<xsd:element name="RealestateID" minOccurs="1" maxOccurs="1"
+				type="tRealestateID" />
+			<xsd:element name="RealestateName" minOccurs="1"
+				maxOccurs="1" type="tRealestateName" />
+			<xsd:element name="RealestateCity" minOccurs="0"
+				maxOccurs="1" type="tRealestateCity" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tRealestateID">
+		<xsd:annotation>
+			<xsd:documentation>
+				对应小区的id，要与提交的小区的xml的loc字段一致且需要使用url来唯一标识；如果没有对应资料，填写“0”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRealestateName">
+		<xsd:annotation>
+			<xsd:documentation>
+				对应小区的名字；如果没有对应资料，填写“未知”
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tRealestateCity">
+		<xsd:annotation>
+			<xsd:documentation>
+				对应小区所在城市，字段可选
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBroker">
+		<xsd:annotation>
+			<xsd:documentation>
+				如有contact信息请勿填写此项。经纪人的姓名；如果为个人房源，请写：个人房源
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tBrokerTel">
+		<xsd:annotation>
+			<xsd:documentation>
+				如有contact信息请勿填写此项。经纪人的电话（手机或者座机，必须是纯数字或者是区号-电话号码的格式）
+				2014/12/4 百度站长平台_站长工具及站长交流平台
+				http://pm.zz.baidu.com/template2/schemaView?id=3518 11/13
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\d+)|(\d+-\d+)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

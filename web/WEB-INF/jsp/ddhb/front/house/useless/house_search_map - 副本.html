@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>豪世华邦门店分布图</title>
+</head>
+<body>
+  <div class="demo_main">
+    <fieldset class="demo_title">
+    	<span style="flaot: left">豪世华邦门店分布图（截止： 2015-01-16）[总门店数：<span id="_count"></span>]</span>
+    	<span style="float: right; font-size: 10px;">点击红点可查公交；<br/>右键可以测距</span></fieldset>
+    <fieldset class="demo_content">
+      <div style="min-height: 500px; width: 100%;" id="map"></div>
+      <div style="min-height: 100px; width: 100%; padding-top: 5px; font-size: 10px; line-height:1.8em;" id="log"></div>
+			<script type="text/javascript" src="http://api.map.baidu.com/library/DistanceTool/1.2/src/DistanceTool_min.js"></script>
+      <script type="text/javascript">
+        var markerArr = [
+{ title: "大关店", point: "120.164348,30.309312", address: "杭州市拱墅区香积寺路235号", tel: "057188233794" },
+{ title: "仙林桥店", point: "120.176511,30.266124", address: "仙林桥直街31-33号", tel: "057186574865" },
+{ title: "东方红街", point: "120.211127,30.300558", address: "新风路322-3号", tel: "057187271074" },
+{ title: "世茂店", point: "120.388493,30.292755", address: "世茂江滨花园峻景湾13-7商铺", tel: "057188092195" },
+{ title: "金地店", point: "120.085872,30.342636", address: "金地自在城乐活湾3幢101", tel: "057187331563" },
+{ title: "新绿园店", point: "120.199332,30.230387", address: "闻潮路91号新绿园商铺", tel: "057188222986" },
+{ title: "黄龙店", point: "120.144675,30.277521", address: "天目山路158号国际花园底层7号", tel: "057188272971" },
+{ title: "河东店", point: "120.170443,30.288919", address: "河东路74号", tel: "057185135013" },
+{ title: "文二店", point: "120.122954,30.288826", address: "杭州市文二路476号", tel: "057188910020" },
+{ title: "瑞立花城店", point: "120.222414,30.207867", address: "启智街827号", tel: "057186753513" },
+{ title: "新市街店", point: "120.173389,30.293051", address: "杭州市下城区新市街80号", tel: "057189976737" },
+{ title: "水晶城店", point: "120.177104,30.197161", address: "滨盛路3810号", tel: "057186632749" },
+{ title: "紫金港湾店", point: "120.091262,30.334781", address: "西湖区紫金港湾北区商铺9号", tel: "057187332493" },
+{ title: "文一店", point: "120.109012,30.293036", address: "杭州市文一西路春天花园3号", tel: "057188486061" },
+{ title: "东方郡店", point: "120.220833,30.203872", address: "春晓路235号", tel: "057189976740" },
+{ title: "保小店", point: "120.152796,30.276004", address: "杭州西湖区保俶路208号", tel: "057185801872" },
+{ title: "嘉绿景苑店", point: "120.103946,30.276382", address: "莲花街268、270号", tel: "057181954507" },
+{ title: "拱北店", point: "120.151772,30.332974", address: "上塘路981号", tel: "057188029750" },
+{ title: "星河明苑店", point: "120.158455,30.289886", address: "湖墅南路179号", tel: "057187331573" },
+{ title: "物美店", point: "120.353639,30.311183", address: "杭州下沙区香榭里花园东南角物业用房", tel: "057186470157" },
+{ title: "双菱店", point: "120.202243,30.259691", address: "杭州市江干区双菱路38号", tel: "057189976710" },
+{ title: "爵士风情店", point: "120.16097,30.278971", address: "1213", tel: "12353546554" },
+{ title: "屏风街店", point: "120.174804,30.272667", address: "屏风街120号", tel: "057186413305" },
+{ title: "怡景店", point: "120.026476,30.239759", address: "怡景花城鸣翠苑2-4", tel: "057186384608" },
+{ title: "长庆店", point: "120.181676,30.266152", address: "青春坊16幢1楼A室", tel: "057187249772" },
+{ title: "星洲店", point: "120.104772,30.293316", address: "华苑公寓东5幢商场108室", tel: "057188486061" },
+{ title: "多蓝水岸店", point: "120.390361,30.302858", address: "杭州市经济技术开发区白杨街道10号街东77号", tel: "057185133412" },
+{ title: "泊林公寓店", point: "120.290362,30.308314", address: "江干区仁爱路188-1号", tel: "057186941319" },
+{ title: "西溪里店", point: "120.0646,30.296497", address: "西溪里璞园2-101", tel: "057187331593" },
+{ title: "春江花月店1", point: "120.185656,30.221256", address: "春江花月住宅区潇湘苑6幢105室", tel: "057186028325" },
+{ title: "三里家园店", point: "120.19847,30.302016", address: "江干区池塘庙路56号", tel: "057187331569" },
+{ title: "家园店", point: "120.206353,30.240009", address: "衢江路119号", tel: "057187331574" },
+{ title: "复兴店", point: "120.178479,30.219024", address: "紫花路41号", tel: "057187271291" },
+{ title: "马市街店", point: "120.182655,30.259718", address: "马市街99-3", tel: "057188383076" },
+{ title: "望江家园店", point: "120.196269,30.236706", address: "望江家园东园世纪联华（小）沙地路", tel: "057185817521" },
+{ title: "定安店", point: "120.173237,30.248663", address: "杭州市西湖区定安路2号", tel: "057189976711" },
+{ title: "行知店", point: "120.139348,30.289141", address: "杭州市西湖区文二路233-1号", tel: "057189976704" },
+{ title: "和平店", point: "120.183625,30.284148", address: "朝晖路99号", tel: "057185464366" },
+{ title: "河坊街店", point: "120.184358,30.244553", address: "河坊街10号", tel: "057187156021" },
+{ title: "丁桥店", point: "120.23402,30.361958", address: "紫丁香街110号", tel: "057188092163" },
+{ title: "水映苑店", point: "120.100712,30.329763", address: "长阳路372、374号", tel: "057186574706" },
+{ title: "春江时代店", point: "120.197657,30.20793", address: "长河路1388号", tel: "057185801759" },
+{ title: "美政店", point: "120.178029,30.217667", address: "复兴南街4号", tel: "057186086171" },
+{ title: "米兰店", point: "120.192671,30.264549", address: "刀茅巷34号", tel: "057187042093" },
+{ title: "彩虹城店", point: "120.165605,30.19379", address: "滨盛路4086号", tel: "057186731901" },
+{ title: "东新园店", point: "120.188351,30.321112", address: "雪峰苑4幢1号商铺", tel: "057112345678" },
+{ title: "西城年华店", point: "120.108761,30.315703", address: "杭州市西城年华11幢8号商铺", tel: "057185231605" },
+{ title: "景昙店", point: "120.210233,30.275228", address: "杭州江干区景坛路152-6号", tel: "057187331583" },
+{ title: "江城店", point: "120.179682,30.23355", address: "江城路282号", tel: "057186079215" },
+{ title: "近江店", point: "120.208607,30.238675", address: "衢江路72号（近江五园对面）", tel: "0571-86028759" },
+{ title: "和睦店", point: "120.14746,30.320146", address: "登云路347号", tel: "057185394550" },
+{ title: "北景园店", point: "120.19374,30.344475", address: "东新路1021号", tel: "057188187603" },
+{ title: "早城店", point: "120.334487,30.320972", address: "杭州下沙学林街1305号", tel: "057188092162" },
+{ title: "塘河店", point: "120.14534,30.302211", address: "莫干山路701号（塘河路和莫干山路交叉口）", tel: "057187331564" },
+{ title: "世纪新城店", point: "120.120978,30.288732", address: "杭州市文二西路14号", tel: "057187381381" },
+{ title: "永庆店", point: "120.150801,30.334283", address: "永庆路48号", tel: "057188252295" },
+{ title: "风雅钱塘店", point: "120.214545,30.207087", address: "月明路1132号", tel: "057185824502" },
+{ title: "庆春店", point: "120.18535,30.264561", address: "东清巷4-6号", tel: "057187245877" },
+{ title: "颐景园店", point: "120.236931,30.359122", address: "丁桥镇蕙兰雅路533号", tel: "057186574976" },
+{ title: "建国中路店", point: "120.18756,30.259648", address: "建国中路152号", tel: "057187042093" },
+{ title: "文三店", point: "120.154696,30.283739", address: "文三路57号", tel: "057189980265" },
+{ title: "流水苑店", point: "120.186828,30.28499", address: "杭州市下城区朝晖路49-1号", tel: "057189976713" },
+{ title: "东园店", point: "120.190776,30.270152", address: "凤起路40号", tel: "057187271064" },
+{ title: "海月店", point: "120.172154,30.214843", address: "复兴南街181号", tel: "057189976725" },
+{ title: "学院店", point: "120.109012,30.282495", address: "学院路185号", tel: "057187331584" },
+{ title: "丽江公寓店", point: "120.288781,30.303575", address: "江干区下沙路丽江公寓底商56号", tel: "057185172439" },
+{ title: "桃园店", point: "120.171391,30.312367", address: "香积寺路76号", tel: "057188366733" },
+{ title: "景芳店", point: "120.207107,30.272795", address: "新塘路254号", tel: "057186985255" },
+{ title: "采荷店", point: "120.205688,30.263298", address: "庆春东路15-1号", tel: "057186038100" },
+{ title: "三墩店", point: "120.097586,30.331914", address: "古墩路1266号（三墩润达花园门口）", tel: "057188942117" },
+{ title: "嘉泰馨庭店", point: "120.140165,30.32066", address: "登云路309号", tel: "057186433640" },
+{ title: "嘉绿西苑店", point: "120.117492,30.287859", address: "杭州市西湖区文二西路161号", tel: "057187381381" },
+{ title: "信鸿店", point: "120.088818,30.331197", address: "灯彩街162号", tel: "057187331581" },
+{ title: "文苑店", point: "120.109372,30.282433", address: "杭州市文三西路468号", tel: "057188979586" },
+{ title: "大浒店", point: "120.158814,30.317761", address: "上绍路19号", tel: "057188292403" },
+{ title: "凯旋店", point: "120.196884,30.260872", address: "凯旋路102-6号", tel: "057186948913" },
+{ title: "下沙店", point: "120.390397,30.296965", address: "杭州下沙经济开发区听涛路32号", tel: "057189976724" },
+{ title: "文鼎苑店", point: "120.103982,30.30423", address: "萍水西路文鼎苑公寓29幢7号商铺", tel: "057186079276" },
+{ title: "钱江湾店", point: "120.140381,30.182677", address: "西浦路1623号", tel: "057186628272" },
+{ title: "现代城店", point: "120.180526,30.296887", address: "杭州下城区潮王路1号商铺", tel: "057185376791" },
+{ title: "香樟店", point: "120.113001,30.282527", address: "杭州市西湖区文三西路332号", tel: "057187186904" },
+{ title: "望江店", point: "120.182574,30.242131", address: "望江路82号", tel: "057186072560" },
+{ title: "都市水乡店", point: "120.097837,30.337836", address: "长阳路544-546号", tel: "057187271054" },
+{ title: "连园店", point: "120.232511,30.195164", address: "西兴街道连园商铺14号", tel: "057181915064" },
+{ title: "金华店", point: "120.148968,30.320723", address: "金华路22-1号", tel: "057188162101" },
+{ title: "九堡店", point: "120.264707,30.32596", address: "江干区九环路45-1号", tel: "057185152451" },
+{ title: "杨家门店", point: "120.149256,30.304526", address: "和睦路192-3号", tel: "057189977335" },
+{ title: "晨光店", point: "120.274372,30.31695", address: "九堡区晨光绿苑4幢底商1号商铺", tel: "057186047405" },
+{ title: "湖墅店", point: "120.158275,30.291695", address: "湖墅南路355号", tel: "057188380095" },
+{ title: "古荡店", point: "120.123457,30.282776", address: "杭州市文三西路150号", tel: "057188220601" },
+{ title: "建国店", point: "120.187255,30.274031", address: "建国北路446号", tel: "057185181770" },
+{ title: "九莲店", point: "120.135099,30.283337", address: "西湖区九莲新村26幢102室", tel: "057186817019" },
+{ title: "德胜东村店", point: "120.162982,30.300161", address: "德胜东村", tel: "0571-88222989" },
+{ title: "学军店", point: "120.150186,30.287762", address: "文二路53号文二路口（求知巷12号）", tel: "057188057137" },
+{ title: "求是店", point: "120.133195,30.26754", address: "浙大路30号", tel: "0571-81915061" },
+{ title: "三里亭店", point: "120.213862,30.307932", address: "机场路一巷141-143号", tel: "057186414199" },
+{ title: "保俶店", point: "120.147136,30.294813", address: "杭州市文一路99号", tel: "057188056592" },
+{ title: "狮虎桥店", point: "120.16733,30.271922", address: "狮虎桥路34号", tel: "057185065312" },
+{ title: "凤起店", point: "120.183679,30.270191", address: "凤起路183号", tel: "057187791724" },
+{ title: "文萃苑店", point: "120.138602,30.294377", address: "文一路207号", tel: "057186574839" },
+{ title: "亲亲店", point: "120.095071,30.338459", address: "余杭区良渚镇金家渡路334号", tel: "057189009891" },
+{ title: "朝晖店", point: "120.168516,30.29189", address: "杭州新市街190-2号", tel: "057185809402" },
+{ title: "湖左岸店", point: "120.322665,30.320801", address: "湖左岸公寓6幢107室", tel: "057187331562" },
+{ title: "濮家店", point: "120.205544,30.289637", address: "秋涛北路270号", tel: "057186466589" },
+{ title: "古墩店", point: "120.105922,30.28605", address: "古墩路381-17号", tel: "057181954507" },
+{ title: "南肖埠店", point: "120.205014,30.265914", address: "太平门直街205号", tel: "057181915063" },
+{ title: "翠苑店", point: "120.128883,30.294158", address: "文一路399号-1", tel: "057188057409" },
+{ title: "孩儿巷店", point: "120.174813,30.266643", address: "下城区孩儿巷95号", tel: "057187792280" },
+{ title: "领寓店", point: "120.288853,30.309593", address: "杭州九堡镇金堡街81号", tel: "057186047405" },
+{ title: "博库店", point: "120.152023,30.289637", address: "文二路30号", tel: "057187331582" },
+{ title: "盛世钱塘店", point: "120.227548,30.264748", address: "庆谐路28号", tel: "057186809215" },
+{ title: "亲亲A", point: "120.153963,30.278472", address: "余杭区良渚镇金家渡路334号", tel: "0571-89009891" },
+{ title: "三塘北村店", point: "120.173375,30.312711", address: "杭州香积寺路166号", tel: "057185804763" },
+        ];
+
+				var _map = null;
+				//var transit = new BMap.TransitRoute(_map, {renderOptions: {map: _map, panel : "results"}});
+				var transit = null;
+				
+        function map_init() {
+          var map = new BMap.Map("map"); // 创建Map实例
+          var point = new BMap.Point(120.161635,30.279708); //地图中心点，杭州市
+          map.centerAndZoom(point, 13); // 初始化地图,设置中心点坐标和地图级别。
+          map.enableScrollWheelZoom(true); //启用滚轮放大缩小
+          //向地图中添加缩放控件
+          var ctrlNav = new window.BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_TOP_LEFT,
+            type: BMAP_NAVIGATION_CONTROL_LARGE
+          });
+          map.addControl(ctrlNav);
+
+          //向地图中添加缩略图控件
+          var ctrlOve = new window.BMap.OverviewMapControl({
+            anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            isOpen: 1
+          });
+          map.addControl(ctrlOve);
+
+          //向地图中添加比例尺控件
+          var ctrlSca = new window.BMap.ScaleControl({
+            anchor: BMAP_ANCHOR_BOTTOM_LEFT
+          });
+          map.addControl(ctrlSca);
+					map.addControl(new BMap.OverviewMapControl());  //小地图  
+        	map.addControl(new BMap.MapTypeControl()); //地图类型（地图、卫星、三维）  
+
+					var myDis = new BMapLib.DistanceTool(map);		//创建测距工具
+					var contextMenu = new BMap.ContextMenu();//创建右键对象
+					var txtMenuItem = [
+						{ text:'折线测距',callback:function(){myDis.open()}}
+						/*,{ text:'在此添加标注',
+							callback:function(p){
+								var marker = new BMap.Marker(p), px = map.pointToPixel(p);
+								map.addOverlay(marker);
+							}
+						}*/
+					];
+					for(var i=0; i < txtMenuItem.length; i++){
+						contextMenu.addItem(new BMap.MenuItem(txtMenuItem[i].text,txtMenuItem[i].callback,100));
+						if(i==1 || i==3) contextMenu.addSeparator();
+					}
+					map.addContextMenu(contextMenu);
+        
+          //var point = new Array(); //存放标注点经纬信息的数组
+          //var info = new Array(); //存放提示信息窗口对象的数组
+          var marker = new Array(); //存放标注点对象的数组
+          
+          //给标注对象增加一个索引
+          BMap.Marker.prototype.index = -1;
+					BMap.Marker.prototype.setIndex = function(idx) {this.index=idx;}
+					BMap.Marker.prototype.getIndex = function() { return this.index;}
+					
+					//给标注对象增加一个信息属性
+          BMap.Marker.prototype.info = null;
+					BMap.Marker.prototype.setInfo = function(info) {this.info=info;}
+					BMap.Marker.prototype.getInfo = function() { return this.info;}
+
+          for (var i = 0; i < markerArr.length; i++) {
+            var p0 = markerArr[i].point.split(",")[0]; //
+            var p1 = markerArr[i].point.split(",")[1]; //按照原数组的point格式将地图点坐标的经纬度分别提出来
+            //point[i] = new window.BMap.Point(p0, p1); //循环生成新的地图点
+            //marker[i] = new window.BMap.Marker(point[i]); //按照地图点坐标生成标记
+            marker[i] = new window.BMap.Marker(new window.BMap.Point(p0, p1)); //按照地图点坐标生成标记
+
+            map.addOverlay(marker[i]);
+            //marker[i].setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+            var label = new window.BMap.Label(markerArr[i].title, { offset: new window.BMap.Size(20, -10) });
+            marker[i].setLabel(label);
+            //info[i] = new window.BMap.InfoWindow(markerArr[i].title + "</br>地址：" + markerArr[i].address + "</br> 电话：" + markerArr[i].tel + "</br>"); // 创建信息窗口对象
+            
+            marker[i].setIndex(i);
+            marker[i].setInfo(markerArr[i]);
+	          marker[i].addEventListener("click", function () {
+	            //this.openInfoWindow(new window.BMap.InfoWindow(this.info.title + "</br>地址：" + this.info.address + "</br> 电话：" +this.info.tel + "</br>"));
+	            //var infoWindow = new BMap.InfoWindow("<div style='line-height:1.8em;font-size:12px;'><b>名称:</b>"+point.title+"</br><b>地址:</b>"+point.address+"</br><b>电话:</b>"+point.phoneNumber+"<p style='border-top:1px dashed #44aa99'></p>从这里到<input type='text' id='point_start' value='天安门' style='border:1px solid #aaa;background:none;' /><input type='button' onclick='bus_start();' value='公交' /></br>从<input type='text' value='天安门' style='border:1px solid #aaa;background:none;' id='point_end' />到这里<input type='button' onclick='bus_end();' value='公交' /></div>");  // 创建信息窗口对象
+	            this.openInfoWindow(
+	            	new BMap.InfoWindow(
+	            	"<div style='line-height:1.8em;font-size:12px; width:300px;'>"+
+	            	"<b>"+this.info.title + "</b></br>"+
+	            	"<b>地址:</b>"+this.info.address+"</br>"+
+	            	"<b>电话:</b>"+this.info.tel+"<br/>"+
+	            	"<p style='border-top:1px dashed #44aa99'></p>"+
+	            	"从<b> "+this.info.title+" </b>到<input type='text' id='_point_start' value='' style='border:1px solid #aaa; background:none;' /> "+
+	            	"<input type='button' onclick='busSearch("+this.getPosition().lng+", "+this.getPosition().lat+", null, \"_point_start\");' value='公交' /></br>"+
+	            	"从<input type='text' value='' style='border:1px solid #aaa;background:none;' id='_point_end' />到<b> "+this.info.title+" </b> "+
+	            	"<input type='button' onclick='busSearch("+this.getPosition().lng+", "+this.getPosition().lat+", \"_point_end\", null);' value='公交' />"+
+	            	"</div>")
+	            );
+	          });
+          }
+          //设置总门店数
+          try{
+          	document.getElementById("_count").innerText = markerArr.length+"";
+        	}catch(ex){}
+        		
+					_map = map;
+					transit = new BMap.TransitRoute(_map, {renderOptions: {map: _map, panel : "results"}});
+					transit.setSearchCompleteCallback(function(results){
+						if (transit.getStatus() == BMAP_STATUS_SUCCESS){
+							/*
+							var firstPlan = results.getPlan(0);
+							// 绘制步行线路
+							for (var i = 0; i < firstPlan.getNumRoutes(); i ++){
+								var walk = firstPlan.getRoute(i);
+								if (walk.getDistance(false) > 0){
+									// 步行线路有可能为0
+									_map.addOverlay(new BMap.Polyline(walk.getPoints(), {lineColor: "green"}));
+								}
+							}
+							// 绘制公交线路
+							for (i = 0; i < firstPlan.getNumLines(); i ++){
+								var line = firstPlan.getLine(i);
+								_map.addOverlay(new BMap.Polyline(line.getPoints()));
+							}
+							*/
+							// 输出方案信息
+							var s = [];
+							for (i = 0; i < results.getNumPlans(); i ++){
+								s.push((i + 1) + ". " + results.getPlan(i).getDescription());
+							}
+							document.getElementById("log").innerHTML = s.join("<br>");
+						}
+					})
+        }
+        
+        /**搜索公交线路*/
+				function busSearch(lng, lat, srcName, destName){
+					if(transit==null) {
+						alert("地图尚未初始化。");
+						return;
+					}
+					if(!lng || !lat){
+						alert("当前位置地理坐标未取到！");
+						return;
+					}
+					
+					var point = new BMap.Point(lng, lat);
+					if(destName != null && destName != "")
+						transit.search(point , document.getElementById(destName).value);
+					else if(srcName != null && srcName != "")
+						transit.search(document.getElementById(srcName).value , point);
+					else
+						alert("未指定源地点或目标地点。");
+				}
+        
+        //异步调用百度js
+        function map_load() {
+          var load = document.createElement("script");
+          load.src = "http://api.map.baidu.com/api?v=1.4&callback=map_init";
+          document.body.appendChild(load);
+        }
+
+        window.onload = map_load;
+      </script>
+    </fieldset>
+  </div>
+</body>
+</html>

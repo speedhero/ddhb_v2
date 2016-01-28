@@ -1,0 +1,22 @@
+.focus{ width:100%; position: relative; z-index: 1;}
+#slide{ width:100%;height:350px;overflow:hidden;position:relative; z-index: 1;}
+#panel{ width:100%;height:350px;}
+#panel li{ width:100%;height:350px;position:absolute; z-index: 1;}
+
+#panel .lnkarea{width:990px;height:350px; margin: 0 auto; display:block; overflow:hidden;position: relative;}
+.wideScreen #panel .lnkarea{width:1210px;}
+#panel .pic{width:990px;height: 350px;display:block;position: absolute;top: 0;left: 0;z-index: 1;}
+.wideScreen #panel .pic{width:1210px;}
+#panel .subad{height:325px;width:190px;margin-top: 25px;margin-right: 15px;position: absolute;top:0;right: 0;text-align: right;z-index: 2;}
+#panel .subad img{float: right;margin-bottom: 5px;}
+#panel .slide_thumb{display:none;}
+#trigger{ margin:0 auto; position: relative; bottom: 21px;left:0; z-index: 2;}
+#trigger ul{ width: 740px; height: 16px; padding-top: 5px; cursor:pointer; color:#fff; float: left;background:url(../images/store_home.png) 0 -250px no-repeat;padding-left:9px;}
+.wideScreen #trigger ul{width: 940px;}
+#trigger .holdspace{display:inline-block;width: 230px;float: left;height: 20px;}
+.wideScreen #trigger .holdspace{width: 250px;}
+#trigger li{float:left; width: 11px;height: 11px;line-height: 11px;margin-right:6px;text-align:center;background: #ccc;border-radius: 2px;text-indent: -9999em;}
+#trigger li.cur{ background: white;}
+#slide .loading{width:32px;height:32px;margin:94px auto;display:block;}
+#slide_bg{height: 350px;margin-top: -350px;display: none;}
+#slide_text{display: none;}

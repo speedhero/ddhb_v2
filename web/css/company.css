@@ -1,0 +1,93 @@
+.bottonpicdiv {
+	width: 100%;
+	padding-bottom:80px;
+}
+.companyleft {
+	width: auto;
+	height: auto;
+	float: left;
+	text-align:center;
+	background: url('/ddhb/images/memberCenter/PCPad-8-1.png');
+	box-shadow:5px 5px 5px -6px #888888;
+}
+.companyRight {
+	float: right;
+    width: 78.5%;
+    min-height:495px;
+    background-color:#ffffff;
+}
+.title{
+	height:46px;
+	width:100%;
+	font-size:12px;
+	border-bottom: 1px solid #E6E6E6;
+	color:#666666;
+}
+.companycontent {
+	width:89%;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:12px;
+	margin-top:20px;
+	color:#666666;
+	line-height:2;
+}
+.sertabletr {
+	height: 40px;
+	font-size: 13px;
+}
+.navbutton{
+	width:195px;
+	height: 54px;
+}
+.navbutton div{
+	font-size: 16px;
+	line-height: 45px;
+}
+#shamInfo input[type="text"]{
+	width: 180px;
+	height: 18px;
+}
+.listyle{
+	text-align:left;
+	border-bottom:2px solid #3FB8B1;
+	margin-top:20px;
+	font-size:18px;
+	color:#333333;
+}
+.astyle{
+	text-align:center;
+	width:64px; 
+	height:22px;
+	line-height: 20px;
+	text-decoration:none;
+	float:right;
+	font-size:12px;
+	color:#888;
+	background: url('../images/homepage/moreBtn.png');
+	cursor:pointer;
+	margin-top:10px;
+}
+.leftservicetd{
+	text-align: right;
+}
+
+.rightservicetd {
+	text-align: left;
+}
+.marginleft10 {
+margin-left: 10px;	
+}
+
+a:link {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: none;
+}
+a:active {
+ text-decoration: none;
+}

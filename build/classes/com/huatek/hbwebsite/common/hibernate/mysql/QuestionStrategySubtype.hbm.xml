@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="QuestionStrategySubtype" table="common_question_strategy_subtype">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="subTypeName" column="subtype_name" type="java.lang.String" />
+		
+		<many-to-one name="parentType" class="com.huatek.hbwebsite.common.entity.QuestionStrategyType"  not-found="ignore">
+			<column name="parent_type_id" not-null="false"></column>
+		</many-to-one>
+		
+		<property name="createTime" column="create_time" type="java.util.Date"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+	</class>
+</hibernate-mapping>

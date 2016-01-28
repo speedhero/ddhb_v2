@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+        
+	<!-- 定义缓存方案为OSCache -->
+	<bean id="oscacheFacade" class="org.springmodules.cache.provider.oscache.OsCacheFacade">
+		<property name="failQuietlyEnabled" value="true" />
+		<property name="cacheManager">
+			<bean id="oscacheManager" class="org.springmodules.cache.provider.oscache.OsCacheManagerFactoryBean" />
+		</property>
+	</bean>
+	<!-- 定义缓存的拦截器以及拦截模型  -->
+	<bean id="enableCachingInterceptor" class="org.springmodules.cache.interceptor.caching.MethodMapCachingInterceptor">
+		<property name="cacheProviderFacade" ref="oscacheFacade" />
+		<property name="cachingModels">
+			<props>
+				<!-- 下面的Key值必须是包名和类名以及方法前缀 -->
+				<!--
+				<prop key="com.huatek.framework.service.LoginService.load*">groups=loginCache;refreshPeriod=36000</prop>
+				-->
+				<prop key="com.huatek.dictionary.service.DictionaryService.load*">groups=dictionaryCache;refreshPeriod=360000</prop>
+				<prop key="com.huatek.dictionary.service.CategoryService.load*">groups=dicCategoryCache;refreshPeriod=36000</prop>
+				<prop key="com.huatek.framework.service.ConfigFactoryService.load*">groups=fwPropertiesCache;refreshPeriod=36000</prop>
+				<prop key="com.huatek.ddhb.manage.frontsystemsetting.service.FrontSystemSettingService.load*">groups=frontsystemsettingCache;refreshPeriod=36000</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 刷新拦截器：定义了刷新策略，基于那个模块ID，刷新相应的缓存群组 -->
+	<bean id="flushingInterceptor" class="org.springmodules.cache.interceptor.flush.MethodMapFlushingInterceptor">
+		<property name="cacheProviderFacade" ref="oscacheFacade" />
+		<property name="flushingModels">
+			<props>
+				<!--
+				<prop key="com.huatek.framework.service.LoginService.flush*">groups=loginCache</prop>
+				 -->
+				<prop key="com.huatek.dictionary.service.DictionaryService.flush*">groups=dictionaryCache</prop>
+				<prop key="com.huatek.dictionary.service.CategoryService.flush*">groups=dicCategoryCache</prop>
+				<prop key="com.huatek.framework.service.ConfigFactoryService.flush*">groups=fwPropertiesCache</prop>
+				<prop key="com.huatek.ddhb.manage.frontsystemsetting.service.FrontSystemSettingService.flush*">groups=frontsystemsettingCache</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 定义自动代理的服务 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+		<list>
+		    <!--
+			<value>loginService</value>
+			-->
+			<value>com.huatek.dictionary.service.CategoryService</value>
+			<value>com.huatek.dictionary.service.DictionaryService</value>
+			<value>com.huatek.framework.service.ConfigFactoryService</value>
+			<value>com.huatek.ddhb.manage.frontsystemsetting.service.FrontSystemSettingService</value>
+		</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>enableCachingInterceptor</value>
+				<value>flushingInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	<!-- spring cache define end -->
+
+</beans>

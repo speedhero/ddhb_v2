@@ -1,0 +1,55 @@
+.navigationdiv {font-size: 12px; color: #999999; margin-left: 10px;}
+
+#list_rent_house{
+	margin-top: 10px;
+	margin-bottom: 55px;
+	background-color: #ffffff;
+}
+
+#list_rent_house table{
+	border: none;
+}
+
+.firstLine{
+	border-bottom: 2px solid #575f6e !important;
+	height: 60px !important;
+	padding-left: 0px !important;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.firstTd{
+	background-color:#eeeeee;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 14px;
+	color:#333333;
+}
+
+.secondLine{
+	height: 200px !important;
+}
+
+.threeLine{
+	height: 120px !important;
+}
+
+.tdContentDiv{
+	margin-left: 10px;
+}
+
+#list_rent_house table td{
+	border-bottom: 1px dashed #cccccc;
+	height: 40px;
+	font-size: 12px;
+	color: #666666;
+	border-left: 1px solid #d0d0d0;
+}
+
+#list_rent_house table td span{
+	color: #d04042;
+}
+
+.lastLine{
+	height: 115px !important;
+}

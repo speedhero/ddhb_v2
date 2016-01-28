@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="com.huatek.hbwebsite.common.entity.Community" table="house_community">
+		<id name="erpId" type="java.lang.String" column="erp_id" length="40"></id>
+		
+		<property name="floorArea" column="floorArea" type="java.lang.Float"></property>
+		
+		<property name="pinyin" column="pinyin" type="java.lang.String" length="150"></property>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+		<property name="tents" column="tents"></property>
+		
+		<property name="structType" column="structureType" length="20"></property>
+		
+		<property name="introduction" column="introduction" length="1000"></property>
+		
+		<property name="communityNo" column="community_no" type="java.lang.String" length="15"/>
+		
+		<property name="startSaleDate" column="complate_year" type="java.util.Date"/>
+		
+		<property name="landScaping" column="landscaping_ratio" type="java.lang.Float"/>
+		
+		<property name="communityName" column="community_name" type="java.lang.String" length="500"></property>
+		
+		 <property name="title" column="title" type="java.lang.String" length="500"></property>
+		 
+		<property name="communityAddress" column="community_address" type="java.lang.String" length="500"></property>
+		
+		<property name="buildYear" column="build_year" type="java.util.Date"></property>
+		
+		<property name="developer" column="developer" type="java.lang.String" length="500"></property>
+		
+		<property name="propertyManagement" column="propertyManagement" type="java.lang.String" length="200"></property>
+		
+		<property name="propertyExpense" column="property_expense" type="java.lang.String" length="50"></property>
+		
+		<many-to-one name="propertyType" class="Usage" unique="true"  not-found="ignore">
+			<column name="property_type_id" />
+		</many-to-one>
+		
+		<!--
+		最近门店改成允许多个门店ID，允许多个ID用分号分隔
+		<many-to-one name="nearStore" class="Store" unique="true"  not-found="ignore">
+			<column name="nearest_store" />
+		</many-to-one>
+		 -->
+		<property name="nearStoreID" column="nearest_store" type="java.lang.String" length="300"></property>
+		 
+		<property name="location" column="location" type="java.lang.String" length="20"></property>
+		
+		<property name="communityArea" column="community_area" type="java.lang.Integer" length="20"></property>
+		
+		<property name="plotRatio" column="plot_ratio" type="java.lang.Float"></property>
+		
+		<property name="shCount" column="sh_count" type="java.lang.Integer" length="11"></property>
+		
+		<property name="rentCount" column="rent_count" type="java.lang.Integer" length="11"></property>
+		
+		<property name="parkingCount" column="parking_count" type="java.lang.String" length="50"></property>
+		
+		<property name="sortIndex" column="sortindex" type="java.lang.Integer" length="11"></property>
+		
+		<!-- <property name="pictureCount" column="picture_count" type="java.lang.Integer" length="11"></property> -->
+		<property name="pictureCount" type="java.lang.Integer" length="11"
+			formula="(select count(*) from house_picture pic where pic.house_id=erp_id and pic.house_type=3)"></property>
+		
+		<property name="houseCount" column="house_count" type="java.lang.Integer" length="11"></property>
+		
+		<property name="currentSHAvePrice" column="current_month_sh_avg_price" type="java.lang.Float"></property>
+		
+		<property name="currentRHAvePrice" column="current_month_rh_avg_price" type="java.lang.Float"></property>
+		
+		<!-- <property name="lastYearSHAvgPrice" column="last_year_sh_avg_price" type="java.lang.Float"></property>
+		
+		<property name="lastYearRHAvgPrice" column="last_year_rh_avg_price" type="java.lang.Float"></property> -->
+		
+		<property name="aroundLastYear" column="tongbiqunian" type="java.lang.Double"></property>
+		
+		<property name="compareWithLastMonth" column="huanbishangyue" type="java.lang.Double"></property>
+		
+		<property name="aroundLastYearrh" column="tongbiqunianrh" type="java.lang.Double"></property>
+		
+		<property name="compareWithLastMonthrh" column="huanbishangyuerh" type="java.lang.Double"></property>
+		
+		<many-to-one name="cbd" class="CBD" unique="true"  not-found="ignore">
+			<column name="business_circle_id" />
+		</many-to-one>
+		
+		<many-to-one name="region" class="Area" unique="true" not-found="ignore">
+			<column name="region_id" />
+		</many-to-one>
+		
+		<property name="inital" column="inital" type="java.lang.String"></property>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer" length="11"></property>
+		
+	</class>
+	
+</hibernate-mapping>

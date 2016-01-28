@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Base Tiles Definition -->
+	<definition name="pcenter.layout.main" template="/WEB-INF/jsp/ddhb/front/PcenterLayout/pcenter_layout.jsp">
+		<put-attribute name="pcenter.layout.title" value="个人中心" />
+		<put-attribute name="pcenter.layout.header" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/PcenterLayout/pcenter_left.jsp" />
+		<put-attribute name="pcenter.layout.right" value="/WEB-INF/jsp/ddhb/front/PcenterLayout/pcenter_right.jsp" />
+		<put-attribute name="pcenter.layout.footer" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_footer.jsp" />
+	</definition>
+	
+	<definition name="mybps.page.seller.welcome" extends="pcenter.layout.main">
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/memberInfo_left.jsp" />
+		<put-attribute name="pcenter.layout.title" value="欢迎界面" />
+	</definition>
+	<definition name="page.platmember.changePassword.init" extends="pcenter.layout.main">
+		<put-attribute name="pcenter.layout.title"  value="修改密码" />
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/memberInfo_left.jsp" />
+		<put-attribute name="pcenter.layout.right"  value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/changepassword/changePassword.jsp" />
+	</definition>
+	<definition name="page.platmember.changePassword.success" extends="pcenter.layout.main">
+		<put-attribute name="pcenter.layout.title"  value="修改密码" />
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/memberInfo_left.jsp" />
+		<put-attribute name="pcenter.layout.right" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/changepassword/finishChangePassword.jsp" />
+	</definition>
+	<definition name="page.platmember.modifyHeader.init" extends="pcenter.layout.main">
+		<put-attribute name="pcenter.layout.title"  value="修改头像" />
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/memberInfo_left.jsp" />
+		<put-attribute name="pcenter.layout.right"  value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/modifyHeader/modifyHeader.jsp" />
+	</definition>
+	<definition name="page.platmember.modifyHeader.success" extends="pcenter.layout.main">
+		<put-attribute name="pcenter.layout.title"  value="修改头像成功" />
+		<put-attribute name="pcenter.layout.left" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/memberInfo_left.jsp" />
+		<put-attribute name="pcenter.layout.right" value="/WEB-INF/jsp/ddhb/front/member/platMemberInfo/modifyHeader/finishModifyHeader.jsp" />
+	</definition>
+
+</tiles-definitions>

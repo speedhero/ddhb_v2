@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="CBD" table="common_cbd">
+		<id name="erpId" type="java.lang.String" column="erp_id" length="40">
+		</id>
+		<property name="cbdName" column="cbd_name" type="java.lang.String" length="255"/>
+		
+		<property name="gps" column="gps_coordinate" type="java.lang.String" length="255"/>
+		
+		<property name="initial" column="initial" type="java.lang.String" length="8"/>
+		
+		<many-to-one name="county" class="com.huatek.hbwebsite.common.entity.Area"   not-found="ignore">
+            <column name="county_id">
+            </column>
+        </many-to-one>
+		
+		<property name="isMapping" column="ismapping" type="java.lang.Integer"/>
+		
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+		
+		<property name="path" column="path" type="java.lang.String" length="100"/>
+		
+		<property name="comment" column="comment" type="java.lang.String" length="1000"/>
+		
+		<many-to-one name="parentCBD"  class="com.huatek.hbwebsite.common.entity.CBDWebsite" lazy="false"  not-found="ignore">
+            <column name="belong_to">
+            </column>
+        </many-to-one>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="HouseType" table="common_housetype">
+		<id name="id" type="java.lang.Long" column="erp_id">
+			<generator class="native"/>
+		</id>
+		<property name="htName" column="ht_name" type="java.lang.String" length="20"/>
+
+		<property name="htCount" column="ht_count" type="java.lang.Integer"/>
+
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

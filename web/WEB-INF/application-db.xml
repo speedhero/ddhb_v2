@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+	<!-- ========================= DATASOURCE DEFINITION via JNDI ========================= -->		
+	<!-- When resourceRef is true, the value of jndiName will be prepended with
+	server’s JNDI directory. Consequently, the actual name used will be
+	java:comp/env/jdbc/pcmDB.
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+		<property name="jndiName" value="java:comp/env/jdbc/pcmDB" />
+		<property name="resourceRef" value="true" />		
+	</bean>
+  	-->
+  
+	<!-- Local Apache Commons DBCP DataSource that refers to a combined database -->
+	<!-- The placeholders are resolved from jdbc.properties through -->
+	<!-- the PropertyPlaceholderConfigurer in applicationContext.xml -->
+	<!-- 
+	<bean id="dataSource" class="com.huatek.framework.dbcp.CustomDbcpDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		&lt;!- -
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<property name="minIdle" value="${jdbc.minIdle}" />
+   	<property name="maxIdle" value="${jdbc.maxIdle}" />
+   	<property name="maxWait" value="${jdbc.maxWait}" />
+   	<property name="removeAbandoned" value="${jdbc.removeAbandoned}"/>
+   	<property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}"/>
+   	<property name="logAbandoned" value="${jdbc.logAbandoned}"/>
+   	- -&gt;
+   	<property name="validationQuery" value="${jdbc.validationQuery}" />
+   	<property name="testWhileIdle" value="${jdbc.testWhileIdle}" />
+   	<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}" />
+   	<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+	</bean>
+	-->
+	
+ 	<!-- C3P0数据库配置 -->
+  <bean id= "dataSource" class ="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" >
+    <property name="driverClass" value="${jdbc.driverClassName}" />
+    <property name="jdbcUrl" value="${jdbc.url}" />
+    <property name="user" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+    <property name="acquireIncrement" value="5" />
+    
+    <!-- 定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+    <property name="acquireRetryAttempts" value="30" />
+    
+    <!-- 两次连接中间隔时间，单位毫秒。Default: 1000 -->
+    <property name="acquireRetryDelay" value="1000" />
+    
+    <!-- 连接关闭时默认将所有未提交的操作回滚。Default: false -->
+    <property name="autoCommitOnClose" value="true" />
+    
+    <!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,如设为0则无限期等待。单位毫秒。Default: 0 -->
+    <property name="checkoutTimeout" value="10000" />
+    
+    <!-- 每60秒检查所有连接池中的空闲连接。Default: 0 -->
+    <property name="idleConnectionTestPeriod" value="60" />
+    
+    <!-- 初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+    <property name="initialPoolSize" value="50" />
+    
+    <!-- 连接池中保留的最小连接数 -->
+    <property name="minPoolSize" value="20" />
+    
+    <!-- 连接池中保留的最大连接数。Default: 15 -->
+    <property name="maxPoolSize" value="50" />
+    
+    <!-- 最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+    <property name="maxIdleTime" value="60" />
+    
+    <!-- c3p0将建一张名为Test的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么 属性preferredTestQuery将被忽略。你不能在这张Test表上进行任何操作，它将只供c3p0测试 使用。Default: null -->
+    <property name="automaticTestTable" value="c3p0_TestTable" />
+    <!--
+            获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效
+            保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试
+            获取连接失败后该数据源将申明已断开并永久关闭。Default: false
+      -->
+	<property name="breakAfterAcquireFailure" value="false" />
+  </bean>
+<!-- 
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/jdbc.properties</value>
+				<value>/WEB-INF/mail.properties</value>
+			</list>
+		</property>
+	</bean>
+-->
+	<bean id="propertyConfigurer" class="cn.hshb.web.common.util.PropertiesEncryptFactoryBean">
+		<property name="locations">
+			<list>
+			<!-- 
+				<value>/WEB-INF/jdbc.properties</value>
+				<value>/WEB-INF/mail.properties</value>
+				 -->
+				<value>classpath*:config/jdbc.properties</value>
+				<value>classpath*:config/mail.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- **************以下是Hibernate配置 ********************** -->
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingJarLocations">
+			<list>
+				<value>/WEB-INF/lib/background_entity.jar</value>
+			</list>
+		</property>
+		<property name="mappingLocations">
+		<list>
+			<value>classpath*:/com/huatek/hbwebsite/basemanagement/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/common/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/member/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/broker/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/house/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/company/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/search/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/consignment/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/recruit/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/news/hibernate/mysql/*.hbm.xml</value>
+			<value>classpath*:/com/huatek/hbwebsite/saveQuery/hibernate/mysql/*.hbm.xml</value>
+		</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.generate_statistics">false</prop>
+				<prop key="hibernate.default_batch_fetch_size">30</prop>
+			</props>
+		</property>
+		<!--
+			<property name="lobHandler"> <ref local="oracleLobHandler" /></property>
+		-->
+		<property name="eventListeners">
+			<map>
+				<entry key="merge">
+					<bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<!-- Hibernate事务管理器 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean name="openSessionInViewInterceptor" class="com.huatek.framework.hibernate.SessionInterceptor">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 事务代理拦截器的配置 -->
+	<bean id="transactionProxy" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<!-- 
+		        <prop key="insert*">PROPAGATION_REQUIRED</prop>  
+		        <prop key="update*">PROPAGATION_REQUIRED</prop>  				
+		        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+		         -->
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Transaction configuration  -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<!-- <tx:method name="get*" read-only="true"/> -->
+			<tx:method name="getUser" no-rollback-for="BusinessRuntimeException" />
+			<!-- other methods use the default transaction settings (see below) -->
+			<tx:method name="*" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="frameworkMethods" expression="execution(* com.huatek.framework.service.*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="frameworkMethods" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="baseServiceMethods" expression="execution(* com.huatek.base.service.*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="baseServiceMethods" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="ddhbServiceMethods" expression="execution(* com.huatek.ddhb.manage.*.service.*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="ddhbServiceMethods" />
+	</aop:config>
+
+
+	<!-- *************以下是MyBatis配置************* -->
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="typeAliasesPackage" value="cn.hshb.web.biz.mybatis.model" />-->
+	</bean>
+ 	
+	<!-- MyBatis基本配置 -->
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
+	<bean id="sqlSessionFactory" class="cn.hshb.web.common.mybatis.RefreshableSqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath*:sqlmap/*.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	 
+	<!-- 配置 sqlSession	-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+
+	  <!-- 创建一个批量SqlSession，可以批量操作,下面的语句就可以在 DAO 中使用了。
+		public void insertUsers(User[] users) {
+		   for (User user : users) {
+		     sqlSession.insert("org.mybatis.spring.sample.mapper.UserMapper.insertUser", user);
+		   }
+		 }
+	   -->
+	  <constructor-arg index="1" value="BATCH" /> 
+	</bean>
+	
+	<!-- 配置Mapper扫描器，自动扫描DAO(Mapper类) ，它 将 会 查 找 类 路 径 下 的 映 射 器 并 自 动 将 它 们 创 建 成 MapperFactoryBean.
+	basePackage 属性是让你为映射器接口文件设置基本的包路径。 你可以使用分号或逗号 作为分隔符设置多于一个的包路径。每个映射器将会在指定的包路径中递归地被搜索到。 
+	--> 
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	  <property name="basePackage" value="cn.hshb.web.biz.mybatis.dao" />
+	</bean>
+
+	
+    <!-- 第1步：定义事务通知(主要是针对指定事务管理器对应的事务实现配置事务参数) -->  
+    <tx:advice id="txAdviceMyBatis" transaction-manager="transactionManager">  
+        <tx:attributes>  
+            <!-- 对选定的方法配置详细的事务属性 -->  
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="*"/>  
+        </tx:attributes>
+    </tx:advice>  
+      
+    <!--  第2步：AOP配置 -->  
+    <aop:config>  
+        <!--  声明事务切入点(配置哪些类的哪些方法参与事务) -->   
+        <aop:pointcut id="AllServiceMethod" expression="execution(* cn.hshb.web.biz.service.*.*(..))" />   
+        <!-- 通知器(把事务通知绑定到切入点) -->  
+        <aop:advisor pointcut-ref="AllServiceMethod" advice-ref="txAdviceMyBatis" />   
+    </aop:config>  
+
+</beans>

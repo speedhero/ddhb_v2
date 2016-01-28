@@ -1,0 +1,119 @@
+.dlzc{overflow:hidden; clear:both;}
+
+.dlzc_k{width:512px;margin:0 auto; background:#fff;}
+
+.dlzc_t{height:40px; background:#3fb8b1;line-height:40px;}
+
+.dlzc_t a{padding:0 40px;color:#fff; height:40px;line-height:44px;float:left;margin-top:-4px;font-size:18px;}
+
+.dlzc_t a.one,.dlzc_t a:hover{color:#333;border-top:4px solid #3fb8b1; background:#fff;margin-top:-4px;line-height:40px;}
+
+
+
+.dlzc_con{padding:30px;}
+
+.form_item{padding-bottom:25px; clear:both; display:block;}
+
+.form_item .name{width:90px;float:left;font-size:16px;color:#333;line-height:36px;}
+
+.form_item .rt_ipt{float:left;}
+
+.form_item .rt_ipt .input{width:330px;height:34px;/* line-height:34px; */padding-left:5px;color:#333;border:none; background:#ecedf2;float:left;}
+
+.form_item .rt_ipt .input:focus{box-shadow:0px 0px 5px #999 inset;}
+
+.form_item .rt_ipt p{ display:block; clear:both;padding-top:10px;color:#999;}
+
+.form_item .rt_ipt a.hq{width:109px; height:27px; display:block; text-align:center;line-height:26px;background:url(../image/hq_a.gif) no-repeat;color:#666;}
+
+.form_item .rt_ipt a.hq:hover{background:url(../image/hq_b.gif) no-repeat;}
+
+.form_item .rt_ipt a.zh{ text-decoration:underline;}
+
+
+
+
+
+.zcdl_an{ text-align:center;padding:0px 0;}
+
+.zcdl_an a{padding:4px 40px;line-height:34px; background:#F79200;color:#fff;font-size:18px; /* display:inline-table; */margin:0 20px;}
+
+.zcdl_an a:hover{ background:#f60;color:#fff;}
+
+
+
+.form_item .name_dl{padding-right:10px; text-align:right;width:70px;}
+
+
+
+
+
+@media screen and (max-width: 960px)and (min-width: 758px) {
+
+
+
+
+
+
+
+
+
+	}
+
+@media screen and (max-width: 758px){
+
+
+
+.dlzc{}
+
+.dlzc_k{width:470px;}
+
+.dlzc_t{height:34px; line-height:34px;}
+
+.dlzc_t a{padding:0 30px;height:34px;line-height:40px;float:left;margin-top:-2px;font-size:14px;}
+
+.dlzc_t a.one,.dlzc_t a:hover{border-top:2px solid #3fb8b1; margin-top:-2px;line-height:34px;}
+
+
+
+.dlzc_con{padding:15px;}
+
+.form_item{padding-bottom:20px; }
+
+.form_item .name{width:68px;font-size:12px;line-height:30px;}
+
+.form_item .rt_ipt .input{width:330px;height:30px;line-height:30px;}
+
+
+
+.form_item .name_dl{width:50px;}
+
+
+
+
+
+	}
+
+@media screen and (max-width: 470px) {
+
+
+
+
+
+.dlzc_k{width:322px;}
+
+
+
+.form_item .rt_ipt .input{width:200px;}
+
+.form_item .rt_ipt p{font-size:11px;}
+
+
+
+.zcdl_an a{padding:2px 30px;margin:0 10px;}
+
+
+
+	}
+
+a:hover{color:#3fb8b1;}

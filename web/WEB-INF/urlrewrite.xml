@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!-- 实现伪静态的规则。 
+参考文档： 
+http://tuckey.org/urlrewrite/manual/4.0/index.html 
+http://tuckey.org/urlrewrite/manual/4.0/guide.html 
+-->
+<urlrewrite>
+	<rule>
+		<name>首页</name>
+		<note>这是欢迎页面的映射规则。</note>
+		<from>^/$</from>
+		<!-- <to type="forward">/welcome.show?actionMethod=welcome</to>-->
+		<to type="forward">/index.html</to>
+	</rule>
+	<rule>
+		<name>首页</name>
+		<note>这是欢迎页面的映射规则。</note>
+		<from>^/htm$</from>
+		<to type="forward">/welcome.show?actionMethod=welcome</to>
+	</rule>
+	<rule>
+		<name>首页</name>
+		<note>这是欢迎页面的映射规则。</note>
+		<from>^/welcome/welcome$</from>
+		<to type="forward">/index.html</to>
+	</rule>
+	<outbound-rule>
+		<name>首页地址改写</name>
+		<note><![CDATA[
+		houseSecond.show?actionMethod=dimquery&type='+type2
+		rent.show?actionMethod=dimquery&type='+type2
+		community.show?actionMethod=dimquery&type='+type2
+		]]></note>
+		<from>(\w+)\.show\?actionMethod=(\w+)&amp;type='\+(type\d)</from>
+		<to>$1/$2/'+$3</to>
+	</outbound-rule>
+
+	<!-- Modify by He JianBo START -->
+	<outbound-rule>
+		<name>welcome首页地址改写</name>
+		<note><![CDATA[
+		welcome.show?actionMethod=welcome
+		]]></note>
+		<from>welcome\.show\?actionMethod=welcome</from>
+		<to>welcome/welcome</to>
+	</outbound-rule>
+	<rule>
+		<name>contract首页地址改写</name>
+		<from>contract/contractQuery$</from>
+		<to type="forward">contract.show?actionMethod=contractQuery</to>
+	</rule>
+	<outbound-rule>
+		<name>查询合同交易</name>
+		<note><![CDATA[
+		contract.show?actionMethod=contractQuery&amp;cardNo=" + cardNo + "&amp;contractNo=" + contractNo
+		]]></note>
+		<from>contract\.show\?actionMethod=contractQuery&amp;cardNo=\" \+ ([\d\w]+) \+ \"&amp;contractNo=\" \+ ([\d\w]+)</from>
+		<to>contract/contractQuery/\"\+$1\+\"/\"\+$2</to>
+	</outbound-rule>
+	<rule>
+		<name>查询合同交易</name>
+		<from>^/contract/contractQuery/([\d\w]+)/([\d\w]+)$</from>
+		<to type="forward">/contract.show?actionMethod=contractQuery&amp;cardNo=$1&amp;contractNo=$2</to>
+	</rule>
+	<outbound-rule>
+	<name>contract首页地址改写</name>
+		<note><![CDATA[
+		contract.show?actionMethod=contractQuery&amp;cardNo=" + cardNo + "&amp;contractNo=" + contractNo
+		]]></note>
+		<from>contract\.show\?actionMethod=contractQuery</from>
+		<to>contract/contractQuery</to>
+	</outbound-rule>
+	
+	<!-- 有问题 地址在 jquery.search.homepage.js-->
+	<outbound-rule>
+		<name>首页确认查找</name>
+		<note><![CDATA[
+		welcome.show?actionMethod=dimQuery&type=1&searchModule=1
+		welcome.show?actionMethod=dimQuery&type=
+		]]></note>
+		<from>welcome\.show\?actionMethod=dimQuery&amp;type=(\d+)&amp;searchModule=(\d+)</from>
+		<to>welcome/dimQuery/$1/$2</to>
+	</outbound-rule>
+	<rule>
+		<name>首页确认查找</name>
+		<from>^/welcome/dimQuery/(\d+)/(\d+)</from>
+		<to type="forward">/welcome.show?actionMethod=dimQuery&amp;type=$1&amp;searchModule=$2</to>
+	</rule>
+	<!-- 
+	<outbound-rule>
+		<name>首页是输入内部编号查找房源</name>
+		<note><![CDATA[
+		welcome.show?actionMethod=dimQuery&type=1&searchModule=1&inputSearch=SJD000198
+		]]></note>
+		<from>welcome\.show\?actionMethod=dimQuery&amp;type=(\d+)&amp;searchModule=(\d+)&amp;inputSearch=([\w\d]+)</from>
+		<to>%{context-path}/welcome/dimQuery/$1/$2/$3</to>
+	</outbound-rule>
+	
+	<rule>
+		<name>首页是输入内部编号查找房源</name>
+		<from>^/welcome/dimQuery/(\d+)/(\d+)/([\w\d]+)</from>
+		<to type="forward">/welcome\.show\?actionMethod=dimQuery&amp;type=$1&amp;searchModule=$2&amp;inputSearch=$3</to>
+	</rule>
+	-->
+	<!-- Modify by He JianBo END -->
+	
+	<rule>
+		<name>usercenter页面</name>
+		<note><![CDATA[
+		这是usercenter页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/usercenter.do?actionMethod=appointment&isCutPage=false
+		]]></note>
+		<from>^/usercenter/(\w+)/(\w+)$</from>
+		<to type="forward">/usercenter.do?actionMethod=$1&amp;isCutPage=$2</to>
+	</rule>
+	<outbound-rule>
+		<name>usercenter地址改写</name>
+		<note><![CDATA[
+		usercenter.do?actionMethod=cutQuestion
+		]]></note>
+		<from>usercenter\.do\?actionMethod=(\w+)</from>
+		<to>usercenter/$1</to>
+	</outbound-rule>
+	<outbound-rule>
+		<name>usercenter地址改写</name>
+		<note><![CDATA[
+		usercenter.do?actionMethod=appointment&isCutPage=false
+		usercenter.do?actionMethod=contactQuery&isCutPage=false
+		usercenter.do?actionMethod=collectment&isCutPage=false
+		usercenter.do?actionMethod=priceNotice&isCutPage=false
+		usercenter.do?actionMethod=scoreManager&isCutPage=false
+		usercenter.do?actionMethod=memberInformatinManage&isCutPage=false
+		]]></note>
+		<from>usercenter\.do\?actionMethod=(\w+)&amp;isCutPage=(\w+)</from>
+		<to>usercenter/$1/$2</to>
+	</outbound-rule>
+	<outbound-rule>
+		<name>usercenter地址改写</name>
+		<note><![CDATA[
+		userCenter.do?actionMethod=collectment&isCutPage=false&houseType=2
+		]]></note>
+		<from>usercenter\.do\?actionMethod=(\w+)&amp;isCutPage=(\w+)&amp;houseType=(\d+)</from>
+		<to>usercenter/$1/$2/$3</to>
+	</outbound-rule>
+	<!-- Add by He JianBo START-->
+	<rule>
+		<name>usercenter地址改写</name>
+		<from>^/usercenter/(\w+)</from>
+		<to type="forward">/usercenter.do?actionMethod=$1</to>
+	</rule>
+	<rule>
+		<name>usercenter地址改写</name>
+		<from>^/usercenter/(\w+)/(\w+)</from>
+		<to type="forward">/usercenter.do?actionMethod=$1&amp;isCutPage=$2</to>
+	</rule>
+	<rule>
+		<name>usercenter地址改写</name>
+		<from>^/usercenter/(\w+)/(\w+)/(\d+)</from>
+		<to type="forward">/usercenter.do?actionMethod=$1&amp;isCutPage=$2&amp;houseType=$3</to>
+	</rule>
+	<!-- Add by He JianBo END -->
+	
+	<!--Add by He JianBo start11:26 -->
+	<rule>
+		<name>sso退出登录</name>
+		<note><![CDATA[
+		退出登录http://localhost:8080/ddhb/sso/logout
+		]]></note>
+		<from>^/sso/(\w+)</from>
+		<to>/sso.show?actionMethod=$1</to>
+	</rule>
+	<outbound-rule>
+		<name>sso退出登录</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/sso.show?actionMethod=logout
+		]]></note>
+		<from>sso\.show\?actionMethod=(\w+)</from>
+		<to>sso/$1</to>
+	</outbound-rule>
+	<outbound-rule>
+		<name>忘记密码</name>
+		<note><![CDATA[
+		uesrName = 用户名/邮箱/手机号码 
+		register.show?actionMethod=forgetPassword&userName='+userName  
+		]]></note>
+		<from>register\.show\?actionMethod=forgetPassword&amp;userName=</from>
+		<to>register/forgetPassword/</to>
+	</outbound-rule>
+	<rule>
+		<name>忘记密码</name>
+		<from>^/register/forgetPassword/([\u0391-\uFFE5\/\w\d]+)</from>
+		<to type="forward">/register.show?actionMethod=forgetPassword&amp;userName=$1</to>
+	</rule>
+	 <outbound-rule>
+	 	<name>发送密码链接</name>
+	 	<note><![CDATA[
+			register.show?actionMethod=forgetPassword
+		]]></note>
+	 	<from>register\.show\?actionMethod=forgetPassword</from>
+	 	<to>register/forgetPassword</to>
+	 </outbound-rule>
+	 <rule>
+	 	<name>发送密码链接</name>
+	 	<from>^/register/forgetPassword$</from>
+	 	<to type="forward">/register.show?actionMethod=forgetPassword&amp;userName=$1</to>
+	 </rule>
+	 
+	 <outbound-rule>	 
+	 	<name>注册</name>
+	 	<note><![CDATA[
+	 		register.show?actionMethod=activity&email="+email+"&mailDomain="+mailDomain+"&mamagerMail="+mamagerMail;
+	 		]]></note>
+	    <from>\"register\.show\?actionMethod=activity&amp;email=\"\+(\w+)\+\"&amp;mailDomain=\"\+(\w+)\+\"&amp;mamagerMail=\"\+(\w+)</from> 
+	 	<to>\"register/activity/\"\+$1\+\"/\"\+$2\+\"/\"\+$3</to>
+	 </outbound-rule>
+	 <rule>
+	 	<name>注册</name>
+	 <from>^/register/activity/([\w\d@.]+)/([\w\d]+)/([\w\d@.]+)</from>
+	 	<to type="forward">/register.show?actionMethod=activity&amp;email=$1&amp;mailDomain=$2&amp;mamagerMail=$3</to>	
+	 </rule>
+	 
+	 <outbound-rule>
+	 	<name>不同页面，点击注册,弹出注册</name>
+	 	<note><![CDATA[
+	 	弹出注册页面	register.show?actionMethod=preRegist
+	 	提交	register.show?actionMethod=register
+	 	]]></note>
+	 	<from>register\.show\?actionMethod=(preRegist|register)</from>
+	 	<to>register/$1</to>
+	 </outbound-rule>
+	 <rule>
+	 	<name>不同页面，点击注册,弹出注册</name>
+	 <from>^/register/(preRegist|register)</from>
+	 	<to type="forward">/register.show?actionMethod=$1</to>	
+	 </rule>
+	 <outbound-rule>
+	 	<name>登录</name>
+	 	<note><![CDATA[
+	 	javascript里的弹出登录框
+	 	login.show?actionMethod=loginCheck&target=
+	 	]]></note>
+	 	<from>login\.show\?actionMethod=loginCheck&amp;target=</from>
+	 	<to>login/loginCheck/</to>	
+	 </outbound-rule>
+	 <rule>
+	 	<name>登录</name>
+	 	<from>^/login/loginCheck/([\w\d]+)</from>
+	 	<to type="forward">/login.show?actionMethod=loginCheck&amp;target=$1</to>
+	 </rule>
+	 
+	<rule>
+		<name>consignment地址修改</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/consignment.show?actionMethod=consignmentDetail&type=1
+		]]></note>
+		<from>^/consignment/(\w+)/(\d+)$</from>
+		<to type="forward">/consignment.show?actionMethod=$1&amp;type=$2</to>
+	</rule>
+	<outbound-rule>
+		<name>修改页面内consignment地址修改</name>
+		<note><![CDATA[
+		consignment.show?actionMethod=consignmentDetail&type=1	我要买房
+		consignment.show?actionMethod=consignmentDetail&type=2	我要卖房
+		consignment.show?actionMethod=consignmentDetail&type=4	我要出租
+		consignment.show?actionMethod=consignmentDetail&type=3	我要租房
+		]]></note>
+		<from>consignment\.show\?actionMethod=(\w+)&amp;type=(\d)</from>
+		<to>consignment/$1/$2</to>
+	</outbound-rule>
+	
+	<outbound-rule>
+		<name>我要买房页面</name>
+		<note><![CDATA[
+		consignment.show?actionMethod=addConsignment	我要买房
+		consignment.show?actionMethod=addtoSale	我要卖房
+		consignment.show?actionMethod=addRentinghouse	我要出租
+		consignment.show?actionMethod=addRenthouse	我要租房
+		]]></note>
+		<from>consignment\.show\?actionMethod=(addConsignment|addRenthouse|addRentinghouse|addtoSale)</from>
+		<to>consignment/$1</to>
+	</outbound-rule>
+	<rule>
+		<name>我要买房页面</name>
+		<from>^/consignment/(addConsignment|addRenthouse|addRentinghouse|addtoSale)$</from>
+		<to type="forward">/consignment.show?actionMethod=$1</to>
+	</rule>
+	
+	<rule>
+		<name>houseSecond_rent首页地址修改</name>
+		<note>houseSecond_rent首页地址修改</note>
+		<from>^/(houseSecond|rent)/(houseSecondDetail|houseRentDetail)/([\w\d]+)/([\w\d\-]+)$</from>
+		<!-- <to type="redirect">%{context-path}/$1.show?actionMethod=$2&amp;houseNo=$3&amp;brokerId=$4</to> -->
+		<to type="forward">/$1.show?actionMethod=$2&amp;houseNo=$3&amp;brokerId=$4</to>
+	</rule>
+	<outbound-rule>
+		<name>houseSecond_rent首页内地址修改</name>
+		<note><![CDATA[
+		houseSecond.show?actionMethod=houseSecondDetail&houseNo=WYA007019&brokerId=9ab3a01e-381a-4c53-94ab-16a5dc117089
+		rent.show?actionMethod=houseRentDetail&houseNo=HXHZL1406140707&brokerId=3467d0f4-5f37-4cbd-9a5f-0acaac270c0e
+		]]></note>
+		<from>(houseSecond|rent)\.show\?actionMethod=(houseSecondDetail|houseRentDetail)&amp;houseNo=([\w\d]+)&amp;brokerId=([\w\d\-]+)</from>
+		<to>$1/$2/$3/$4</to>
+	</outbound-rule>
+	<rule>
+		<name>houseSecond_rent首页地址修改brokerId为空时</name>
+		<note>houseSecond_rent首页地址修改</note>
+		<from>(houseSecond|rent)/(houseSecondDetail|houseRentDetail)/([\w\d]+)$</from>
+		<to type="forward">$1.show?actionMethod=$2&amp;houseNo=$3&amp;brokerId=</to>
+	</rule>
+	<outbound-rule>
+		<name>houseSecond_rent首页内地址修改brokerId为空时</name>
+		<note><![CDATA[
+		houseSecond.show?actionMethod=houseSecondDetail&houseNo=WYA007019&brokerId=
+		rent.show?actionMethod=houseRentDetail&houseNo=HXHZL1406140707&brokerId=
+		]]></note>
+		<from>(houseSecond|rent)\.show\?actionMethod=(\w+)&amp;houseNo=([\w\d]+)&amp;brokerId=?</from>
+		<to>$1/$2/$3</to>
+	</outbound-rule>
+
+	<rule>
+		<name>houseSecond_rent地址栏开始对比</name>
+		<note><![CDATA[
+		二手房租房对比
+		]]></note>
+		<from>^/(houseSecond|rent)/(houseSecondCompare|houseRentCompare)</from>
+		<to type="forward">/$1.show?actionMethod=$2</to>
+	</rule>
+	<outbound-rule>
+		<name>houseSecond_rent首页内地址开始对比</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/houseSecond.show?actionMethod=houseSecondCompare
+		http://localhost:8080/ddhb/rent.show?actionMethod=houseRentCompare			开始对比
+		]]></note>
+		<from>(houseSecond|rent)\.show\?actionMethod=(houseSecondCompare|houseRentCompare)</from>
+		<to>$1/$2</to>
+	</outbound-rule>
+
+	<!--Add He JianBo END -->
+	
+	<rule>
+		<name>二手房列表页面</name>
+		<note><![CDATA[
+		这是二手房列表页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/houseSecond.show?actionMethod=dimquery&type=0
+		]]></note>
+		<from>^/houseSecond/dimquery/(\d+)$</from>
+		<to type="forward">/houseSecond.show?actionMethod=dimquery&amp;type=$1</to>
+	</rule>
+	<!-- 
+	<outbound-rule>
+		<name>二手房列表页地址改写</name>
+		<from>houseSecond\.show\?actionMethod=dimquery&amp;type=(\d+)</from>
+		<to>%{context-path}/houseSecond/dimquery/$1</to>
+	</outbound-rule>
+	 -->
+	<rule>
+		<name>二手房列表页面</name>
+		<note><![CDATA[
+		这是二手房列表页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/houseSecond.show?actionMethod=dimquery&type=0
+		]]></note>
+		<from>^/houseSecond/dimquery$</from>
+		<!-- <to type="forward">/houseSecond.show?actionMethod=dimquery&amp;type=$1&amp;$2</to> -->
+		<to type="forward">/houseSecond.show?actionMethod=dimquery</to> 
+	</rule>
+	<outbound-rule>
+		<name>houseSecond_rent页面排序外国排序链接替换规则</name>
+		<note><![CDATA[
+		sortselect('houseSecond.show?actionMethod=dimquery')
+		]]></note>
+		<from>sortselect\('(houseSecond|rent)\.show\?actionMethod=dimquery'\)</from>
+		<to>sortselect('$1/dimquery')</to>
+	</outbound-rule>
+
+	<!-- Add by He JianBo 二手房列表页面 START 
+	<outbound-rule>
+		<name>区_江干二手房_江干出租房</name>
+		<note>
+		<![CDATA[
+		welcome.show?actionMethod=dimQuery&type=1&searchModule=1&ddhb_one_community.region.erpId=18
+		]]>
+		</note>
+		<from>welcome\.show\?actionMethod=dimQuery&amp;type=(\d+)&amp;searchModule=(\d+)&amp;ddhb_one_community.region.erpId=(\d+)</from>
+		<to>%{context-path}/welcome/dimQuery/$1/$2/$3</to>
+	</outbound-rule>
+	<rule>
+		<name>区_江干二手房_江干出租房</name>
+		<from>^/welcome/dimQuery/(\d+)/(\d+)/(\d+)</from>
+		<to type="forward">/welcome.show?actionMethod=dimQuery&amp;type=$1&amp;searchModule=$2&amp;ddhb_one_community.region.erpId=$3</to>
+	</rule>
+	<outbound-rule>
+		<name>杭州二手房_杭州出租房</name>
+		<note><![CDATA[
+		rent.show?actionMethod=dimquery&type=1
+		houseSecond.show?actionMethod=dimquery&type=1
+		]]></note>
+		<from>(houseSecond|rent)\.show\?actionMethod=dimquery&amp;type=(\d+)</from>
+		<to>%{context-path}/$1/dimquery/$2</to>
+	</outbound-rule>
+	<rule>
+		<name>杭州二手房_杭州出租房</name>
+		<from>^/houseSecond/dimquery/(\d+)</from>
+		<to type="forward">/houseSecond.show?actionMethod=dimquery&amp;type=$1</to>
+	</rule>
+	-->
+	<outbound-rule>
+		<name>二手房房源预约服务</name>
+		<note><![CDATA[
+		houseSecond.show?actionMethod=bespeak
+	提交	houseSecond.show?actionMethod=subBespeak
+		]]></note>
+		<from>houseSecond\.show\?actionMethod=(bespeak|subBespeak)</from>
+		<to>houseSecond/$1</to>
+	</outbound-rule>
+	<rule>
+		<name>二手房预约服务</name>
+		<from>^/houseSecond/(bespeak|subBespeak)</from>
+		<to type="forward">/houseSecond.show?actionMethod=$1</to>
+	</rule>
+	<outbound-rule>
+		<name>打开经纪人页面</name>
+		<note><![CDATA[
+		broker.show?actionMethod=brokerDetail&brokerId=7f9b325e-1bf5-4a79-a163-8c10416ca9a0&housetype=1
+		]]></note>
+		<from>broker\.show\?actionMethod=brokerDetail&amp;brokerId=([\w\d-]+)&amp;housetype=(\d)</from>
+		<to>broker/brokerDetail/$1/$2</to>
+	</outbound-rule>
+	<rule>
+		<name>打开经纪人页面</name>
+		<from>^/broker/brokerDetail/([\w\d-]+)/(\d)</from>
+		<to type="forward">/broker.show?actionMethod=brokerDetail&amp;brokerId=$1&amp;housetype=$2</to>
+	</rule>
+
+	<!-- Add by He JianBo 二手房列表页面 END -->
+	
+	<!-- <outbound-rule> <name>租赁房列表页地址改写</name> <from>rent\.show\?actionMethod=dimquery&amp;type=(\d+)</from> 
+		<to>rent/dimquery/$1</to> </outbound-rule> -->
+	<rule>
+		<name>租赁房列表页面</name>
+		<note><![CDATA[
+		这是租赁房列表页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/rent.show?actionMethod=dimquery&type=0
+		]]></note>
+		<from>^/rent/dimquery/([\d\w]+)$</from>
+		<to type="forward">/rent.show?actionMethod=dimquery&amp;type=$1</to>
+	</rule>
+	
+	<!-- Add by He JianBo 租房列表页面 START -->
+	<rule>
+		<name>租赁房列表页面</name>
+		<from>^/rent/dimquery$</from>
+		<!-- <to type="forward">/houseSecond.show?actionMethod=dimquery&amp;type=$1&amp;$2</to> -->
+		<to type="forward">/rent.show?actionMethod=dimquery</to> 
+	</rule>
+	<!-- 
+	<outbound-rule>
+		<name>杭州出租房</name>
+		<note><![CDATA[
+		rent.show?actionMethod=dimquery&type=1
+		]]></note>
+		<from>rent\.show\?actionMethod=dimquery&amp;type=([\d\w]+)</from>
+		<to>rent/dimquery/$1</to>
+	</outbound-rule>
+	 -->
+	<!-- Add by He JianBo 租房房列表页面 END -->
+	<outbound-rule>
+		<name>新盘列表页地址改写</name>
+		<from>houseNew\.show\?actionMethod=dimquery</from>
+		<to>houseNew/dimquery</to>
+	</outbound-rule>
+
+	<rule>
+		<name>新盘列表页面</name>
+		<note><![CDATA[
+		这是新楼盘列表页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/houseNew.show?actionMethod=dimquery
+		]]></note>
+		<from>^/houseNew/dimquery$</from>
+		<to type="forward">/houseNew.show?actionMethod=dimquery</to>
+	</rule>
+	<!-- Add By He JianBo新房列表页面  START-->
+	<rule>
+		<name>houseNew</name>
+		<note><![CDATA[
+		houseNew
+		]]></note>
+		<from>^/houseNew/(\w+)/(\d+)</from>
+		<to>/houseNew.show?actionMethod=$1&amp;id=$2</to>
+	</rule>
+	<outbound-rule>
+		<name>houseNew首页内地址修改</name>
+		<note><![CDATA[
+		houseNew.show?actionMethod=showDetail&id=5
+		]]></note>
+		<from>houseNew\.show\?actionMethod=(\w+)&amp;id=(\d+)</from>
+		<to>houseNew/$1/$2</to>
+	</outbound-rule>
+	<!-- Add By He JianBo END-->
+	<rule>
+		<name>小区列表页面</name>
+		<note><![CDATA[
+		这是小区列表页面的映射规则。原始地址：
+		http://localhost:8080/ddhb/community.show?actionMethod=dimquery&type=0
+		]]></note>
+		<from>^/community/dimquery/(\d+)$</from>
+		<to type="forward">/community.show?actionMethod=dimquery&amp;type=$1</to>
+	</rule>
+
+	<outbound-rule>
+		<name>小区列表页地址改写</name>
+		<from>community\.show\?actionMethod=dimquery&amp;type=$1$</from>
+		<to>community/dimquery/$1</to>
+	</outbound-rule>
+
+	<!-- Add by He JianBo 小区房列表页面 START -->
+	<rule>
+		<name>小区列表页面</name>
+		<from>^/community/communityDetail/(\d+)</from>
+		<to type="forward">/community.show?actionMethod=communityDetail&amp;id=$1</to>
+	</rule>
+	<outbound-rule>
+		<name>小区列表内改写</name>
+		<note><![CDATA[
+		community.show?actionMethod=communityDetail&id=2
+		]]></note>
+		<from>community\.show\?actionMethod=communityDetail&amp;id=(\d+)</from>
+		<to>community/communityDetail/$1</to>
+	</outbound-rule>
+
+	<!--跳转之后的路径是  带有参数的-->
+	<rule>
+		<name>开始对比</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/community.show?actionMethod=communityCompare&houseNos=3,4
+		]]></note>
+		<from>^/community/communityCompare/&amp;(\w+)=([\d,]+)$</from>
+		<to type="redirect">/community.show?actionMethod=communityCompare&amp;$1=$2</to>
+	</rule>
+	<outbound-rule>
+		<name>小区对比</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/community.show?actionMethod=communityCompare
+	]]></note>
+		<from>community\.show\?actionMethod=communityCompare</from>
+		<to >community/communityCompare/</to>
+	</outbound-rule> 
+	<!-- Add by He JianBo 小区房列表页面 END 
+	<rule>
+		<name>其他信息页面</name>
+		<note><![CDATA[
+		这是其他信息页面的映射规则。原始地址：
+		关于我们： http://localhost:8080/ddhb/company.show?actionMethod=companyinfo
+		新闻动态：http://localhost:8080/ddhb/company.show?actionMethod=shownews
+		客户服务：http://localhost:8080/ddhb/company.show?actionMethod=showservice
+		联系我们：http://localhost:8080/ddhb/company.show?actionMethod=showcontact
+		诚聘英才：http://localhost:8080/ddhb/company.show?actionMethod=showinvite
+		站点地图：http://localhost:8080/ddhb/company.show?actionMethod=websitemap
+		]]></note>
+		<from>^/company/([\w\d]+)$</from>
+		<to type="forward">/company.show?actionMethod=$1</to>
+		<to type="forward" >/company/$1</to>
+	</rule>
+	-->
+	<!-- gai He JianBo -->
+	<outbound-rule>
+		<name>其他信息页面地址改写</name>
+		<!-- <from>company\.show\?actionMethod=([\w]+)</from> -->
+		<from>company\.show\?actionMethod=(companyinfo|shownews|showservice|showcontact|showinvite|websitemap)</from>
+		<to>company/$1</to>
+	</outbound-rule>
+	<!-- Add to HeJianBo START-->
+	<outbound-rule>
+		<name>公司新闻</name>
+		<note><![CDATA[
+		查看新闻company.show?actionMethod=showNewsDetail&news_id=' + news_id
+		查看更多company.show?actionMethod=showNewsTypeList&typeId=' + typeId
+		]]></note>
+		<from>company\.show\?actionMethod=showNewsDetail&amp;news_id=</from>
+		<to>company/showNewsDetail/</to>
+	</outbound-rule>
+	<rule>
+		<name>公司新聞</name>
+		<from>^/company/showNewsDetail/(\d+)$</from>
+		<to type="forward">/company.show?actionMethod=showNewsDetail&amp;news_id=$1</to>
+	</rule>
+
+	<outbound-rule>
+		<name>公司新闻查看更多</name>
+		<note><![CDATA[
+		查看更多company.show?actionMethod=showNewsTypeList&typeId=' + typeId
+		company.show?actionMethod=showNewsTypeList&typeId=' + typeId;		
+		]]></note>
+		<from>company\.show\?actionMethod=showNewsTypeList&amp;typeId=</from>
+		<to>company/showNewsTypeList/</to>
+	</outbound-rule>
+	<!-- 
+	<rule>
+		<name>公司新聞查看更多</name>
+		<from>^/company/showNewsTypeList/(\d+)$</from>
+		<to type="forward">/company.show?actionMethod=showNewsTypeList&amp;typeId=$1</to>
+	</rule>
+ -->
+	<outbound-rule>
+		<name>新闻页码</name>
+		<note><![CDATA[
+		showMySelectedField('company.show?actionMethod=showNewsTypeListCutPage&typeId=2')		
+		]]></note>
+		<from>company\.show\?actionMethod=showNewsTypeListCutPage&amp;typeId=(\d+)</from>
+		<to>company/showNewsTypeListCutPage/$1</to>
+	</outbound-rule>
+	<!--
+	<rule>
+		<name>新闻页码</name>
+		<from>^/company/showNewsTypeListCutPage/(\d+)</from>
+		<to type="forward">/company.show?actionMethod=showNewsTypeListCutPage&amp;typeId=$1</to>
+	</rule>
+	  -->
+	<outbound-rule>
+		<name>查看应聘内容</name>
+		<note><![CDATA[
+		职位：http://localhost:8080/ddhb/company.show?actionMethod=positionDetail&positionId=1
+		我要应聘：http://localhost:8080/ddhb/company.show?actionMethod=positionDetail&positionId=1&isDo=true	
+		]]></note>
+		<from>company\.show\?actionMethod=positionDetail&amp;positionId=(\d+)</from>
+		<to>company/positionDetail/$1</to>
+	</outbound-rule>
+	<!-- 
+	<rule>
+		<name>查看应聘内容</name>
+		<from>company/positionDetail/(\d+)</from>
+		<to type="forward">company.show?actionMethod=positionDetail&amp;positionId=$1</to>
+	</rule>
+	 -->
+	<outbound-rule>
+		<name>提交_提交简历</name>
+		<note><![CDATA[
+		提交简历company.show?actionMethod=saveResume
+		提交company.show?actionMethod=service
+		]]></note>
+		<from>company\.show\?actionMethod=(saveResume|service)</from>
+		<to>company/$1</to>
+	</outbound-rule>
+	<!-- 
+	<rule>
+		<name>提交简历</name>
+		<from>^/company/(saveResume|service)$</from>
+		<to type="forward">/company.show?actionMethod=$1</to>
+	</rule>
+	 -->
+	<!-- Add to HeJianBo END -->
+	<rule>
+		<name>问答攻略大类列表页面</name>
+		<note><![CDATA[
+		这是问答攻略大类列表页面的映射规则。原始地址：
+		大类：http://localhost:8080/ddhb/broker.show?actionMethod=questionAndAnswer
+		    静态：http://localhost:8080/ddhb/broker/questionAndAnswer
+		]]></note>
+		<from>^/broker/questionAndAnswer$</from>
+		<to type="forward">/broker.show?actionMethod=questionAndAnswer</to>
+	</rule>
+
+	<outbound-rule>
+		<name>问答攻略列表页地址改写</name>
+		<from>broker\.show\?actionMethod=questionAndAnswer</from>
+		<to>broker/questionAndAnswer</to>
+	</outbound-rule>
+<!-- 问题攻略页面 He JianBo  START-->
+	<!-- 和上面的分开了，因为发生冲突 -->
+	<outbound-rule>
+		<name>问题攻略页面</name>
+		<note><![CDATA[
+		http://localhost:8080/ddhb/broker.show?actionMethod=getAllQuestion&typeId=1
+		]]></note>
+		<from>broker\.show\?actionMethod=getAllQuestion&amp;typeId=(\d+)</from>
+		<to>broker/getAllQuestion/$1</to>
+	</outbound-rule>
+	<rule>
+		<name>问题攻略页面</name>
+		<from>^/broker/getAllQuestion/(\d+)$</from>
+		<to type="forward">/broker.show?actionMethod=getAllQuestion&amp;typeId=$1</to>
+	</rule>
+	
+	<outbound-rule>
+		<name>房产买卖消息</name>
+		<note><![CDATA[
+		broker.show?actionMethod=initQuestionDetail&questionId=dcf8c07c-a221-4fdb-a4e1-7d5596f2be2c&typeId=1&subTypeId=6837bf81-a34c-49d4-a9c2-dd3a2f211927
+		]]></note>
+		<from>broker\.show\?actionMethod=initQuestionDetail&amp;questionId=([\d\w-]+)&amp;typeId=(\d+)&amp;subTypeId=([\d\w-]+)</from>
+		<to>broker/initQuestionDetail/$1/$2/$3</to>
+	</outbound-rule>
+	<rule>
+		<name>房产买卖消息</name>
+		<from>broker/initQuestionDetail/([\d\w-]+)/(\d+)/([\d\w-]+)</from>
+		<to type="forward">/broker.show?actionMethod=initQuestionDetail&amp;questionId=$1&amp;typeId=$2&amp;subTypeId=$3</to>
+	</rule>
+	
+	
+	<outbound-rule>
+		<name>我要提问链接</name>
+		<note><![CDATA[
+		broker.show?actionMethod=addQuestion&questionId=0
+		broker.show?actionMethod=addQuestionPost&amp;questionId=0
+		]]></note>
+		<from>broker\.show\?actionMethod=addQuestion&amp;questionId=(\d+)</from>
+		<to>broker/addQuestion/$1</to>
+	</outbound-rule>
+	<rule>
+		<name>我要提问链接</name>
+		<from>^/broker/addQuestion/(\d+)</from>
+		<to type="forward">/broker.show?actionMethod=addQuestion&amp;questionId=$1</to>
+	</rule>
+<!-- 问题攻略页面 He JianBo  END-->
+	<rule>
+		<name>问答攻略小类列表页面</name>
+		<note><![CDATA[
+		这是问答攻略小类列表页面的映射规则。原始地址：
+		小类：http://localhost:8080/ddhb/broker.show?actionMethod=getAllQuestion&typeId=1
+		     静态：http://localhost:8080/ddhb/broker/getAllQuestion/1
+		]]></note>
+		<from>^/broker/([\w\d]+)/([\w\d\-]+)$</from>
+		<to type="forward">/broker.show?actionMethod=$1&amp;typeId=$2</to>
+	</rule>
+	<!-- <outbound-rule> <name>问答攻略小类列表页地址改写</name> <from>broker\.show\?actionMethod=([\w]+)&amp;typeId=(\d+)</from> 
+		<to>broker/$1/$2</to> </outbound-rule> -->
+	<rule>
+		<name>问答攻略列表页面</name>
+		<note><![CDATA[
+		这是问答攻略列表页面的映射规则。原始地址：
+		详情：http://localhost:8080/ddhb/broker.show?actionMethod=initQuestionDetail&questionId=99ce2c29-9bae-4220-ab5d-22ee4626d4a8&typeId=1&subTypeId=00eb3122-4f21-4022-867b-786db03b17a1
+		    静态：http://localhost:8080/ddhb/broker/initQuestionDetail/1/00eb3122-4f21-4022-867b-786db03b17a1/99ce2c29-9bae-4220-ab5d-22ee4626d4a8
+		]]></note>
+		<from>^/broker/([\w\d]+)/([\w\d\-]+)/([\w\d\-]+)/([\w\d\-]+)$</from>
+		<to type="forward">/broker.show?actionMethod=$1&amp;typeId=$2&amp;subTypeId=$3&amp;questionId=$4</to>
+	</rule>
+
+	<rule>
+		<name>订阅页面</name>
+		<from>^/welcome/subscribe\.html$</from>
+		<to type="forward">welcome.show?actionMethod=subscribe</to>
+	</rule>
+
+</urlrewrite>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="CommunityAveragePrice" table="house_community_average_price">
+		<id name="erpId" type="java.lang.String" column="id" length="40">
+		</id>
+		<many-to-one name="community" column="community_id" unique="true" class="Community"   not-found="ignore"/>
+		<property name="calculateDate" column="calculateDate" type="java.util.Date"/>
+		<property name="priceAnnounced" column="price_announced" type="java.lang.Float"/>
+		<property name="priceDealed" column="price_dealed" type="java.lang.Float"/>
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		<property name="rentPrice" column="rent_average_price" type="java.lang.Float"/>
+	</class>
+</hibernate-mapping>

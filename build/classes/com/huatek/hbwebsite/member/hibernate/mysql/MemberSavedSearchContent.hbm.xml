@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.member.entity.MemberSavedSearchContent" table="member_saved_searchcontent">
+		<id name="no" type="java.lang.String" column="no">
+		</id>
+		
+		<property name="memberId" type="java.lang.Long" column="member_id"></property>
+		
+		<property name="type" type="java.lang.Integer" column="type"></property>
+		
+		<property name="url" type="java.lang.String" column="url" length="4000"></property>
+		
+		<property name="savedField" type="java.lang.String" column="saved_field" length="800"></property>
+		
+		<property name="createDate" type="java.util.Date" column="create_date"></property>
+
+		<property name="deleteFlag" type="java.lang.Integer" column="deleteflag"></property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Tiles Definition -->
+	<definition name="hshb.base" template="/WEB-INF/jsp/hshb/front/commonInfoShow/common_layout.jsp">
+		<put-attribute name="common.title" type="string" value="豪世华邦，专业因为懂你！" />
+		<put-attribute name="common.css" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_css.jsp" />
+		<put-attribute name="common.js" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_js.jsp" />
+		<put-attribute name="common.header" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_header.jsp" />
+		<put-attribute name="common.topbanner" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_top_banner.jsp"/>
+		<put-attribute name="common.image" type="template" value="" />
+		<put-attribute name="common.body" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_body.jsp" />
+		<put-attribute name="common.footer" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_footer.jsp" />
+		<put-attribute name="common.compare_history" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/compare_history.jsp" />
+	</definition>
+
+	<definition name="homepage.index" template="/WEB-INF/jsp/hshb/front/homePageLayout/homepage.jsp">
+		<put-attribute name="ddhb.title" type="string" value="豪世华邦，专业因为懂你！" />
+		<!-- <put-attribute name="ddhb.footer" type="template" value="/WEB-INF/jsp/ddhb/front/commonInfoShow/common_footer.jsp" /> -->
+		<put-attribute name="ddhb.footer" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_footer.jsp" />
+	</definition>
+
+	<!-- 二手房相关功能 -->
+	<definition name="house.sale.list" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/sale/list_frame.jsp" />
+	</definition>
+
+	<definition name="house.sale.detail" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />	
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/sale/detail_frame.jsp" />
+	</definition>
+
+	<!-- 租赁相关功能 -->
+	<!-- 列表页 -->
+	<definition name="house.rent.list" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/rent/list_frame.jsp" />
+	</definition>
+	<definition name="house.err.notexist" extends="hshb.base">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/house_err.jsp" />
+	</definition>
+	<!-- 详情页 -->
+	<definition name="house.rent.detail" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/rent/detail_frame.jsp" />
+	</definition>
+	<!-- 小区相关功能 -->
+	<definition name="house.community.list" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/community/list_frame.jsp" />
+	</definition>
+	<definition name="house.community.detail" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/community/detail_frame.jsp" />
+	</definition>
+	
+	<!-- 经纪人 -->
+	<definition name="new.broker.detail.show" extends="hshb.base">
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/broker/broker_detail.jsp" />
+	</definition>
+	
+	<!-- 新楼盘相关功能 -->
+	<definition name="house.new.list" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/new/house_new_list.jsp" />
+	</definition>
+
+	<definition name="house.new.detail" extends="hshb.base">
+		<put-attribute name="common.title" type="string" value="" />
+		<put-attribute name="common.body" value="/WEB-INF/jsp/hshb/front/house/new/house_new_detail.jsp" />
+	</definition>
+	
+	<!-- 无页头页尾的新房详情页，供微官网调用  -->
+	<definition name="house.new.detail.raw" template="/WEB-INF/jsp/hshb/front/house/new/house_new_detail_raw.jsp">
+		<put-attribute name="common.css" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_css.jsp" />
+		<put-attribute name="common.js" type="template" value="/WEB-INF/jsp/hshb/front/commonInfoShow/common_js.jsp" />
+	</definition>	
+	
+</tiles-definitions>

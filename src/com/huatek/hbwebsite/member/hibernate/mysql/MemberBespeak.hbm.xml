@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.huatek.hbwebsite.member.entity.MemberBespeak" table="member_bespeak">
+		<id name="id" type="java.lang.Long" column="bespeak_id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="houseId" type="java.lang.String" length="11">
+			<column name="house_id"></column>
+		</property>
+		<property name="houseType" type="java.lang.Long" length="11">
+			<column name="house_type"></column>
+		</property>
+		<many-to-one name="platMemberInfo" class="com.huatek.hbwebsite.member.entity.PlatMemberInfo"
+			fetch="select"   not-found="ignore">
+			<column name="member_id" not-null="false">
+				<comment>会员信息</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="platBroker" column="broker_id" unique="true" class="com.huatek.hbwebsite.broker.entity.Broker"  not-found="ignore">
+		</many-to-one>
+		<property name="bespeakTimeStart" type="java.util.Date">
+			<column name="bespeak_time_start">
+				<comment>预约开始时间</comment>
+			</column>
+		</property>
+		
+		<property name="gender" type="java.lang.Integer">
+			<column name="gender">
+				<comment>预约人性别</comment>
+			</column>
+		</property>
+		<property name="bespeakTimeEnd" type="java.util.Date">
+			<column name="bespeak_time_end">
+				<comment>预约结束时间</comment>
+			</column>
+		</property>
+		<property name="contacts" type="java.lang.String">
+			<column name="contacts">
+				<comment>联系人</comment>
+			</column>
+		</property>
+		<property name="contactsPhone" type="java.lang.String">
+			<column name="Contacts_phone">
+				<comment>联系电话</comment>
+			</column>
+		</property>
+		<property name="emails" type="java.lang.String">
+			<column name="email">
+				<comment>邮件</comment>
+			</column>
+		</property>
+		<property name="createdTime" type="java.util.Date">
+			<column name="created_time">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="modifiedTime" type="java.util.Date">
+			<column name="modified_time">
+				<comment>更新时间</comment>
+			</column>
+		</property>
+		<property name="deleteFlag" type="java.lang.Integer">
+			<column name="deleteflag">
+			</column>
+		</property>
+		
+		<property name="brokerId" column="broker_id" type="java.lang.String" insert="false" update="false"/>
+		
+		<property name="synchronizedFlag" column="synchronized_flag" type="java.lang.Integer"/>
+		
+		<property name="synchronizedTime" column="synchronized_time" type="java.sql.Timestamp"/>
+	</class>
+</hibernate-mapping>

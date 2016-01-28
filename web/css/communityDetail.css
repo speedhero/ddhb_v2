@@ -1,0 +1,634 @@
+@CHARSET "UTF-8";
+
+.communityoutter {
+	text-align: center;
+	width: 100%
+}
+
+.navigationtitle {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #0000ff;
+	margin-left: 10px;
+	FONT-STYLE: normal
+}
+
+.communityName {
+	FONT-SIZE: 28px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	margin-left: 10px;
+	FONT-STYLE: normal
+}
+
+.introduce {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	margin-left: 10px
+}
+
+.communitydetail {
+	/* width: 1050px; */
+	height: 315px;
+	text-align: center
+}
+
+.communitypicture {
+	width: 355px;
+	height: 307px;
+	float: left;
+	text-align: center
+}
+
+.communitypic {
+	width: 355px;
+	height: 260px;
+}
+
+.communitbtndiv {
+	width: 200px;
+	height: 50px;
+	float: right;
+}
+
+.communitbtn {
+	max-height: 45px;
+	width: 98px;
+	border: 1px solid gray;
+	cursor: pointer;
+	float: right;
+}
+
+.communitbtn span {
+	max-height: 45px;
+	FONT-SIZE: 18px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	float: ritgh;
+}
+
+#community_picture {
+	width: 100%;
+	height: 100%;
+	float: right
+}
+
+#community_map {
+	width: 100%;
+	height: 100%;
+	/* background-color: green; */
+	margin-right: 100px
+}
+
+#community_map span {
+	margin-top: 20px
+}
+
+#community_picture span {
+	margin-bottom: 0px
+}
+
+.communityinfo {
+	height: 314px;
+	float: left;
+	margin-left: 20px;
+}
+
+.communityleft {
+	height: 314px;
+	margin-top: 10px;
+}
+
+.communityright {
+	width: 160px;
+	height: 314px;
+	float: left;
+	margin-left:10px;
+}
+
+.rangeprice {
+	height: 120px;
+	text-align: left;
+}
+
+.rangepricetitle {
+	FONT-SIZE: 18px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.rangepricenumber {
+	FONT-SIZE: 72px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	margin-top: 10px;
+}
+
+.createtimetitle {
+	text-align: left;
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.propertytype {
+	height: 65px;
+}
+
+.createtimenumber {
+	text-align: left;
+	FONT-SIZE: 28px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.propertytypenumber {
+	text-align: left;
+	FONT-SIZE: 18px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.communityshare {
+	FONT-SIZE: 18px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.communityshare div {
+	background-image: url("../images/community/u849_normal.png");
+	width: 61px;
+	height: 28px;
+	text-align: center;
+	float:left;
+}
+
+.communityshare div a {
+	FONT-SIZE: 10px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #000000;
+	FONT-STYLE: normal;
+	line-height: 32px;
+}
+
+.priceflow {
+	height: 45px;
+}
+
+.housecount {
+	height: 45px;
+	padding-right:0px;
+}
+
+.priceflowfirst {
+	width: 80px;
+	height: 40px;
+	border-left: 1px solid gray;
+	float: left;
+	margin-left: 2px;
+}
+
+.priceflowsecond {
+	width: 90px;
+	height: 40px;
+	border-left: 1px solid gray;
+	float: left;
+	margin-left: 2px;
+}
+
+.priceflowfirst {
+	float: left;
+	text-align: left;
+}
+
+.priceflowsecond {
+	float: left;
+	text-align: left;
+}
+
+.priceflowfirstbottom {
+	FONT-SIZE: 10px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	margin-left: 10px;
+}
+
+.communityHouseCountDiv {
+	margin-left: 10px;
+	margin-top: 8px;
+	font-size: 12px;
+}
+
+.hrline {
+	width: 161px;
+	color: gray;
+	height: 1px;
+	margin-left: 10px;
+}
+
+.numberhouse {
+	FONT-SIZE: 20px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	margin-left: 10px;
+}
+
+.communityaddress {
+	margin-top: 10px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+.communityadd {
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+}
+
+.communityQRarea {
+	width: 165px;
+	height: 267px;
+	float: right;
+	text-align: center;
+}
+
+.numbercommunity {
+	width: 165px;
+	height: 25px;
+	text-align: center;
+	border: 1px solid #D7D7D7;
+	padding-top: 0px;
+}
+
+.middleBtn {
+	float: left;
+	width: 115px;
+	height: 40px;
+	border: 1px solid #D7D7D7;
+	cursor: pointer;
+}
+
+.middleBtn div a {
+	text-align: center;
+	color: rgb(51, 51, 51);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 10px;
+	line-height: 2em;
+}
+
+.communityDiv {
+	width: 100%;
+	height: 100%;
+}
+
+.communitymiddle {
+	width:100%;
+	background-color: white;
+	z-index: 9999;
+}
+
+.middleattentionbtn {
+	background-color: #FF0000;
+	padding:0px;
+	width: 135px;
+	height: 45px;
+	float: left;
+	margin-left:5px;
+	text-align: center;
+}
+
+.middleattentionbtn div {
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+#qrcode {
+	width: 164px;
+	height: 174px;
+	/* padding-top: 10px; */
+	border: 1px solid #D7D7D7;
+	overflow: hidden;
+}
+
+.information {
+	margin-top: 10px;
+}
+
+.middleattentionbtn span {
+	color: rgb(51, 51, 51);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.communitycontent {
+	width: 100%;
+}
+
+.communityDetailSpan {
+	width: 91.350%;
+	margin: 0 auto;
+}
+
+.lineUnderCommunityDetail {
+	border-top: #8D8D8D solid 1px;	
+}
+
+.communitycontent p {
+	color: rgb(51, 51, 51);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#communityphoto {
+	width: 100%;
+	height: 300px;
+}
+
+#communityhistorysender {
+	width: 100%;
+	height: 500px;
+	float: left;
+}
+
+#communityexpert {
+	width: 100%;
+	min-height: 300px;
+	float: left;
+}
+
+.communitydetaildivtop {
+	width: 91.80%;
+	margin: 0 auto;
+}
+
+.right1wz ul li {
+	width: 100px;
+	line-height: 20px;
+	float: left;
+	background-color: red;
+	margin-left: 40px;
+	font-size: 13px;
+}
+
+.detail {
+	width: 100px;
+	height: 60px;
+	float: left;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+
+.detailname {
+	color: rgb(153, 153, 153);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+.divline {
+	border-top: #8D8D8D solid 1px;
+	width: 100%;
+}
+
+.detailvalue {
+	color: rgb(51, 51, 51);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.communitydetaildivsecond {
+	width: 91.80%;
+	padding-top: 10px;
+	padding-left: 40px;
+	margin: 0 auto;
+}
+
+.communitydetaildivsecond p {
+	color: rgb(51, 51, 51);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin-bottom: 15px;
+}
+
+.detailcontentdiv {
+	color: rgb(51, 51, 51);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.detailcontentdiv span {
+	font-weight: normal;
+}
+
+.communitydetaildivmap {
+	margin-top: 20px;
+	margin-left: 50px;
+	z-index: -9999;
+}
+
+.communitydetaildivmapbtn {
+	width: 83.509%;
+	height: 45px;
+}
+
+#communitydetaildivmappic {
+	width: 100%;
+	height: 253px;
+	display: block;
+}
+
+#communitydetaildivmaparound {
+	height: 277px;
+	display: none;
+	border: black solid 1px;
+}
+
+.around {
+	width: 200px;
+	height: 45px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	background-color: #D7D7D7;
+}
+
+.around div {
+	margin-top: 10px;
+}
+
+.streetview div {
+	margin-top: 10px;
+}
+
+.around div span {
+	color: rgb(51, 51, 51);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.streetview div span {
+	color: rgb(51, 51, 51);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.streetview {
+	width: 200px;
+	height: 45px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	background-color: #D7D7D7;
+}
+
+.zhuanjia {
+	float: right;
+	color: rgb(51, 51, 51);
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	padding-right: 10px;
+}
+
+.zhuanjiaName {
+	color: rgb(51, 51, 51);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.brokerInfo {
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal
+}
+
+.brokerTitle {
+	margin-top: 7px;
+	text-align: center;
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	COLOR: #333333;
+	FONT-STYLE: normal;
+	border: 1px solid #ffffff
+}
+
+#broker {
+	width: 176px;
+	float: left;
+	text-align: center
+}
+
+#borkerDiv {
+	width: 166px;
+	height: 270px;
+	border: solid;
+	border-width: 1px;
+	border-color: gray;
+	float: left;
+	text-align: center;
+	margin-left: 10px;
+}
+/*
+.brokerPic {
+	margin-top: 5px;
+}
+ 
+.brokerImage {
+	width: 110px;
+	height: 140px;
+	border: 1px solid #ffffff;
+	margin: auto
+} */
+
+.imageText {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: normal;
+	FONT-STYLE: italic;
+	border-top: 1px solid gray;
+	text-align: center;
+	height: 20px;
+	margin-top: 120px
+}
+
+.brokerInfoImage {
+	text-align: center;
+	border: 1px solid #ffffff;
+	height: 60px
+}
+
+.brokerName {
+	text-align: center;
+	margin-top: 10px;
+}
+
+
+#professordiv {
+	margin-top: 10px;
+	margin-left: -2%;
+	border: 1px solid red;
+	width: 104%;
+}
+
+#brokersbody {
+	border: 1px solid black;
+	width: 94%;
+	float: left;
+}
+
+

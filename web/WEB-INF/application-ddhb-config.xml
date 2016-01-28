@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+		
+	<bean id="baseRegionService" class="com.huatek.hbwebsite.basemanagement.service.BaseRegionServiceImpl"></bean>
+
+	<bean id="platMemberInfoService" class="com.huatek.hbwebsite.member.service.PlatMemberInfoServiceImpl"></bean>
+
+	<bean id="subscribeInfoService" class="com.huatek.hbwebsite.member.service.SubscribeInfoServiceImpl"></bean>
+
+	<bean id="platCollectionService" class="com.huatek.hbwebsite.member.service.PlatCollectionServiceImpl"></bean>
+
+	<bean id="searchService" class="com.huatek.hbwebsite.search.service.SearchServiceImpl"></bean>
+
+	<bean id="memberBespeakService" class="com.huatek.hbwebsite.member.service.MemberBespeakServiceImpl"></bean>
+
+	<bean id="newsService" class="com.huatek.hbwebsite.news.service.NewsServiceImpl"></bean>
+
+	<bean id="houseSecondService" class="com.huatek.hbwebsite.house.service.HouseSecondServiceImpl"></bean>
+
+	<bean id="MemberBrowseHistoryService" class="com.huatek.hbwebsite.member.service.MemberBrowseHistoryServiceImpl"></bean>
+
+	<bean id="rentService" class="com.huatek.hbwebsite.rent.service.RentServiceImpl"></bean>
+
+	<bean id="communityService" class="com.huatek.hbwebsite.community.service.CommunityServiceImpl"></bean>
+
+	<bean id="brokerService" class="com.huatek.hbwebsite.broker.service.BrokerServiceImpl"></bean>
+
+	<bean id="houseNewService" class="com.huatek.hbwebsite.house.service.HouseNewServiceImpl"></bean>
+
+	<bean id="consignmentService" class="com.huatek.hbwebsite.consignment.service.ConsignmentServiceImpl"></bean>
+
+	<bean id="houseReduceNoticeService" class="com.huatek.hbwebsite.member.service.HouseReduceNoticeServiceImpl"></bean>
+
+	<bean id="companyService" class="com.huatek.hbwebsite.company.service.CompanyServiceImpl"></bean>
+
+	<bean id="memberQuestionService" class="com.huatek.hbwebsite.member.service.MemberQuestionServiceImpl"></bean>
+
+	<bean id="scoreManagerService" class="com.huatek.hbwebsite.member.service.ScoreManagerServiceImpl"></bean>
+
+	<bean id="recruitService" class="com.huatek.hbwebsite.recruit.service.RecruitServiceImpl"></bean>
+
+	<bean id="frontSystemSettingService" class="com.huatek.ddhb.manage.frontsystemsetting.service.FrontSystemSettingServiceImpl"></bean>
+
+	<bean id="forbiddenService" class="com.huatek.hbwebsite.service.ForbiddenServiceImpl"></bean>
+
+	<bean id="houseSortRuleCacheUtil" class="com.huatek.ddhb.manage.frontsystemsetting.service.HouseDefaultSortRuleServiceImpl"></bean>
+	<!-- 
+	<bean id="houseAppraiseService" class="com.huatek.hbwebsite.house.service.HouseAppraiseServiceImpl"></bean>
+ 	-->
+ 	<bean id="sessionManagmentController" class="com.huatek.framework.sso.SessionManagmentController"></bean>
+	
+	<bean id="httpConnectionUtil" class="cn.hshb.web.common.util.HttpConnectionUtil"> </bean>
+	<!-- 保存查询记录 -->
+	<bean id="saveQueryConditionsService" class="com.huatek.hbwebsite.saveQuery.service.SaveQueryConditionsServiceImpl"></bean>
+
+	<bean id="freeMarker" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/config/template/" /><!--指定模板文件目录 -->
+		<property name="freemarkerSettings"><!-- 设置FreeMarker环境属性 -->
+			<props>
+				<prop key="template_update_delay">1800</prop><!--刷新模板的周期，单位为秒 -->
+				<prop key="default_encoding">UTF-8</prop><!--模板的编码格式 -->
+				<prop key="locale">zh_CN</prop><!-- 本地化设置 -->
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<!-- - The controllers are autodetected POJOs labeled with the @Controller annotation. -->
+	<context:component-scan base-package="cn.hshb.web.partner.baidu.action" />
+	
+	<context:component-scan base-package="com.huatek.hbwebsite.*.action" />
+	<context:component-scan base-package="com.huatek.hbwebsite.show" />
+	<context:component-scan base-package="com.huatek.hbwebsite.mail.show" />
+	<context:component-scan base-package="com.huatek.hbwebsite.*.show" />
+	<context:component-scan base-package="com.huatek.hbwebsite.show.memberfunc" />
+	<context:component-scan base-package="com.huatek.hbwebsite.util" />
+	<context:component-scan base-package="com.huatek.hbwebsite.sso" />
+	
+	<aop:config>
+		<aop:aspect id="ddhbOperationLog" ref="operationLogAspec">
+			<aop:pointcut expression="execution(* com.huatek.hbwebsite.*.action.*.*(..))" id="ddhbLogCut" />
+			<aop:after method="log" pointcut-ref="ddhbLogCut" />
+		</aop:aspect>
+		<aop:aspect id="ddhbPermit" ref="permitAspec">
+			<aop:pointcut expression="execution(* com.huatek.hbwebsite.*.action.*.*(..))" id="ddhbPermitCut" />
+			<aop:before method="check" pointcut-ref="ddhbPermitCut" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="callMethodLog" class="com.huatek.framework.service.LogCallMethodAdvice" />
+	<aop:config>
+		<aop:aspect id="ddhbServiceMethodLog" ref="callMethodLog">
+			<aop:pointcut expression="execution(* com.huatek.hbwebsite.*.service.*Impl.*(..))" id="serviceLogCut" />
+			<aop:before method="logInfo" pointcut-ref="serviceLogCut" />
+			<aop:after method="logInfoAfter" pointcut-ref="serviceLogCut" />
+		</aop:aspect>
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="ddhbMethods" expression="execution(* com.huatek.hbwebsite.*.service.*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="ddhbMethods" />
+	</aop:config>
+	
+</beans>

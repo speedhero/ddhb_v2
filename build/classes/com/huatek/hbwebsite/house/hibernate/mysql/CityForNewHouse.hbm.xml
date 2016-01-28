@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.house.entity">
+	<class name="CityForNewHouse" table="city_for_new_house">
+		<id name="id" type="java.lang.Long" column="city_id">
+			<generator class="native"/>
+		</id>
+		<property name="cityName" column="city_name" type="java.lang.String" length="45"/>
+		
+		<property name="deleteFlag" column="delete_flag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    
+	<bean id="operationLogAspec" class="com.huatek.framework.aspects.OperationLogAspect" />
+	<bean id="permitAspec" class="com.huatek.framework.aspects.PermitCheckAspect" />
+	<aop:aspectj-autoproxy />
+	<!--
+		- The controllers are autodetected POJOs labeled with the @Controller
+		annotation.
+	-->
+	<context:component-scan base-package="com.huatek.framework.sso" />
+	<context:component-scan base-package="com.huatek.framework.show" />
+	<context:component-scan base-package="com.huatek.framework.security" />
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean>
+	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<ref bean="openSessionInViewInterceptor" />
+		</property>
+	</bean>
+	<!--
+		Activates various annotations to be detected in bean classes: Spring's
+		@Required and @Autowired, as well as JSR 250's @Resource.
+	-->
+	<context:annotation-config />
+	<!--
+		use data authority proxy bean replace
+		org.springframework.orm.hibernate3.HibernateTemplate
+	-->
+	<bean id="hibernateTemplate" class="com.huatek.authority.factory.ProxyHibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!--define portal userInfo implement  -->
+	<!--
+		<bean id="securityLogin" class="com.huatek.portal.service.SecurityLoginServiceImpl">
+		  <property name="hibernateTemplate" ref="hibernateTemplate" />
+		</bean>
+	-->
+	<bean id="ldapValidate" class="com.huatek.framework.service.LdapValidateServiceImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="validateUserService" class="com.huatek.framework.service.ValidateUserImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<!--
+		<property name="ldapValidate" ref="ldapValidate" />
+		-->
+		<!--
+		<property name="securityLogin" ref="securityLogin" />
+		-->
+	</bean>
+	<bean id="groupService" class="com.huatek.framework.service.GroupServiceImpl"></bean>
+	<bean id="accountService" class="com.huatek.framework.service.AccountServiceImpl">
+		<property name="encryptServiceImpl" ref="encrypt"></property>
+	</bean>
+	<bean id="systemService" class="com.huatek.framework.service.SystemServiceImpl"></bean>
+	<bean id="operationService" class="com.huatek.framework.service.OperationServiceImpl"></bean>
+	<bean id="roleService" class="com.huatek.framework.service.RoleServiceImpl"></bean>
+	<bean id="sourceService" class="com.huatek.framework.service.SourceServiceImpl"></bean>
+	<bean id="loginService" class="com.huatek.framework.service.LoginServiceImpl"></bean>
+	<bean id="systemErrorService" class="com.huatek.framework.service.SystemErrorServiceImpl"></bean>
+	<bean id="com.huatek.framework.service.ConfigFactoryService" class="com.huatek.framework.service.ConfigFactoryServiceImpl"></bean>
+	<bean id="frendLinkService" class="com.huatek.ddhb.manage.frendLink.service.FrendLinkServiceImpl"></bean>
+	<bean id="footerService" class="com.huatek.ddhb.manage.footerManage.service.FooterServiceImpl"></bean>
+	
+	<bean id="frontSystemSettingService" class="com.huatek.ddhb.manage.frontsystemsetting.service.FrontSystemSettingServiceImpl"></bean>
+	
+	<bean id="forbiddenTelService" class="com.huatek.framework.forbiddentel.service.ForbiddenTelServiceImpl"></bean>
+	
+	<bean id="memberSaveSearchFieldService" class="com.huatek.hbwebsite.member.service.MemberSaveSearchFieldServiceImpl"></bean>
+	
+	<bean id="frontMemberBrowsedService" class="com.huatek.ddhb.manage.frontMemberBrowsed.service.FrontMemberBrowsedServiceImpl"></bean>
+	
+	<bean id="activityManageService" class="com.huatek.ddhb.manage.activityManage.service.ActivityManageServiceImpl"></bean>
+	
+	<bean id="userCompareService" class="com.huatek.hbwebsite.member.service.UserCompareServiceImpl"></bean>
+	
+	<bean id="userBrowsedHistoryService" class="com.huatek.hbwebsite.member.service.UserBrowsedHistoryServiceImpl"></bean>
+	
+	<bean id="sharedSearchService" class="com.huatek.hbwebsite.search.service.SharedSearchServiceImpl"></bean>
+		
+	<!-- Encrypt definition -->
+	<bean id="encrypt" class="com.huatek.framework.util.DESEncryptor" />
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>MessageResources</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+
+	<!--
+		========================= ASPECT CONFIGURATION
+		========================
+	-->
+	<!-- call method information configuration-->
+	<!-- call method information -->
+	<!--
+	<bean id="callMethodLog" class="com.huatek.framework.service.LogCallMethodAdvice" />
+	 -->
+	<!--
+	<aop:config>
+		<aop:aspect id="serviceMethodLog" ref="callMethodLog">
+			<aop:pointcut expression="execution(* com.huatek.*.service.*Impl.*(..))"
+				id="serviceLogCut" />
+			<aop:before method="logInfo" pointcut-ref="serviceLogCut" />
+			<aop:after method="logInfoAfter" pointcut-ref="serviceLogCut" />
+		</aop:aspect>
+	</aop:config>
+	 -->
+
+</beans>

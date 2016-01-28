@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.huatek.hbwebsite.common.entity">
+	<class name="Store" table="common_store">
+		<id name="erpId" type="java.lang.String" column="erp_id">
+		</id>
+		<property name="storeName" column="store_name" type="java.lang.String" length="255"/>
+
+		<property name="storeAddress" column="store_address" type="java.lang.String" length="255"/>
+
+		<property name="telephoneNo" column="telephone_no" type="java.lang.String" length="255"/>
+
+		<property name="deleteFlag" column="deleteflag" type="java.lang.Integer"/>
+		
+		<many-to-one name="cbd" class="CBD"  not-found="ignore">
+			<column name="cbd_id"></column>
+		</many-to-one>
+		
+		<property name="lastModified" column="lastmodified" type="java.util.Date"/>
+		
+		<property name="lastSync" column="lastsync" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>
